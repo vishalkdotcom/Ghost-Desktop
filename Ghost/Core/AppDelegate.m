@@ -18,7 +18,7 @@
 
 - (BOOL)applicationShouldHandleReopen:(NSApplication*)application hasVisibleWindows:(BOOL)visibleWindows
 {
-    if (!visibleWindows){
+    if (!visibleWindows) {
         [self.windowController.window makeKeyAndOrderFront: nil];
     }
     
@@ -27,7 +27,7 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    self.windowController = [[WindowController alloc] initWithURL: kStartPage];
+    self.windowController = [[WindowController alloc] initWithURL:kStartPage];
     [self.windowController setWindowParams];
     [self.windowController showWindow:self];
     [[NSUserNotificationCenter defaultUserNotificationCenter] setDelegate:self];
