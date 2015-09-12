@@ -97,8 +97,8 @@
 		22B1CF2A1937734B00D2C294 /* Ghost-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Ghost-Prefix.pch"; sourceTree = "<group>"; };
 		22BE36EB193B7F8800D8199F /* Defaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Defaults.h; sourceTree = "<group>"; };
 		22BE36EC193B7F8800D8199F /* Defaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Defaults.m; sourceTree = "<group>"; };
-		C5285A721BA45CF200498239 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
-		C5285A731BA45CF200498239 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		C5285A721BA45CF200498239 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainMenu.xib; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		C5285A731BA45CF200498239 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainWindow.xib; path = Base.lproj/MainWindow.xib; sourceTree = "<group>"; };
 		C5285A761BA45D5F00498239 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		C5285A771BA45D5F00498239 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		C5285A791BA45EA200498239 /* AddBlogWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddBlogWindowController.h; sourceTree = "<group>"; };
@@ -165,7 +165,6 @@
 		22B1CEF31937734B00D2C294 /* Ghost */ = {
 			isa = PBXGroup;
 			children = (
-				C5285A821BA4633400498239 /* Ghost.entitlements */,
 				C5586B391BA39E03008038DE /* Core */,
 				C5586B3A1BA39E0E008038DE /* Controllers */,
 				C5586B3E1BA39EE0008038DE /* Resources */,
@@ -241,6 +240,7 @@
 		22B1CF45193773A400D2C294 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C5285A821BA4633400498239 /* Ghost.entitlements */,
 				22B1CF221937734B00D2C294 /* Constants.h */,
 				22B1CF281937734B00D2C294 /* main.m */,
 				C56F65AD1BA063DC00CF78DB /* Info.plist */,
