@@ -11,9 +11,18 @@
 
 @implementation AppDelegate
 
-- (void)applicationWillFinishLaunching:(NSNotification *)aNotification
+- (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    // Insert code here to initialize your application
+    if ([Utils blogs].count > 0) {
+        self.windowController = [[WindowController alloc] initWithURL:kStartPage];
+        [self.windowController setWindowParams];
+        [self.windowController showWindow:self];
+    } else {
+        self.addBlogWindowController = [[AddBlogWindowController alloc] init];
+        [self.addBlogWindowController showWindow:self];
+    }
+    
+    [[NSUserNotificationCenter defaultUserNotificationCenter] setDelegate:self];
 }
 
 - (BOOL)applicationShouldHandleReopen:(NSApplication*)application hasVisibleWindows:(BOOL)visibleWindows
@@ -23,16 +32,6 @@
     }
     
     return YES;
-}
-
-- (void)applicationDidFinishLaunching:(NSNotification *)aNotification
-{
-    
-    
-    self.windowController = [[WindowController alloc] initWithURL:kStartPage];
-    [self.windowController setWindowParams];
-    [self.windowController showWindow:self];
-    [[NSUserNotificationCenter defaultUserNotificationCenter] setDelegate:self];
 }
 
 - (BOOL)userNotificationCenter:(NSUserNotificationCenter *)center shouldPresentNotification:(NSUserNotification *)notification

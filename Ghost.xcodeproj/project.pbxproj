@@ -36,8 +36,10 @@
 		C5285A741BA45CF200498239 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5285A721BA45CF200498239 /* MainMenu.xib */; };
 		C5285A751BA45CF200498239 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5285A731BA45CF200498239 /* MainWindow.xib */; };
 		C5285A781BA45D5F00498239 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = C5285A771BA45D5F00498239 /* Utils.m */; };
-		C5285A7B1BA45EA200498239 /* AddBlogWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5285A7A1BA45EA200498239 /* AddBlogWindowController.m */; };
 		C5285A811BA4627900498239 /* MGUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C5285A801BA4627900498239 /* MGUtils.m */; };
+		C5285A891BA46D8A00498239 /* AddBlogWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5285A871BA46D8A00498239 /* AddBlogWindowController.m */; };
+		C5285A8A1BA46D8A00498239 /* AddBlogWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5285A881BA46D8A00498239 /* AddBlogWindow.xib */; };
+		C5285A8F1BA473C400498239 /* AddBlogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5285A8E1BA473C400498239 /* AddBlogViewController.m */; };
 		C56F65AE1BA063DC00CF78DB /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C56F65AD1BA063DC00CF78DB /* Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -101,11 +103,14 @@
 		C5285A731BA45CF200498239 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainWindow.xib; path = Base.lproj/MainWindow.xib; sourceTree = "<group>"; };
 		C5285A761BA45D5F00498239 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		C5285A771BA45D5F00498239 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
-		C5285A791BA45EA200498239 /* AddBlogWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddBlogWindowController.h; sourceTree = "<group>"; };
-		C5285A7A1BA45EA200498239 /* AddBlogWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddBlogWindowController.m; sourceTree = "<group>"; };
 		C5285A7F1BA4627900498239 /* MGUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGUtils.h; sourceTree = "<group>"; };
 		C5285A801BA4627900498239 /* MGUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGUtils.m; sourceTree = "<group>"; };
 		C5285A821BA4633400498239 /* Ghost.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Ghost.entitlements; sourceTree = "<group>"; };
+		C5285A861BA46D8A00498239 /* AddBlogWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddBlogWindowController.h; sourceTree = "<group>"; };
+		C5285A871BA46D8A00498239 /* AddBlogWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddBlogWindowController.m; sourceTree = "<group>"; };
+		C5285A881BA46D8A00498239 /* AddBlogWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AddBlogWindow.xib; path = Base.lproj/AddBlogWindow.xib; sourceTree = "<group>"; };
+		C5285A8D1BA473C400498239 /* AddBlogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddBlogViewController.h; sourceTree = "<group>"; };
+		C5285A8E1BA473C400498239 /* AddBlogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddBlogViewController.m; sourceTree = "<group>"; };
 		C56F65AD1BA063DC00CF78DB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -254,8 +259,26 @@
 			children = (
 				C5285A721BA45CF200498239 /* MainMenu.xib */,
 				C5285A731BA45CF200498239 /* MainWindow.xib */,
+				C5285A881BA46D8A00498239 /* AddBlogWindow.xib */,
 			);
 			name = "Interface Builder";
+			sourceTree = "<group>";
+		};
+		C5285A8B1BA4739900498239 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C5285A8C1BA473B000498239 /* AddBlog */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		C5285A8C1BA473B000498239 /* AddBlog */ = {
+			isa = PBXGroup;
+			children = (
+				C5285A8D1BA473C400498239 /* AddBlogViewController.h */,
+				C5285A8E1BA473C400498239 /* AddBlogViewController.m */,
+			);
+			path = AddBlog;
 			sourceTree = "<group>";
 		};
 		C5586B391BA39E03008038DE /* Core */ = {
@@ -272,8 +295,8 @@
 		C5586B3A1BA39E0E008038DE /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C5285A8B1BA4739900498239 /* ViewControllers */,
 				C5586B3B1BA39E4E008038DE /* WindowControllers */,
-				C5586B3C1BA39E55008038DE /* ViewControllers */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -283,17 +306,10 @@
 			children = (
 				22B1CF201937734B00D2C294 /* WindowController.h */,
 				22B1CF211937734B00D2C294 /* WindowController.m */,
-				C5285A791BA45EA200498239 /* AddBlogWindowController.h */,
-				C5285A7A1BA45EA200498239 /* AddBlogWindowController.m */,
+				C5285A861BA46D8A00498239 /* AddBlogWindowController.h */,
+				C5285A871BA46D8A00498239 /* AddBlogWindowController.m */,
 			);
 			path = WindowControllers;
-			sourceTree = "<group>";
-		};
-		C5586B3C1BA39E55008038DE /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		C5586B3D1BA39EC5008038DE /* Libs */ = {
@@ -376,6 +392,7 @@
 			files = (
 				C5285A751BA45CF200498239 /* MainWindow.xib in Resources */,
 				22B1CF421937734B00D2C294 /* Images.xcassets in Resources */,
+				C5285A8A1BA46D8A00498239 /* AddBlogWindow.xib in Resources */,
 				C56F65AE1BA063DC00CF78DB /* Info.plist in Resources */,
 				C5285A741BA45CF200498239 /* MainMenu.xib in Resources */,
 			);
@@ -400,11 +417,12 @@
 				22A676E71944B140002F81FB /* File.m in Sources */,
 				22B1CF3C1937734B00D2C294 /* Window.m in Sources */,
 				22B1CF3F1937734B00D2C294 /* WindowController.m in Sources */,
+				C5285A8F1BA473C400498239 /* AddBlogViewController.m in Sources */,
 				22B1CF3E1937734B00D2C294 /* WebViewDelegate.m in Sources */,
 				22B1CF3A1937734B00D2C294 /* StatusItem.m in Sources */,
 				22B1CF311937734B00D2C294 /* Clipboard.m in Sources */,
 				22B1CF2F1937734B00D2C294 /* NSData+Base64.m in Sources */,
-				C5285A7B1BA45EA200498239 /* AddBlogWindowController.m in Sources */,
+				C5285A891BA46D8A00498239 /* AddBlogWindowController.m in Sources */,
 				22B1CF431937734B00D2C294 /* main.m in Sources */,
 				22B1CF321937734B00D2C294 /* Command.m in Sources */,
 				226AE65D193AA8FC00B15FB7 /* Sound.m in Sources */,

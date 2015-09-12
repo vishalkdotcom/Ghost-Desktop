@@ -41,11 +41,25 @@
 
 @synthesize webView, url, initialized, webViewDelegate, jsContext;
 
-
-- (id)initWithWindow:(NSWindow *)aWindow
+- (id)initWithURL:(NSString *)relativeURL
 {
-    self = [super initWithWindow:aWindow];
+    self = [super initWithWindowNibName:@"MainWindow"];
+    
+    if (self) {
+        self.url = [NSURL URLWithString:relativeURL relativeToURL:[[NSBundle mainBundle] resourceURL]];
+    }
+    
+    return self;
+}
 
+- (id)initWithRequest:(NSURLRequest *)request
+{
+    self = [super initWithWindowNibName:@"MainWindow"];
+    
+    if (self) {
+        [[self.webView mainFrame] loadRequest:request];
+    }
+    
     return self;
 }
 
@@ -58,28 +72,9 @@
     self.window.titleVisibility = NSWindowTitleHidden;
     self.window.titlebarAppearsTransparent = YES;
     self.window.styleMask |= NSFullSizeContentViewWindowMask;
+    
+    [self.window setFrameAutosaveName:@"BlogWindow"];
 }
-
-- (id)initWithURL:(NSString *)relativeURL
-{
-    self = [super initWithWindowNibName:@"MainWindow"];
-    
-    self.url = [NSURL URLWithString:relativeURL relativeToURL:[[NSBundle mainBundle] resourceURL]];
-    
-    [self.window setFrameAutosaveName:@"MacGapWindow"];
-    
-    return self;
-}
-
-- (id)initWithRequest:(NSURLRequest *)request
-{
-    self = [super initWithWindowNibName:@"MainWindow"];
-  
-    [[self.webView mainFrame] loadRequest:request];
-    
-    return self;
-}
-
 
 - (void)awakeFromNib
 {
