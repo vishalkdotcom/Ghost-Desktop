@@ -9,6 +9,7 @@
 #import "WindowController.h"
 #import "WebViewDelegate.h"
 #import "JSON.h"
+#import "MGUtils.h"
 
 @interface WindowController ()
 
@@ -25,12 +26,14 @@
 @end
 
 @interface WebPreferences (WebPreferencesPrivate)
+
 - (void)_setLocalStorageDatabasePath:(NSString *)path;
 - (void)setLocalStorageEnabled:(BOOL)localStorageEnabled;
 - (void)setDatabasesEnabled:(BOOL)databasesEnabled;
 - (void)setDeveloperExtrasEnabled:(BOOL)developerExtrasEnabled;
 - (void)setWebGLEnabled:(BOOL)webGLEnabled;
 - (void)setOfflineWebApplicationCacheEnabled:(BOOL)offlineWebApplicationCacheEnabled;
+
 @end
 
 
@@ -42,9 +45,7 @@
 - (id)initWithWindow:(NSWindow *)aWindow
 {
     self = [super initWithWindow:aWindow];
-    if (self) {
-      
-    }
+
     return self;
 }
 
@@ -53,6 +54,10 @@
     [super windowDidLoad];
  
     [self.webView setMainFrameURL:[self.url absoluteString]];
+    
+    self.window.titleVisibility = NSWindowTitleHidden;
+    self.window.titlebarAppearsTransparent = YES;
+    self.window.styleMask |= NSFullSizeContentViewWindowMask;
 }
 
 - (id)initWithURL:(NSString *)relativeURL

@@ -9,6 +9,7 @@
 #import "StatusItem.h"
 #import "WindowController.h"
 #import "Event.h"
+#import "MGUtils.h"
 
 @interface StatusItem ()
 @property (strong) JSValue* callback;

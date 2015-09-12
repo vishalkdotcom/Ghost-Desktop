@@ -7,7 +7,9 @@
 //
 
 // Application constants
-
 #define kStartPage @"https://ghost.org"
 #define kStartFolder @"."
 #define kWebScriptNamespace @"Ghost"
+
+// NSUserDefaults
+#define kBlogs @"blogs"

@@ -7,6 +7,7 @@
 //
 
 #import "Sound.h"
+#import "MGUtils.h"
 #import <WebKit/WebKit.h>
 #import "WindowController.h"
 
