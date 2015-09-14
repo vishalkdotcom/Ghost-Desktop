@@ -6,6 +6,9 @@
 //
 //
 
+#import <AFNetworking/AFNetworking.h>
+#import <hpple/TFHpple.h>
+
 #import "AddBlogViewController.h"
 
 @interface AddBlogViewController ()
@@ -81,7 +84,47 @@
 
 - (void)addBlog:(id)sender
 {
-    NSLog(@"Verify URL: %@", self.blogUrlTextField.stringValue);
+    NSURL *originalUrl = [NSURL URLWithString:self.blogUrlTextField.stringValue];
+    NSURL *filteredUrl = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@", originalUrl.scheme, originalUrl.host]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:filteredUrl];
+    
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject)
+    {
+        // Filter HTML to get needed information
+        TFHpple *doc = [[TFHpple alloc] initWithHTMLData:responseObject];
+        
+        NSArray *titles = [doc searchWithXPathQuery:@"//title"];
+        NSArray *generators = [doc searchWithXPathQuery:@"//meta[@name='generator']"];
+        NSString *adminUrlString = [NSString stringWithFormat:@"%@/ghost", filteredUrl.absoluteString];
+        
+        if (titles.count > 0 && generators.count > 0)
+        {
+            TFHppleElement *title = [titles objectAtIndex:0];
+            TFHppleElement *generator = [generators objectAtIndex:0];
+            
+            if ([[generator objectForKey:@"content"] containsString:@"Ghost"])
+            {
+                // Don't add already added blogs
+                for (NSDictionary *blog in [Utils blogs]) {
+                    if ([blog[kBlogUrl] isEqualToString:adminUrlString]) return;
+                }
+                
+                NSDictionary *blogInfo = @{kBlogName: title.text,
+                                           kBlogUrl: adminUrlString};
+                
+                NSMutableArray *blogs = [NSMutableArray arrayWithArray:[Utils blogs]];
+                [blogs insertObject:blogInfo atIndex:blogs.count];
+                
+                [[Utils userDefaults] setObject:blogs forKey:kBlogs];
+            }
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+    
+    [operation start];
 }
 
 #pragma mark - Constraints

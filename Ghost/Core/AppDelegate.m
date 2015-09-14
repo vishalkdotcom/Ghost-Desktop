@@ -12,9 +12,9 @@
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
-{
+{    
     if ([Utils blogs].count > 0) {
-        self.windowController = [[WindowController alloc] initWithURL:kStartPage];
+        self.windowController = [[WindowController alloc] initWithURL:[Utils blogs][0][kBlogUrl]];
         [self.windowController setWindowParams];
         [self.windowController showWindow:self];
     } else {
