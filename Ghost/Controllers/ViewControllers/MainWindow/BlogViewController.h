@@ -14,5 +14,6 @@
 - (instancetype)initWithUrl:(NSURL *)url;
 
 @property (nonatomic, strong) WebView *webView;
+@property (nonatomic, strong) NSURL *url;
 
 @end

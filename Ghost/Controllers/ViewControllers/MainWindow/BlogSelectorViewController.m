@@ -92,6 +92,9 @@
     [currentCellView selectCell];
     
     self.selectedRow = self.tableView.selectedRow;
+    
+    BlogViewModel *blog = [[BlogViewModel alloc] initWithBlogInfo:self.blogs[self.selectedRow]];
+    [[NSNotificationCenter defaultCenter] postNotificationName:BlogSelectionDidChangeNotification object:blog];
 }
 
 #pragma mark - Actions
@@ -113,6 +116,13 @@
     [[Utils appDelegate].addBlogWindowController showWindow:nil];
 }
 
+#pragma mark - Public
+
+- (BlogViewModel *)selectedBlog
+{
+    return [[BlogViewModel alloc] initWithBlogInfo:self.blogs[self.selectedRow]];
+}
+
 #pragma mark - Getters
 
 - (NSScrollView *)tableScrollView
@@ -123,7 +133,7 @@
         _tableScrollView.verticalScrollElasticity = NSScrollElasticityNone;
         _tableScrollView.documentView = self.tableView;
         _tableScrollView.borderType = NSNoBorder;
-        _tableScrollView.backgroundColor = [NSColor clearColor];
+        _tableScrollView.drawsBackground = NO;
         _tableScrollView.translatesAutoresizingMaskIntoConstraints = NO;
     }
     
@@ -170,13 +180,6 @@
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[tableScrollView]|" options:0 metrics:nil views:views]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-10-[addBlogButton]-10-|" options:0 metrics:nil views:views]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-22-[tableScrollView]-10-[addBlogButton(55)]-10-|" options:0 metrics:nil views:views]];
-}
-
-#pragma mark - Public
-
-- (BlogViewModel *)selectedBlog
-{
-    return [[BlogViewModel alloc] initWithBlogInfo:self.blogs[self.tableView.selectedRow]];
 }
 
 #pragma mark - Data

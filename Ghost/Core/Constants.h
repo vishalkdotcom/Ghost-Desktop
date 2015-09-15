@@ -12,3 +12,5 @@ extern NSString *UserDefaultsBlogUrlKey;
 
 extern NSString *DidAddBlogNotification;
 extern NSString *DidRemoveBlogNotification;
+
+extern NSString *BlogSelectionDidChangeNotification;

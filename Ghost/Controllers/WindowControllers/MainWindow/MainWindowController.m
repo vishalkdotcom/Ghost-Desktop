@@ -9,6 +9,14 @@
 #import "MainWindowController.h"
 #import "BlogViewController.h"
 
+#import "BlogViewModel.h"
+
+@interface MainWindowController ()
+
+@property (nonatomic, strong) NSMutableDictionary *blogsControllers;
+
+@end
+
 @implementation MainWindowController
 
 #pragma mark - Initializers
@@ -16,6 +24,11 @@
 - (instancetype)init
 {
     self = [super initWithWindowNibName:@"MainWindow"];
+    
+    if (self) {
+        [self createNeededControllers];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(blogSelectionDidChange:) name:BlogSelectionDidChangeNotification object:nil];
+    }
     
     return self;
 }
@@ -31,6 +44,39 @@
     self.window.styleMask |= NSFullSizeContentViewWindowMask;
     
     [self.window setFrameAutosaveName:@"BlogsWinddow"];
+}
+
+#pragma mark - Actions
+
+- (void)blogSelectionDidChange:(NSNotification *)notification
+{
+    BlogViewModel *blog = (BlogViewModel *)notification.object;
+    BlogViewController *blogViewController = (BlogViewController *)self.blogsControllers[blog.urlString];
+    
+    if (self.blogView.subviews.count > 0) {
+        [self.blogView replaceSubview:self.blogView.subviews[0] with:blogViewController.view];
+    } else {
+        [self.blogView addSubview:blogViewController.view];
+    }
+    
+    [self.blogView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[view]|" options:0 metrics:nil views:@{@"view": blogViewController.view}]];
+    [self.blogView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[view]|" options:0 metrics:nil views:@{@"view": blogViewController.view}]];
+}
+
+#pragma mark -
+
+- (void)createNeededControllers
+{
+    if (!self.blogsControllers) {
+        self.blogsControllers = [NSMutableDictionary new];
+    }
+    
+    for (NSDictionary *blogInfo in [Utils blogs]) {
+        BlogViewModel *blog = [[BlogViewModel alloc] initWithBlogInfo:blogInfo];
+        BlogViewController *blogViewController = [[BlogViewController alloc] initWithUrl:blog.url];
+        
+        [self.blogsControllers setObject:blogViewController forKey:blog.urlString];
+    }
 }
 
 @end

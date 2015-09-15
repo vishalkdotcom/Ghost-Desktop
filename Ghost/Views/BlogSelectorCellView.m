@@ -67,6 +67,7 @@
         _textField.selectable = NO;
         _textField.alignment = NSCenterTextAlignment;
         _textField.font = [NSFont systemFontOfSize:12];
+        _textField.drawsBackground = NO;
         _textField.translatesAutoresizingMaskIntoConstraints = NO;
         
         [_textField.cell setLineBreakMode:NSLineBreakByTruncatingTail];

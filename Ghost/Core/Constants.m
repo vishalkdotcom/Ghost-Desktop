@@ -14,3 +14,5 @@ NSString *UserDefaultsBlogUrlKey = @"blogUrlKey";
 
 NSString *DidAddBlogNotification = @"DidAddBlogNotification";
 NSString *DidRemoveBlogNotification = @"DidRemoveBlogNotification";
+
+NSString *BlogSelectionDidChangeNotification = @"BlogSelectionDidChangeNotification";
