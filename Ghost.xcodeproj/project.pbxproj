@@ -29,6 +29,7 @@
 		C5A3850A1BA6E16A0015B947 /* BlogSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5A385091BA6E16A0015B947 /* BlogSelectorViewController.m */; };
 		C5A3850D1BA6E1C80015B947 /* BlogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5A3850C1BA6E1C80015B947 /* BlogViewController.m */; };
 		C5F7A5D71BA8130C00D02459 /* AddBlogWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5F7A5D61BA8130C00D02459 /* AddBlogWindow.xib */; };
+		C5F7A5DA1BA8238600D02459 /* BlogSelectorRowView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5F7A5D91BA8238600D02459 /* BlogSelectorRowView.m */; };
 		EFCECC3F1AD94E2B6436E58D /* libPods-Ghost.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 30DB4EB607B5F532C56DBAC9 /* libPods-Ghost.a */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +78,8 @@
 		C5A3850B1BA6E1C80015B947 /* BlogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlogViewController.h; sourceTree = "<group>"; };
 		C5A3850C1BA6E1C80015B947 /* BlogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlogViewController.m; sourceTree = "<group>"; };
 		C5F7A5D61BA8130C00D02459 /* AddBlogWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddBlogWindow.xib; sourceTree = "<group>"; };
+		C5F7A5D81BA8238600D02459 /* BlogSelectorRowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlogSelectorRowView.h; sourceTree = "<group>"; };
+		C5F7A5D91BA8238600D02459 /* BlogSelectorRowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlogSelectorRowView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -263,6 +266,8 @@
 			children = (
 				C568A0741BA77EE6008E9881 /* BlogSelectorCellView.h */,
 				C568A0751BA77EE6008E9881 /* BlogSelectorCellView.m */,
+				C5F7A5D81BA8238600D02459 /* BlogSelectorRowView.h */,
+				C5F7A5D91BA8238600D02459 /* BlogSelectorRowView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -427,6 +432,7 @@
 				22B1CF2F1937734B00D2C294 /* NSData+Base64.m in Sources */,
 				C5285A891BA46D8A00498239 /* AddBlogWindowController.m in Sources */,
 				22B1CF431937734B00D2C294 /* main.m in Sources */,
+				C5F7A5DA1BA8238600D02459 /* BlogSelectorRowView.m in Sources */,
 				22B1CF2B1937734B00D2C294 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,8 +8,9 @@
 
 #import "BlogSelectorViewController.h"
 #import "BlogSelectorCellView.h"
-#import "AppDelegate.h"
+#import "BlogSelectorRowView.h"
 
+#import "AppDelegate.h"
 #import "BlogViewModel.h"
 
 @interface BlogSelectorViewController () <NSTableViewDataSource, NSTableViewDelegate>
@@ -19,6 +20,8 @@
 @property (nonatomic, strong) NSButton *addBlogButton;
 
 @property (nonatomic, strong) NSMutableArray *blogs;
+
+@property (nonatomic, assign) NSInteger selectedRow;
 
 @end
 
@@ -60,9 +63,15 @@
     BlogViewModel *blog = [[BlogViewModel alloc] initWithBlogInfo:self.blogs[row]];
     
     BlogSelectorCellView *cellView = [BlogSelectorCellView new];
-    cellView.titleTextField.stringValue = blog.name;
+    cellView.imageView.image = [NSImage imageNamed:@"GhostIcon"];
+    cellView.textField.stringValue = blog.name;
     
     return cellView;
+}
+
+- (NSTableRowView *)tableView:(NSTableView *)tableView rowViewForRow:(NSInteger)row
+{
+    return [BlogSelectorRowView new];
 }
 
 #pragma mark - NSTableViewDelegate
@@ -70,6 +79,19 @@
 - (CGFloat)tableView:(NSTableView *)tableView heightOfRow:(NSInteger)row
 {
     return 75;
+}
+
+- (void)tableViewSelectionDidChange:(NSNotification *)notification
+{
+    // Change previous selected cell
+    BlogSelectorCellView *previousCellView = [self.tableView viewAtColumn:0 row:self.selectedRow makeIfNecessary:YES];
+    [previousCellView unselectCell];
+    
+    // Select new cell
+    BlogSelectorCellView *currentCellView = [self.tableView viewAtColumn:0 row:self.tableView.selectedRow makeIfNecessary:YES];
+    [currentCellView selectCell];
+    
+    self.selectedRow = self.tableView.selectedRow;
 }
 
 #pragma mark - Actions
@@ -100,6 +122,8 @@
         _tableScrollView.hasVerticalScroller = YES;
         _tableScrollView.verticalScrollElasticity = NSScrollElasticityNone;
         _tableScrollView.documentView = self.tableView;
+        _tableScrollView.borderType = NSNoBorder;
+        _tableScrollView.backgroundColor = [NSColor clearColor];
         _tableScrollView.translatesAutoresizingMaskIntoConstraints = NO;
     }
     
@@ -117,6 +141,8 @@
         _tableView.headerView = nil;
         _tableView.delegate = self;
         _tableView.dataSource = self;
+        _tableView.allowsEmptySelection = NO;
+        _tableView.backgroundColor = [NSColor clearColor];
         [_tableView addTableColumn:column];
     }
     

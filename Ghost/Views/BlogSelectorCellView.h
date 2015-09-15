@@ -10,6 +10,10 @@
 
 @interface BlogSelectorCellView : NSView
 
-@property (nonatomic, strong) NSTextField *titleTextField;
+@property (nonatomic, strong) NSImageView *imageView;
+@property (nonatomic, strong) NSTextField *textField;
+
+- (void)selectCell;
+- (void)unselectCell;
 
 @end
