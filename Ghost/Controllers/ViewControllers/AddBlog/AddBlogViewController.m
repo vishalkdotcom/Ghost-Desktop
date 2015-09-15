@@ -107,16 +107,19 @@
             {
                 // Don't add already added blogs
                 for (NSDictionary *blog in [Utils blogs]) {
-                    if ([blog[kBlogUrl] isEqualToString:adminUrlString]) return;
+                    if ([blog[UserDefaultsBlogUrlKey] isEqualToString:adminUrlString]) return;
                 }
                 
-                NSDictionary *blogInfo = @{kBlogName: title.text,
-                                           kBlogUrl: adminUrlString};
+                NSDictionary *blogInfo = @{UserDefaultsBlogNameKey: title.text,
+                                           UserDefaultsBlogUrlKey: adminUrlString};
                 
                 NSMutableArray *blogs = [NSMutableArray arrayWithArray:[Utils blogs]];
                 [blogs insertObject:blogInfo atIndex:blogs.count];
                 
-                [[Utils userDefaults] setObject:blogs forKey:kBlogs];
+                [[Utils userDefaults] setObject:blogs forKey:UserDefaultsBlogsKey];
+                [[Utils userDefaults] synchronize];
+                
+                [[NSNotificationCenter defaultCenter] postNotificationName:DidAddBlogNotification object:nil];
             }
         }
         

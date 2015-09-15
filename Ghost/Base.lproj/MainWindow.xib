@@ -3,12 +3,12 @@
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7706"/>
-        <plugIn identifier="com.apple.WebKitIBPlugin" version="7706"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="WindowController">
+        <customObject id="-2" userLabel="File's Owner" customClass="MainWindowController">
             <connections>
-                <outlet property="webView" destination="TAr-Rf-hWt" id="ELL-aJ-ING"/>
+                <outlet property="blogSelectorView" destination="fK5-z8-VrT" id="kyr-Vd-w3y"/>
+                <outlet property="blogView" destination="UwY-Ab-thA" id="wAg-0q-1XN"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
@@ -24,21 +24,40 @@
                 <rect key="frame" x="0.0" y="0.0" width="656" height="402"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <webView translatesAutoresizingMaskIntoConstraints="NO" id="TAr-Rf-hWt">
-                        <rect key="frame" x="70" y="0.0" width="586" height="402"/>
-                        <webPreferences key="preferences" defaultFontSize="12" defaultFixedFontSize="12">
-                            <nil key="identifier"/>
-                        </webPreferences>
-                    </webView>
+                    <splitView dividerStyle="thin" vertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tTD-B6-GCw">
+                        <rect key="frame" x="0.0" y="0.0" width="656" height="402"/>
+                        <subviews>
+                            <customView id="fK5-z8-VrT" userLabel="BlogSelectorView">
+                                <rect key="frame" x="0.0" y="0.0" width="75" height="402"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="0WL-uY-p0B"/>
+                                </constraints>
+                            </customView>
+                            <customView fixedFrame="YES" id="UwY-Ab-thA" userLabel="BlogView">
+                                <rect key="frame" x="76" y="0.0" width="580" height="402"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </customView>
+                        </subviews>
+                        <holdingPriorities>
+                            <real value="250"/>
+                            <real value="250"/>
+                        </holdingPriorities>
+                    </splitView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="TAr-Rf-hWt" secondAttribute="trailing" id="5Fd-kh-eDz"/>
-                    <constraint firstItem="TAr-Rf-hWt" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" constant="70" id="DNH-Sb-QTP"/>
-                    <constraint firstItem="TAr-Rf-hWt" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" id="E2O-lh-OLN"/>
-                    <constraint firstAttribute="bottom" secondItem="TAr-Rf-hWt" secondAttribute="bottom" id="WY8-Og-VSQ"/>
+                    <constraint firstItem="tTD-B6-GCw" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" id="A70-Lu-ywI"/>
+                    <constraint firstAttribute="trailing" secondItem="tTD-B6-GCw" secondAttribute="trailing" id="FeX-FY-7aA"/>
+                    <constraint firstAttribute="bottom" secondItem="tTD-B6-GCw" secondAttribute="bottom" id="P1T-K5-Iys"/>
+                    <constraint firstItem="tTD-B6-GCw" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" id="SgB-0x-0Kd"/>
                 </constraints>
             </view>
         </window>
-        <userDefaultsController representsSharedInstance="YES" id="ZCr-Cb-xhD"/>
+        <viewController id="agm-9h-FhP" customClass="BlogSelectorViewController">
+            <connections>
+                <outlet property="view" destination="fK5-z8-VrT" id="g3P-h1-nkV"/>
+            </connections>
+        </viewController>
+        <viewController id="nMv-gY-jMn" customClass="BlogViewController"/>
     </objects>
 </document>

@@ -10,6 +10,11 @@
 
 @implementation Utils
 
++ (AppDelegate *)appDelegate
+{
+    return (AppDelegate *)[NSApp delegate];
+}
+
 + (NSUserDefaults *)userDefaults
 {
     return [NSUserDefaults standardUserDefaults];
@@ -17,7 +22,7 @@
 
 + (NSArray *)blogs
 {
-    return [[self userDefaults] arrayForKey:kBlogs];
+    return [[self userDefaults] arrayForKey:UserDefaultsBlogsKey];
 }
 
 @end

@@ -8,12 +8,12 @@
 
 #import <Cocoa/Cocoa.h>
 
-#import "WindowController.h"
+#import "MainWindowController.h"
 #import "AddBlogWindowController.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate,NSUserNotificationCenterDelegate>
 
-@property (retain, nonatomic) WindowController *windowController;
+@property (retain, nonatomic) MainWindowController *mainWindowController;
 @property (retain, nonatomic) AddBlogWindowController *addBlogWindowController;
 
 @end
