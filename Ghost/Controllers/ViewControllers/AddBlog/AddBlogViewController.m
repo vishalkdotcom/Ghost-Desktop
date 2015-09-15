@@ -10,6 +10,7 @@
 #import <hpple/TFHpple.h>
 
 #import "AddBlogViewController.h"
+#import "BlogViewModel.h"
 
 @interface AddBlogViewController ()
 
@@ -106,20 +107,34 @@
             if ([[generator objectForKey:@"content"] containsString:@"Ghost"])
             {
                 // Don't add already added blogs
-                for (NSDictionary *blog in [Utils blogs]) {
-                    if ([blog[UserDefaultsBlogUrlKey] isEqualToString:adminUrlString]) return;
+                for (BlogViewModel *blog in [Utils blogs]) {
+                    if ([blog.urlString isEqualToString:adminUrlString]) return;
                 }
                 
-                NSDictionary *blogInfo = @{UserDefaultsBlogNameKey: title.text,
-                                           UserDefaultsBlogUrlKey: adminUrlString};
-                
-                NSMutableArray *blogs = [NSMutableArray arrayWithArray:[Utils blogs]];
-                [blogs insertObject:blogInfo atIndex:blogs.count];
-                
-                [[Utils userDefaults] setObject:blogs forKey:UserDefaultsBlogsKey];
-                [[Utils userDefaults] synchronize];
-                
-                [[NSNotificationCenter defaultCenter] postNotificationName:DidAddBlogNotification object:nil];
+                // Check if the "/ghost" path works
+                AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+                manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+                [manager GET:adminUrlString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject)
+                {
+                    if (operation.response.statusCode == 200) {
+                        NSDictionary *blogInfo = @{UserDefaultsBlogNameKey: title.text,
+                                                   UserDefaultsBlogUrlKey: adminUrlString};
+                        
+                        BlogViewModel *blog = [[BlogViewModel alloc] initWithBlogInfo:blogInfo];
+                        
+                        NSMutableArray *blogs = [NSMutableArray arrayWithArray:[Utils blogs]];
+                        [blogs insertObject:[NSKeyedArchiver archivedDataWithRootObject:blog] atIndex:blogs.count];
+                        
+                        [[Utils userDefaults] setObject:blogs forKey:UserDefaultsBlogsKey];
+                        [[Utils userDefaults] synchronize];
+                        
+                        [[NSNotificationCenter defaultCenter] postNotificationName:DidAddBlogNotification object:blog];
+                    }
+                }
+                failure:^(AFHTTPRequestOperation *operation, NSError *error)
+                {
+                    NSLog(@"Error: %@", error);
+                }];
             }
         }
         

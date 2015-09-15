@@ -27,7 +27,10 @@
     
     if (self) {
         [self createNeededControllers];
+        
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(blogSelectionDidChange:) name:BlogSelectionDidChangeNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didAddBlog:) name:DidAddBlogNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didRemoveBlog:) name:DidRemoveBlogNotification object:nil];
     }
     
     return self;
@@ -63,6 +66,16 @@
     [self.blogView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[view]|" options:0 metrics:nil views:@{@"view": blogViewController.view}]];
 }
 
+- (void)didAddBlog:(NSNotification *)notification
+{
+    
+}
+
+- (void)didRemoveBlog:(NSNotification *)notification
+{
+    NSLog(@"DidRemoveBlog");
+}
+
 #pragma mark -
 
 - (void)createNeededControllers
@@ -71,8 +84,7 @@
         self.blogsControllers = [NSMutableDictionary new];
     }
     
-    for (NSDictionary *blogInfo in [Utils blogs]) {
-        BlogViewModel *blog = [[BlogViewModel alloc] initWithBlogInfo:blogInfo];
+    for (BlogViewModel *blog in [Utils blogs]) {
         BlogViewController *blogViewController = [[BlogViewController alloc] initWithUrl:blog.url];
         
         [self.blogsControllers setObject:blogViewController forKey:blog.urlString];

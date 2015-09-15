@@ -60,7 +60,7 @@
 
 - (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
 {
-    BlogViewModel *blog = [[BlogViewModel alloc] initWithBlogInfo:self.blogs[row]];
+    BlogViewModel *blog = self.blogs[row];
     
     BlogSelectorCellView *cellView = [BlogSelectorCellView new];
     cellView.imageView.image = [NSImage imageNamed:@"GhostIcon"];
@@ -93,8 +93,7 @@
     
     self.selectedRow = self.tableView.selectedRow;
     
-    BlogViewModel *blog = [[BlogViewModel alloc] initWithBlogInfo:self.blogs[self.selectedRow]];
-    [[NSNotificationCenter defaultCenter] postNotificationName:BlogSelectionDidChangeNotification object:blog];
+    [[NSNotificationCenter defaultCenter] postNotificationName:BlogSelectionDidChangeNotification object:self.blogs[self.selectedRow]];
 }
 
 #pragma mark - Actions

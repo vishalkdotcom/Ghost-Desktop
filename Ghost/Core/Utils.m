@@ -7,6 +7,7 @@
 //
 
 #import "Utils.h"
+#import "BlogViewModel.h"
 
 @implementation Utils
 
@@ -22,7 +23,13 @@
 
 + (NSArray *)blogs
 {
-    return [[self userDefaults] arrayForKey:UserDefaultsBlogsKey];
+    NSMutableArray *blogs = [NSMutableArray new];
+    
+    for (NSData *blogData in [[self userDefaults] arrayForKey:UserDefaultsBlogsKey]) {
+        [blogs addObject:[NSKeyedUnarchiver unarchiveObjectWithData:blogData]];
+    }
+    
+    return blogs;
 }
 
 @end

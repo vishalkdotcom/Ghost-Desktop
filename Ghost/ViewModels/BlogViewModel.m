@@ -8,6 +8,8 @@
 
 #import "BlogViewModel.h"
 
+NSString * const BlogViewBlogInfoKey = @"BlogViewBlogInfoKey";
+
 @interface BlogViewModel ()
 
 @property (nonatomic, strong) NSDictionary *blogInfo;
@@ -25,6 +27,22 @@
     }
     
     return self;
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super init];
+    
+    if (self) {
+        self.blogInfo = [aDecoder decodeObjectForKey:BlogViewBlogInfoKey];
+    }
+    
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.blogInfo forKey:BlogViewBlogInfoKey];
 }
 
 #pragma mark - Public

@@ -10,10 +10,10 @@
 
 @interface BlogViewModel : NSObject
 
-- (instancetype)initWithBlogInfo:(NSDictionary *)blogInfo;
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *urlString;
+@property (nonatomic, strong) NSURL *url;
 
-- (NSString *)name;
-- (NSString *)urlString;
-- (NSURL *)url;
+- (instancetype)initWithBlogInfo:(NSDictionary *)blogInfo;
 
 @end
