@@ -14,6 +14,7 @@
 
 + (AppDelegate *)appDelegate;
 + (NSUserDefaults *)userDefaults;
++ (NSArray *)unarchivedBlogs;
 + (NSArray *)blogs;
 
 @end

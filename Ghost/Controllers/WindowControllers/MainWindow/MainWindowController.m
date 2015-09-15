@@ -26,6 +26,8 @@
     self = [super initWithWindowNibName:@"MainWindow"];
     
     if (self) {
+        self.blogsControllers = [NSMutableDictionary new];
+        
         [self createNeededControllers];
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(blogSelectionDidChange:) name:BlogSelectionDidChangeNotification object:nil];
@@ -68,7 +70,10 @@
 
 - (void)didAddBlog:(NSNotification *)notification
 {
+    BlogViewModel *blog = (BlogViewModel *)notification.object;
     
+    BlogViewController *blogViewController = [[BlogViewController alloc] initWithUrl:blog.url];
+    [self.blogsControllers setObject:blogViewController forKey:blog.urlString];
 }
 
 - (void)didRemoveBlog:(NSNotification *)notification
@@ -80,13 +85,8 @@
 
 - (void)createNeededControllers
 {
-    if (!self.blogsControllers) {
-        self.blogsControllers = [NSMutableDictionary new];
-    }
-    
     for (BlogViewModel *blog in [Utils blogs]) {
         BlogViewController *blogViewController = [[BlogViewController alloc] initWithUrl:blog.url];
-        
         [self.blogsControllers setObject:blogViewController forKey:blog.urlString];
     }
 }

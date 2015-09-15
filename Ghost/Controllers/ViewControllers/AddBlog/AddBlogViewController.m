@@ -122,7 +122,7 @@
                         
                         BlogViewModel *blog = [[BlogViewModel alloc] initWithBlogInfo:blogInfo];
                         
-                        NSMutableArray *blogs = [NSMutableArray arrayWithArray:[Utils blogs]];
+                        NSMutableArray *blogs = [NSMutableArray arrayWithArray:[Utils unarchivedBlogs]];
                         [blogs insertObject:[NSKeyedArchiver archivedDataWithRootObject:blog] atIndex:blogs.count];
                         
                         [[Utils userDefaults] setObject:blogs forKey:UserDefaultsBlogsKey];

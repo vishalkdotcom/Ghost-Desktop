@@ -21,6 +21,11 @@
     return [NSUserDefaults standardUserDefaults];
 }
 
++ (NSArray *)unarchivedBlogs
+{
+    return [[self userDefaults] arrayForKey:UserDefaultsBlogsKey];
+}
+
 + (NSArray *)blogs
 {
     NSMutableArray *blogs = [NSMutableArray new];
