@@ -11,9 +11,7 @@
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
-{
-    [[Utils userDefaults] removeObjectForKey:UserDefaultsBlogsKey];
-    
+{    
     if ([Utils blogs].count > 0) {
         [self.mainWindowController showWindow:self];
     } else {
