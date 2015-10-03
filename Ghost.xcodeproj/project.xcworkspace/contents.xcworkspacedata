@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:/Users/enric/Downloads/MacGap2-master/Ghost.xcodeproj">
+      location = "self:Ghost.xcodeproj">
    </FileRef>
 </Workspace>

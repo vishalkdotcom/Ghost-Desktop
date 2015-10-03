@@ -7,349 +7,254 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2237E64A192B0177001E1393 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2237E649192B0177001E1393 /* Cocoa.framework */; };
-		2237E67E192B0186001E1393 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2237E67D192B0186001E1393 /* WebKit.framework */; };
-		2237E680192B018D001E1393 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2237E67F192B018D001E1393 /* JavaScriptCore.framework */; };
-		22B1CF2B1937734B00D2C294 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B1CEF51937734B00D2C294 /* AppDelegate.m */; };
-		22B1CF2E1937734B00D2C294 /* JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B1CEFC1937734B00D2C294 /* JSON.m */; };
-		22B1CF2F1937734B00D2C294 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B1CEFE1937734B00D2C294 /* NSData+Base64.m */; };
-		22B1CF421937734B00D2C294 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22B1CF271937734B00D2C294 /* Images.xcassets */; };
-		22B1CF431937734B00D2C294 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B1CF281937734B00D2C294 /* main.m */; };
-		C51E864C1BA61DB5007E3D53 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C51E864B1BA61DB5007E3D53 /* libxml2.dylib */; };
-		C5285A741BA45CF200498239 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5285A721BA45CF200498239 /* MainMenu.xib */; };
-		C5285A751BA45CF200498239 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5285A731BA45CF200498239 /* MainWindow.xib */; };
-		C5285A781BA45D5F00498239 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = C5285A771BA45D5F00498239 /* Utils.m */; };
-		C5285A891BA46D8A00498239 /* AddBlogWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5285A871BA46D8A00498239 /* AddBlogWindowController.m */; };
-		C5285A8F1BA473C400498239 /* AddBlogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5285A8E1BA473C400498239 /* AddBlogViewController.m */; };
-		C568A0711BA77B56008E9881 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = C568A0701BA77B56008E9881 /* Constants.m */; };
-		C568A0761BA77EE6008E9881 /* BlogSelectorCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = C568A0751BA77EE6008E9881 /* BlogSelectorCellView.m */; };
-		C568A07D1BA78434008E9881 /* BlogViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C568A07C1BA78434008E9881 /* BlogViewModel.m */; };
-		C56F65AE1BA063DC00CF78DB /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C56F65AD1BA063DC00CF78DB /* Info.plist */; };
-		C5A385061BA6E07C0015B947 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5A385051BA6E07C0015B947 /* MainWindowController.m */; };
-		C5A3850A1BA6E16A0015B947 /* BlogSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5A385091BA6E16A0015B947 /* BlogSelectorViewController.m */; };
-		C5A3850D1BA6E1C80015B947 /* BlogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5A3850C1BA6E1C80015B947 /* BlogViewController.m */; };
-		C5F7A5D71BA8130C00D02459 /* AddBlogWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5F7A5D61BA8130C00D02459 /* AddBlogWindow.xib */; };
-		C5F7A5DA1BA8238600D02459 /* BlogSelectorRowView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5F7A5D91BA8238600D02459 /* BlogSelectorRowView.m */; };
-		EFCECC3F1AD94E2B6436E58D /* libPods-Ghost.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 30DB4EB607B5F532C56DBAC9 /* libPods-Ghost.a */; };
+		4C906731A3823603161C3A9C /* libPods-Ghost.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A270C37DB1CF54B22CD8007 /* libPods-Ghost.a */; };
+		C51FAF7D1BACD18A00AD9F54 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C51FAF7B1BACD18A00AD9F54 /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
+		C522C9DA1BBF47C600527818 /* BlogWrapperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C522C9D91BBF47C600527818 /* BlogWrapperViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		C57C1D2E1BAEBA3800E1D114 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C57C1D2D1BAEBA3800E1D114 /* WebKit.framework */; };
+		C5DF00601BACC1CD00B9653A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DF005F1BACC1CD00B9653A /* AppDelegate.swift */; };
+		C5DF00641BACC1CD00B9653A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5DF00631BACC1CD00B9653A /* Assets.xcassets */; };
+		C5DF007B1BACC42200B9653A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DF007A1BACC42200B9653A /* Utils.swift */; settings = {ASSET_TAGS = (); }; };
+		C5DF007D1BACC42900B9653A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DF007C1BACC42900B9653A /* Constants.swift */; settings = {ASSET_TAGS = (); }; };
+		C5DF007F1BACC44A00B9653A /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DF007E1BACC44A00B9653A /* MainWindowController.swift */; settings = {ASSET_TAGS = (); }; };
+		C5DF00821BACC45D00B9653A /* AddBlogWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DF00801BACC45D00B9653A /* AddBlogWindowController.swift */; settings = {ASSET_TAGS = (); }; };
+		C5DF00851BACC47600B9653A /* BlogSelectorViewContorller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DF00841BACC47600B9653A /* BlogSelectorViewContorller.swift */; settings = {ASSET_TAGS = (); }; };
+		C5DF00871BACC48400B9653A /* BlogWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DF00861BACC48400B9653A /* BlogWebViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		C5DF00891BACC48D00B9653A /* AddBlogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DF00881BACC48D00B9653A /* AddBlogViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		C5DF008B1BACC4AC00B9653A /* BlogSelectorCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DF008A1BACC4AC00B9653A /* BlogSelectorCellView.swift */; settings = {ASSET_TAGS = (); }; };
+		C5DF008D1BACC4B500B9653A /* BlogSelectorRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DF008C1BACC4B500B9653A /* BlogSelectorRowView.swift */; settings = {ASSET_TAGS = (); }; };
+		C5DF008F1BACC4D000B9653A /* BlogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DF008E1BACC4D000B9653A /* BlogViewModel.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2237E646192B0177001E1393 /* Ghost.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ghost.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		2237E649192B0177001E1393 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		2237E64C192B0177001E1393 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
-		2237E64D192B0177001E1393 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		2237E64E192B0177001E1393 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		2237E668192B0177001E1393 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		2237E67D192B0186001E1393 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
-		2237E67F192B018D001E1393 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		22B1CEF41937734B00D2C294 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		22B1CEF51937734B00D2C294 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		22B1CEFB1937734B00D2C294 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
-		22B1CEFC1937734B00D2C294 /* JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSON.m; sourceTree = "<group>"; };
-		22B1CEFD1937734B00D2C294 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
-		22B1CEFE1937734B00D2C294 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
-		22B1CF271937734B00D2C294 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		22B1CF281937734B00D2C294 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		22B1CF2A1937734B00D2C294 /* Ghost-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Ghost-Prefix.pch"; sourceTree = "<group>"; };
-		30DB4EB607B5F532C56DBAC9 /* libPods-Ghost.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Ghost.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		64CCDBA1AB05203206F818C2 /* Pods-Ghost.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ghost.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ghost/Pods-Ghost.debug.xcconfig"; sourceTree = "<group>"; };
-		744698B47CD240E3436A3AA3 /* Pods-Ghost.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ghost.release.xcconfig"; path = "Pods/Target Support Files/Pods-Ghost/Pods-Ghost.release.xcconfig"; sourceTree = "<group>"; };
-		C51E864B1BA61DB5007E3D53 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
-		C5285A721BA45CF200498239 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainMenu.xib; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		C5285A731BA45CF200498239 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainWindow.xib; path = Base.lproj/MainWindow.xib; sourceTree = "<group>"; };
-		C5285A761BA45D5F00498239 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
-		C5285A771BA45D5F00498239 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
-		C5285A821BA4633400498239 /* Ghost.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Ghost.entitlements; sourceTree = "<group>"; };
-		C5285A861BA46D8A00498239 /* AddBlogWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddBlogWindowController.h; sourceTree = "<group>"; };
-		C5285A871BA46D8A00498239 /* AddBlogWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddBlogWindowController.m; sourceTree = "<group>"; };
-		C5285A8D1BA473C400498239 /* AddBlogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddBlogViewController.h; sourceTree = "<group>"; };
-		C5285A8E1BA473C400498239 /* AddBlogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddBlogViewController.m; sourceTree = "<group>"; };
-		C568A06F1BA77B56008E9881 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
-		C568A0701BA77B56008E9881 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
-		C568A0741BA77EE6008E9881 /* BlogSelectorCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlogSelectorCellView.h; sourceTree = "<group>"; };
-		C568A0751BA77EE6008E9881 /* BlogSelectorCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlogSelectorCellView.m; sourceTree = "<group>"; };
-		C568A07B1BA78434008E9881 /* BlogViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlogViewModel.h; sourceTree = "<group>"; };
-		C568A07C1BA78434008E9881 /* BlogViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlogViewModel.m; sourceTree = "<group>"; };
-		C56F65AD1BA063DC00CF78DB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C5A385041BA6E07C0015B947 /* MainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainWindowController.h; sourceTree = "<group>"; };
-		C5A385051BA6E07C0015B947 /* MainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainWindowController.m; sourceTree = "<group>"; };
-		C5A385081BA6E16A0015B947 /* BlogSelectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlogSelectorViewController.h; sourceTree = "<group>"; };
-		C5A385091BA6E16A0015B947 /* BlogSelectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlogSelectorViewController.m; sourceTree = "<group>"; };
-		C5A3850B1BA6E1C80015B947 /* BlogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlogViewController.h; sourceTree = "<group>"; };
-		C5A3850C1BA6E1C80015B947 /* BlogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlogViewController.m; sourceTree = "<group>"; };
-		C5F7A5D61BA8130C00D02459 /* AddBlogWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddBlogWindow.xib; sourceTree = "<group>"; };
-		C5F7A5D81BA8238600D02459 /* BlogSelectorRowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlogSelectorRowView.h; sourceTree = "<group>"; };
-		C5F7A5D91BA8238600D02459 /* BlogSelectorRowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlogSelectorRowView.m; sourceTree = "<group>"; };
+		1DE00A1D07F36CBE9D6780DD /* Pods-Ghost.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ghost.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ghost/Pods-Ghost.debug.xcconfig"; sourceTree = "<group>"; };
+		2AD594881B0E0420BDD8B922 /* Pods-Ghost.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ghost.release.xcconfig"; path = "Pods/Target Support Files/Pods-Ghost/Pods-Ghost.release.xcconfig"; sourceTree = "<group>"; };
+		3A270C37DB1CF54B22CD8007 /* libPods-Ghost.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Ghost.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C508B50D1BAE2AA9008E411A /* Ghost-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Ghost-Bridging-Header.h"; sourceTree = "<group>"; };
+		C51FAF7C1BACD18A00AD9F54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Ghost/Base.lproj/Main.storyboard; sourceTree = SOURCE_ROOT; };
+		C522C9D91BBF47C600527818 /* BlogWrapperViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogWrapperViewController.swift; sourceTree = "<group>"; };
+		C57C1D2D1BAEBA3800E1D114 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		C5DF005C1BACC1CD00B9653A /* Ghost.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ghost.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C5DF005F1BACC1CD00B9653A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C5DF00631BACC1CD00B9653A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C5DF00681BACC1CD00B9653A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C5DF007A1BACC42200B9653A /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		C5DF007C1BACC42900B9653A /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C5DF007E1BACC44A00B9653A /* MainWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
+		C5DF00801BACC45D00B9653A /* AddBlogWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddBlogWindowController.swift; sourceTree = "<group>"; };
+		C5DF00841BACC47600B9653A /* BlogSelectorViewContorller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogSelectorViewContorller.swift; sourceTree = "<group>"; };
+		C5DF00861BACC48400B9653A /* BlogWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogWebViewController.swift; sourceTree = "<group>"; };
+		C5DF00881BACC48D00B9653A /* AddBlogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddBlogViewController.swift; sourceTree = "<group>"; };
+		C5DF008A1BACC4AC00B9653A /* BlogSelectorCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogSelectorCellView.swift; sourceTree = "<group>"; };
+		C5DF008C1BACC4B500B9653A /* BlogSelectorRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogSelectorRowView.swift; sourceTree = "<group>"; };
+		C5DF008E1BACC4D000B9653A /* BlogViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		2237E643192B0177001E1393 /* Frameworks */ = {
+		C5DF00591BACC1CD00B9653A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C51E864C1BA61DB5007E3D53 /* libxml2.dylib in Frameworks */,
-				2237E680192B018D001E1393 /* JavaScriptCore.framework in Frameworks */,
-				2237E67E192B0186001E1393 /* WebKit.framework in Frameworks */,
-				2237E64A192B0177001E1393 /* Cocoa.framework in Frameworks */,
-				EFCECC3F1AD94E2B6436E58D /* libPods-Ghost.a in Frameworks */,
+				C57C1D2E1BAEBA3800E1D114 /* WebKit.framework in Frameworks */,
+				4C906731A3823603161C3A9C /* libPods-Ghost.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2237E63D192B0177001E1393 = {
+		4A7BD2BD6520BEB6EB85F64F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				22B1CEF31937734B00D2C294 /* Ghost */,
-				2237E648192B0177001E1393 /* Frameworks */,
-				2237E647192B0177001E1393 /* Products */,
-				4E2CAFCE1409572CD80BB81A /* Pods */,
-			);
-			sourceTree = "<group>";
-		};
-		2237E647192B0177001E1393 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				2237E646192B0177001E1393 /* Ghost.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		2237E648192B0177001E1393 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				C51E864B1BA61DB5007E3D53 /* libxml2.dylib */,
-				2237E67F192B018D001E1393 /* JavaScriptCore.framework */,
-				2237E67D192B0186001E1393 /* WebKit.framework */,
-				2237E649192B0177001E1393 /* Cocoa.framework */,
-				2237E668192B0177001E1393 /* XCTest.framework */,
-				2237E64B192B0177001E1393 /* Other Frameworks */,
-				30DB4EB607B5F532C56DBAC9 /* libPods-Ghost.a */,
+				C57C1D2D1BAEBA3800E1D114 /* WebKit.framework */,
+				3A270C37DB1CF54B22CD8007 /* libPods-Ghost.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		2237E64B192B0177001E1393 /* Other Frameworks */ = {
+		AA43246472D18C868D4859D5 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				2237E64C192B0177001E1393 /* AppKit.framework */,
-				2237E64D192B0177001E1393 /* CoreData.framework */,
-				2237E64E192B0177001E1393 /* Foundation.framework */,
-			);
-			name = "Other Frameworks";
-			sourceTree = "<group>";
-		};
-		22B1CEF31937734B00D2C294 /* Ghost */ = {
-			isa = PBXGroup;
-			children = (
-				C5586B391BA39E03008038DE /* Core */,
-				C5586B3A1BA39E0E008038DE /* Controllers */,
-				C568A0721BA77EAA008E9881 /* Views */,
-				C568A0771BA78353008E9881 /* ViewModels */,
-				C5586B3E1BA39EE0008038DE /* Resources */,
-				22B1CF46193773BA00D2C294 /* Interface Builder */,
-				22B1CF45193773A400D2C294 /* Supporting Files */,
-			);
-			path = Ghost;
-			sourceTree = "<group>";
-		};
-		22B1CEFA1937734B00D2C294 /* Categories */ = {
-			isa = PBXGroup;
-			children = (
-				22B1CEFB1937734B00D2C294 /* JSON.h */,
-				22B1CEFC1937734B00D2C294 /* JSON.m */,
-				22B1CEFD1937734B00D2C294 /* NSData+Base64.h */,
-				22B1CEFE1937734B00D2C294 /* NSData+Base64.m */,
-			);
-			path = Categories;
-			sourceTree = "<group>";
-		};
-		22B1CF45193773A400D2C294 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				C5285A821BA4633400498239 /* Ghost.entitlements */,
-				22B1CF281937734B00D2C294 /* main.m */,
-				C56F65AD1BA063DC00CF78DB /* Info.plist */,
-				22B1CF2A1937734B00D2C294 /* Ghost-Prefix.pch */,
-			);
-			path = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		22B1CF46193773BA00D2C294 /* Interface Builder */ = {
-			isa = PBXGroup;
-			children = (
-				C5285A721BA45CF200498239 /* MainMenu.xib */,
-				C5285A731BA45CF200498239 /* MainWindow.xib */,
-				C5F7A5D61BA8130C00D02459 /* AddBlogWindow.xib */,
-			);
-			name = "Interface Builder";
-			sourceTree = "<group>";
-		};
-		4E2CAFCE1409572CD80BB81A /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				64CCDBA1AB05203206F818C2 /* Pods-Ghost.debug.xcconfig */,
-				744698B47CD240E3436A3AA3 /* Pods-Ghost.release.xcconfig */,
+				1DE00A1D07F36CBE9D6780DD /* Pods-Ghost.debug.xcconfig */,
+				2AD594881B0E0420BDD8B922 /* Pods-Ghost.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		C5285A8B1BA4739900498239 /* ViewControllers */ = {
+		C5DF00531BACC1CD00B9653A = {
 			isa = PBXGroup;
 			children = (
-				C5A385071BA6E1410015B947 /* MainWindow */,
-				C5285A8C1BA473B000498239 /* AddBlog */,
+				C5DF005E1BACC1CD00B9653A /* Ghost */,
+				C5DF005D1BACC1CD00B9653A /* Products */,
+				AA43246472D18C868D4859D5 /* Pods */,
+				4A7BD2BD6520BEB6EB85F64F /* Frameworks */,
 			);
-			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		C5285A8C1BA473B000498239 /* AddBlog */ = {
+		C5DF005D1BACC1CD00B9653A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C5285A8D1BA473C400498239 /* AddBlogViewController.h */,
-				C5285A8E1BA473C400498239 /* AddBlogViewController.m */,
+				C5DF005C1BACC1CD00B9653A /* Ghost.app */,
 			);
-			path = AddBlog;
+			name = Products;
 			sourceTree = "<group>";
 		};
-		C5586B391BA39E03008038DE /* Core */ = {
+		C5DF005E1BACC1CD00B9653A /* Ghost */ = {
 			isa = PBXGroup;
 			children = (
-				22B1CEF41937734B00D2C294 /* AppDelegate.h */,
-				22B1CEF51937734B00D2C294 /* AppDelegate.m */,
-				C5285A761BA45D5F00498239 /* Utils.h */,
-				C5285A771BA45D5F00498239 /* Utils.m */,
-				C568A06F1BA77B56008E9881 /* Constants.h */,
-				C568A0701BA77B56008E9881 /* Constants.m */,
+				C5DF006E1BACC22A00B9653A /* Core */,
+				C5DF006F1BACC22F00B9653A /* Controllers */,
+				C5DF00701BACC25900B9653A /* Views */,
+				C5DF00711BACC25D00B9653A /* ViewModels */,
+				C5DF00721BACC26600B9653A /* Resources */,
+				C5DF00791BACC3D500B9653A /* SupportingFiles */,
+			);
+			path = Ghost;
+			sourceTree = "<group>";
+		};
+		C5DF006E1BACC22A00B9653A /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				C5DF005F1BACC1CD00B9653A /* AppDelegate.swift */,
+				C5DF007A1BACC42200B9653A /* Utils.swift */,
+				C5DF007C1BACC42900B9653A /* Constants.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
 		};
-		C5586B3A1BA39E0E008038DE /* Controllers */ = {
+		C5DF006F1BACC22F00B9653A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				C5586B3B1BA39E4E008038DE /* WindowControllers */,
-				C5285A8B1BA4739900498239 /* ViewControllers */,
+				C5DF00731BACC28C00B9653A /* WindowControllers */,
+				C5DF00741BACC29200B9653A /* ViewControllers */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		C5586B3B1BA39E4E008038DE /* WindowControllers */ = {
+		C5DF00701BACC25900B9653A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C5A385031BA6E0470015B947 /* MainWindow */,
-				C5DC08CB1BA6CFA4006098AD /* AddBlog */,
-			);
-			path = WindowControllers;
-			sourceTree = "<group>";
-		};
-		C5586B3D1BA39EC5008038DE /* Libs */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Libs;
-			sourceTree = "<group>";
-		};
-		C5586B3E1BA39EE0008038DE /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				22B1CF271937734B00D2C294 /* Images.xcassets */,
-				C5586B3D1BA39EC5008038DE /* Libs */,
-				22B1CEFA1937734B00D2C294 /* Categories */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		C568A0721BA77EAA008E9881 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				C568A0741BA77EE6008E9881 /* BlogSelectorCellView.h */,
-				C568A0751BA77EE6008E9881 /* BlogSelectorCellView.m */,
-				C5F7A5D81BA8238600D02459 /* BlogSelectorRowView.h */,
-				C5F7A5D91BA8238600D02459 /* BlogSelectorRowView.m */,
+				C5DF008A1BACC4AC00B9653A /* BlogSelectorCellView.swift */,
+				C5DF008C1BACC4B500B9653A /* BlogSelectorRowView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		C568A0771BA78353008E9881 /* ViewModels */ = {
+		C5DF00711BACC25D00B9653A /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				C568A07B1BA78434008E9881 /* BlogViewModel.h */,
-				C568A07C1BA78434008E9881 /* BlogViewModel.m */,
+				C5DF008E1BACC4D000B9653A /* BlogViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		C5A385031BA6E0470015B947 /* MainWindow */ = {
+		C5DF00721BACC26600B9653A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				C5A385041BA6E07C0015B947 /* MainWindowController.h */,
-				C5A385051BA6E07C0015B947 /* MainWindowController.m */,
+				C51FAF7B1BACD18A00AD9F54 /* Main.storyboard */,
+				C5DF00631BACC1CD00B9653A /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		C5DF00731BACC28C00B9653A /* WindowControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C5DF00751BACC2D500B9653A /* MainWindow */,
+				C5DF00761BACC2DB00B9653A /* AddBlog */,
+			);
+			path = WindowControllers;
+			sourceTree = "<group>";
+		};
+		C5DF00741BACC29200B9653A /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C5DF00781BACC2E700B9653A /* MainWindow */,
+				C5DF00771BACC2E200B9653A /* AddBlog */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		C5DF00751BACC2D500B9653A /* MainWindow */ = {
+			isa = PBXGroup;
+			children = (
+				C5DF007E1BACC44A00B9653A /* MainWindowController.swift */,
 			);
 			path = MainWindow;
 			sourceTree = "<group>";
 		};
-		C5A385071BA6E1410015B947 /* MainWindow */ = {
+		C5DF00761BACC2DB00B9653A /* AddBlog */ = {
 			isa = PBXGroup;
 			children = (
-				C5A385081BA6E16A0015B947 /* BlogSelectorViewController.h */,
-				C5A385091BA6E16A0015B947 /* BlogSelectorViewController.m */,
-				C5A3850B1BA6E1C80015B947 /* BlogViewController.h */,
-				C5A3850C1BA6E1C80015B947 /* BlogViewController.m */,
-			);
-			path = MainWindow;
-			sourceTree = "<group>";
-		};
-		C5DC08CB1BA6CFA4006098AD /* AddBlog */ = {
-			isa = PBXGroup;
-			children = (
-				C5285A861BA46D8A00498239 /* AddBlogWindowController.h */,
-				C5285A871BA46D8A00498239 /* AddBlogWindowController.m */,
+				C5DF00801BACC45D00B9653A /* AddBlogWindowController.swift */,
 			);
 			path = AddBlog;
+			sourceTree = "<group>";
+		};
+		C5DF00771BACC2E200B9653A /* AddBlog */ = {
+			isa = PBXGroup;
+			children = (
+				C5DF00881BACC48D00B9653A /* AddBlogViewController.swift */,
+			);
+			path = AddBlog;
+			sourceTree = "<group>";
+		};
+		C5DF00781BACC2E700B9653A /* MainWindow */ = {
+			isa = PBXGroup;
+			children = (
+				C522C9D91BBF47C600527818 /* BlogWrapperViewController.swift */,
+				C5DF00841BACC47600B9653A /* BlogSelectorViewContorller.swift */,
+				C5DF00861BACC48400B9653A /* BlogWebViewController.swift */,
+			);
+			path = MainWindow;
+			sourceTree = "<group>";
+		};
+		C5DF00791BACC3D500B9653A /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				C5DF00681BACC1CD00B9653A /* Info.plist */,
+				C508B50D1BAE2AA9008E411A /* Ghost-Bridging-Header.h */,
+			);
+			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2237E645192B0177001E1393 /* Ghost */ = {
+		C5DF005B1BACC1CD00B9653A /* Ghost */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2237E677192B0177001E1393 /* Build configuration list for PBXNativeTarget "Ghost" */;
+			buildConfigurationList = C5DF006B1BACC1CD00B9653A /* Build configuration list for PBXNativeTarget "Ghost" */;
 			buildPhases = (
-				F01B135868F4F830B41EF178 /* Check Pods Manifest.lock */,
-				2237E642192B0177001E1393 /* Sources */,
-				2237E643192B0177001E1393 /* Frameworks */,
-				2237E644192B0177001E1393 /* Resources */,
-				11F83B2F326BF827248932A6 /* Copy Pods Resources */,
+				8C32C109A74E5F0392C55AD6 /* Check Pods Manifest.lock */,
+				C5DF00581BACC1CD00B9653A /* Sources */,
+				C5DF00591BACC1CD00B9653A /* Frameworks */,
+				C5DF005A1BACC1CD00B9653A /* Resources */,
+				53F9CD052123F4958489BE0B /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = Ghost;
-			productName = MG;
-			productReference = 2237E646192B0177001E1393 /* Ghost.app */;
+			productName = Ghost;
+			productReference = C5DF005C1BACC1CD00B9653A /* Ghost.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		2237E63E192B0177001E1393 /* Project object */ = {
+		C5DF00541BACC1CD00B9653A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = Ghost;
 				TargetAttributes = {
-					2237E645192B0177001E1393 = {
-						SystemCapabilities = {
-							com.apple.Sandbox = {
-								enabled = 0;
-							};
-						};
+					C5DF005B1BACC1CD00B9653A = {
+						CreatedOnToolsVersion = 7.0;
 					};
 				};
 			};
-			buildConfigurationList = 2237E641192B0177001E1393 /* Build configuration list for PBXProject "Ghost" */;
+			buildConfigurationList = C5DF00571BACC1CD00B9653A /* Build configuration list for PBXProject "Ghost" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -357,33 +262,30 @@
 				en,
 				Base,
 			);
-			mainGroup = 2237E63D192B0177001E1393;
-			productRefGroup = 2237E647192B0177001E1393 /* Products */;
+			mainGroup = C5DF00531BACC1CD00B9653A;
+			productRefGroup = C5DF005D1BACC1CD00B9653A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2237E645192B0177001E1393 /* Ghost */,
+				C5DF005B1BACC1CD00B9653A /* Ghost */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		2237E644192B0177001E1393 /* Resources */ = {
+		C5DF005A1BACC1CD00B9653A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C5F7A5D71BA8130C00D02459 /* AddBlogWindow.xib in Resources */,
-				C5285A751BA45CF200498239 /* MainWindow.xib in Resources */,
-				22B1CF421937734B00D2C294 /* Images.xcassets in Resources */,
-				C56F65AE1BA063DC00CF78DB /* Info.plist in Resources */,
-				C5285A741BA45CF200498239 /* MainMenu.xib in Resources */,
+				C5DF00641BACC1CD00B9653A /* Assets.xcassets in Resources */,
+				C51FAF7D1BACD18A00AD9F54 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		11F83B2F326BF827248932A6 /* Copy Pods Resources */ = {
+		53F9CD052123F4958489BE0B /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -398,7 +300,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Ghost/Pods-Ghost-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F01B135868F4F830B41EF178 /* Check Pods Manifest.lock */ = {
+		8C32C109A74E5F0392C55AD6 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -416,31 +318,40 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		2237E642192B0177001E1393 /* Sources */ = {
+		C5DF00581BACC1CD00B9653A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C568A0711BA77B56008E9881 /* Constants.m in Sources */,
-				22B1CF2E1937734B00D2C294 /* JSON.m in Sources */,
-				C5285A781BA45D5F00498239 /* Utils.m in Sources */,
-				C5A3850D1BA6E1C80015B947 /* BlogViewController.m in Sources */,
-				C5A3850A1BA6E16A0015B947 /* BlogSelectorViewController.m in Sources */,
-				C568A0761BA77EE6008E9881 /* BlogSelectorCellView.m in Sources */,
-				C5A385061BA6E07C0015B947 /* MainWindowController.m in Sources */,
-				C568A07D1BA78434008E9881 /* BlogViewModel.m in Sources */,
-				C5285A8F1BA473C400498239 /* AddBlogViewController.m in Sources */,
-				22B1CF2F1937734B00D2C294 /* NSData+Base64.m in Sources */,
-				C5285A891BA46D8A00498239 /* AddBlogWindowController.m in Sources */,
-				22B1CF431937734B00D2C294 /* main.m in Sources */,
-				C5F7A5DA1BA8238600D02459 /* BlogSelectorRowView.m in Sources */,
-				22B1CF2B1937734B00D2C294 /* AppDelegate.m in Sources */,
+				C5DF008D1BACC4B500B9653A /* BlogSelectorRowView.swift in Sources */,
+				C5DF00601BACC1CD00B9653A /* AppDelegate.swift in Sources */,
+				C5DF007B1BACC42200B9653A /* Utils.swift in Sources */,
+				C5DF00891BACC48D00B9653A /* AddBlogViewController.swift in Sources */,
+				C5DF008B1BACC4AC00B9653A /* BlogSelectorCellView.swift in Sources */,
+				C5DF007F1BACC44A00B9653A /* MainWindowController.swift in Sources */,
+				C5DF00821BACC45D00B9653A /* AddBlogWindowController.swift in Sources */,
+				C5DF008F1BACC4D000B9653A /* BlogViewModel.swift in Sources */,
+				C5DF00851BACC47600B9653A /* BlogSelectorViewContorller.swift in Sources */,
+				C5DF007D1BACC42900B9653A /* Constants.swift in Sources */,
+				C522C9DA1BBF47C600527818 /* BlogWrapperViewController.swift in Sources */,
+				C5DF00871BACC48400B9653A /* BlogWebViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		C51FAF7B1BACD18A00AD9F54 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C51FAF7C1BACD18A00AD9F54 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
-		2237E675192B0177001E1393 /* Debug */ = {
+		C5DF00691BACC1CD00B9653A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -455,31 +366,36 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		2237E676192B0177001E1393 /* Release */ = {
+		C5DF006A1BACC1CD00B9653A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -494,92 +410,82 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 			};
 			name = Release;
 		};
-		2237E678192B0177001E1393 /* Debug */ = {
+		C5DF006C1BACC1CD00B9653A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 64CCDBA1AB05203206F818C2 /* Pods-Ghost.debug.xcconfig */;
+			baseConfigurationReference = 1DE00A1D07F36CBE9D6780DD /* Pods-Ghost.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Ghost/Supporting Files/Ghost-Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"${SDKROOT}/usr/include/libxml2",
-				);
-				INFOPLIST_FILE = "$(SRCROOT)/Ghost/Supporting Files/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Ghost/SupportingFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_NAME = Ghost;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = org.ghost.mac;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Ghost/SupportingFiles/Ghost-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				USER_HEADER_SEARCH_PATHS = "//:configuration = Debug\n\n//:configuration = Release\n\n//:completeSettings = some\nHEADER_SEARCH_PATHS\n//:configuration = Debug\n\n//:configuration = Release\n\n//:completeSettings = some\nHEADER_SEARCH_PATHS\n";
-				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
-		2237E679192B0177001E1393 /* Release */ = {
+		C5DF006D1BACC1CD00B9653A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 744698B47CD240E3436A3AA3 /* Pods-Ghost.release.xcconfig */;
+			baseConfigurationReference = 2AD594881B0E0420BDD8B922 /* Pods-Ghost.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Ghost/Supporting Files/Ghost-Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"${SDKROOT}/usr/include/libxml2",
-				);
-				INFOPLIST_FILE = "$(SRCROOT)/Ghost/Supporting Files/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Ghost/SupportingFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_NAME = Ghost;
-				USER_HEADER_SEARCH_PATHS = "//:configuration = Debug\n\n//:configuration = Release\n\n//:completeSettings = some\nHEADER_SEARCH_PATHS\n//:configuration = Debug\n\n//:configuration = Release\n\n//:completeSettings = some\nHEADER_SEARCH_PATHS\n";
-				WRAPPER_EXTENSION = app;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = org.ghost.mac;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Ghost/SupportingFiles/Ghost-Bridging-Header.h";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2237E641192B0177001E1393 /* Build configuration list for PBXProject "Ghost" */ = {
+		C5DF00571BACC1CD00B9653A /* Build configuration list for PBXProject "Ghost" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2237E675192B0177001E1393 /* Debug */,
-				2237E676192B0177001E1393 /* Release */,
+				C5DF00691BACC1CD00B9653A /* Debug */,
+				C5DF006A1BACC1CD00B9653A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2237E677192B0177001E1393 /* Build configuration list for PBXNativeTarget "Ghost" */ = {
+		C5DF006B1BACC1CD00B9653A /* Build configuration list for PBXNativeTarget "Ghost" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2237E678192B0177001E1393 /* Debug */,
-				2237E679192B0177001E1393 /* Release */,
+				C5DF006C1BACC1CD00B9653A /* Debug */,
+				C5DF006D1BACC1CD00B9653A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 2237E63E192B0177001E1393 /* Project object */;
+	rootObject = C5DF00541BACC1CD00B9653A /* Project object */;
 }
