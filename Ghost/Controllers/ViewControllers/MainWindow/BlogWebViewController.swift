@@ -18,7 +18,7 @@ class BlogWebViewController: NSViewController, WebUIDelegate {
         super.init(nibName: nil, bundle: nil)!
     }
     
-    // Override
+    // MARK: Override
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -41,7 +41,7 @@ class BlogWebViewController: NSViewController, WebUIDelegate {
         self.setUpConstraints(views)
     }
     
-    // WebUIDelegate
+    // MARK: WebUIDelegate
     func webView(sender: WebView!, runOpenPanelForFileButtonWithResultListener resultListener: WebOpenPanelResultListener!) {
         let openDlg: NSOpenPanel = NSOpenPanel()
         openDlg.canChooseFiles = true
@@ -53,7 +53,7 @@ class BlogWebViewController: NSViewController, WebUIDelegate {
         }
     }
     
-    // Getters
+    // MARK: Getters
     
     lazy var webView: WebView = {
         let webView: WebView = WebView()
@@ -64,7 +64,7 @@ class BlogWebViewController: NSViewController, WebUIDelegate {
         return webView
         } ()
     
-    // Constraints
+    // MARK: Constraints
     
     func setUpConstraints(views: Dictionary<String, AnyObject>) {
         self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[webView]|", options: NSLayoutFormatOptions.DirectionMask, metrics: nil, views: views))

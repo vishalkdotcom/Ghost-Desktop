@@ -10,7 +10,7 @@ import Cocoa
 
 class AddBlogWindowController: NSWindowController {
 
-    // Override
+    // MARK: Override
     
     override func windowDidLoad() {
         super.windowDidLoad()

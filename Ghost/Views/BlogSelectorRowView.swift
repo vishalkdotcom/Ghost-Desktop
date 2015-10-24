@@ -10,6 +10,8 @@ import Cocoa
 
 class BlogSelectorRowView: NSTableRowView {
 
+    // MARK: Override
+    
     override func drawSelectionInRect(dirtyRect: NSRect) {
         NSColor.clearColor().setStroke()
         NSColor.clearColor().setFill()

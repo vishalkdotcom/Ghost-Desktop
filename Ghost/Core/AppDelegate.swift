@@ -30,7 +30,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
     }
     
-    // Actions
+    // MARK: Actions
     
     func didAddBlog(notification: NSNotification)
     {
@@ -43,7 +43,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         print("DidRemoveBlog")
     }
     
-    // Getters
+    // MARK: Getters
     
     lazy var mainWindowController: MainWindowController = {
         let storyBoard: NSStoryboard = NSStoryboard(name: "Main", bundle: NSBundle.mainBundle())

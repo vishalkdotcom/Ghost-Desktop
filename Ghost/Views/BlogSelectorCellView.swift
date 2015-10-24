@@ -10,7 +10,7 @@ import Cocoa
 
 class BlogSelectorCellView: NSView {
     
-    // Override
+    // MARK: Override
     
     init() {
         super.init(frame: CGRectZero)
@@ -21,7 +21,7 @@ class BlogSelectorCellView: NSView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // Initializer
+    // MARK: Initializer
     
     func initialize() {
         self.addSubview(self.imageView)
@@ -33,7 +33,7 @@ class BlogSelectorCellView: NSView {
         self.setUpConstraints(views)
     }
     
-    // Actions
+    // MARK: Actions
     
     func selectCell() {
         self.textField.font = NSFont.boldSystemFontOfSize(12)
@@ -45,7 +45,7 @@ class BlogSelectorCellView: NSView {
         self.selectView.layer?.backgroundColor = NSColor.clearColor().CGColor
     }
 
-    // Getters
+    // MARK: Getters
     
     lazy var imageView: NSImageView = {
         let imageView: NSImageView = NSImageView()
@@ -81,7 +81,7 @@ class BlogSelectorCellView: NSView {
         return view
     } ()
     
-    // Constraints
+    // MARK: Constraints
     
     private func setUpConstraints(views: Dictionary<String, AnyObject>) {
         self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[imageView(40)]", options: NSLayoutFormatOptions.DirectionMask, metrics: nil, views: views))

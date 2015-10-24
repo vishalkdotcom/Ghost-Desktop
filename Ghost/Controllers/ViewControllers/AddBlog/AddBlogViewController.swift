@@ -9,6 +9,8 @@
 import Cocoa
 
 class AddBlogViewController: NSViewController {
+    
+    // MARK: Override
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +24,7 @@ class AddBlogViewController: NSViewController {
         self.setUpConstraints(views)
     }
     
-    // Getters
+    // MARK: Getters
     
     private lazy var logoImageView: NSImageView = {
         let imageView: NSImageView = NSImageView()
@@ -51,7 +53,7 @@ class AddBlogViewController: NSViewController {
         return button
     } ()
     
-    // Actions
+    // MARK: Actions
     
     func addBlog(sender: AnyObject?) {
         let originalUrl: NSURL = NSURL(string: self.blogUrlTextField.stringValue)!
@@ -115,7 +117,7 @@ class AddBlogViewController: NSViewController {
         })
     }
     
-    // Constraints
+    // MARK: Constraints
     
     private func setUpConstraints(views: Dictionary<String, AnyObject>) {
         self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:[logoImageView]", options: NSLayoutFormatOptions.DirectionMask, metrics: nil, views: views))

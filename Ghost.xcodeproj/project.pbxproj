@@ -8,21 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		4C906731A3823603161C3A9C /* libPods-Ghost.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A270C37DB1CF54B22CD8007 /* libPods-Ghost.a */; };
-		C51FAF7D1BACD18A00AD9F54 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C51FAF7B1BACD18A00AD9F54 /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
-		C522C9DA1BBF47C600527818 /* BlogWrapperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C522C9D91BBF47C600527818 /* BlogWrapperViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		C51FAF7D1BACD18A00AD9F54 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C51FAF7B1BACD18A00AD9F54 /* Main.storyboard */; };
+		C522C9DA1BBF47C600527818 /* BlogWrapperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C522C9D91BBF47C600527818 /* BlogWrapperViewController.swift */; };
 		C57C1D2E1BAEBA3800E1D114 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C57C1D2D1BAEBA3800E1D114 /* WebKit.framework */; };
 		C5DF00601BACC1CD00B9653A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DF005F1BACC1CD00B9653A /* AppDelegate.swift */; };
 		C5DF00641BACC1CD00B9653A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5DF00631BACC1CD00B9653A /* Assets.xcassets */; };
-		C5DF007B1BACC42200B9653A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DF007A1BACC42200B9653A /* Utils.swift */; settings = {ASSET_TAGS = (); }; };
-		C5DF007D1BACC42900B9653A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DF007C1BACC42900B9653A /* Constants.swift */; settings = {ASSET_TAGS = (); }; };
-		C5DF007F1BACC44A00B9653A /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DF007E1BACC44A00B9653A /* MainWindowController.swift */; settings = {ASSET_TAGS = (); }; };
-		C5DF00821BACC45D00B9653A /* AddBlogWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DF00801BACC45D00B9653A /* AddBlogWindowController.swift */; settings = {ASSET_TAGS = (); }; };
-		C5DF00851BACC47600B9653A /* BlogSelectorViewContorller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DF00841BACC47600B9653A /* BlogSelectorViewContorller.swift */; settings = {ASSET_TAGS = (); }; };
-		C5DF00871BACC48400B9653A /* BlogWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DF00861BACC48400B9653A /* BlogWebViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		C5DF00891BACC48D00B9653A /* AddBlogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DF00881BACC48D00B9653A /* AddBlogViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		C5DF008B1BACC4AC00B9653A /* BlogSelectorCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DF008A1BACC4AC00B9653A /* BlogSelectorCellView.swift */; settings = {ASSET_TAGS = (); }; };
-		C5DF008D1BACC4B500B9653A /* BlogSelectorRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DF008C1BACC4B500B9653A /* BlogSelectorRowView.swift */; settings = {ASSET_TAGS = (); }; };
-		C5DF008F1BACC4D000B9653A /* BlogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DF008E1BACC4D000B9653A /* BlogViewModel.swift */; settings = {ASSET_TAGS = (); }; };
+		C5DF007B1BACC42200B9653A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DF007A1BACC42200B9653A /* Utils.swift */; };
+		C5DF007D1BACC42900B9653A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DF007C1BACC42900B9653A /* Constants.swift */; };
+		C5DF007F1BACC44A00B9653A /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DF007E1BACC44A00B9653A /* MainWindowController.swift */; };
+		C5DF00821BACC45D00B9653A /* AddBlogWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DF00801BACC45D00B9653A /* AddBlogWindowController.swift */; };
+		C5DF00851BACC47600B9653A /* BlogSelectorViewContorller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DF00841BACC47600B9653A /* BlogSelectorViewContorller.swift */; };
+		C5DF00871BACC48400B9653A /* BlogWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DF00861BACC48400B9653A /* BlogWebViewController.swift */; };
+		C5DF00891BACC48D00B9653A /* AddBlogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DF00881BACC48D00B9653A /* AddBlogViewController.swift */; };
+		C5DF008B1BACC4AC00B9653A /* BlogSelectorCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DF008A1BACC4AC00B9653A /* BlogSelectorCellView.swift */; };
+		C5DF008D1BACC4B500B9653A /* BlogSelectorRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DF008C1BACC4B500B9653A /* BlogSelectorRowView.swift */; };
+		C5DF008F1BACC4D000B9653A /* BlogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DF008E1BACC4D000B9653A /* BlogViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */

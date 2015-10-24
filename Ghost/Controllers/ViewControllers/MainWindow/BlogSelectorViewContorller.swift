@@ -13,6 +13,9 @@ class BlogSelectorViewContorller: NSViewController, NSTableViewDataSource, NSTab
     internal var blogs: Array<AnyObject> = []
     internal var selectedRow: Int = 0
     
+    
+    // MARK: Override
+    
     override func loadView() {
         self.view = NSView()
         self.view.translatesAutoresizingMaskIntoConstraints = false
@@ -38,7 +41,7 @@ class BlogSelectorViewContorller: NSViewController, NSTableViewDataSource, NSTab
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "didRemoveBlog:", name: DidRemoveBlogNotification, object: nil)
     }
     
-    // NSTableViewDataSource
+    // MARK: NSTableViewDataSource
     
     func numberOfRowsInTableView(tableView: NSTableView) -> Int {
         return self.blogs.count
@@ -58,7 +61,7 @@ class BlogSelectorViewContorller: NSViewController, NSTableViewDataSource, NSTab
         return BlogSelectorRowView()
     }
     
-    // NSTableViewDelegate
+    // MARK: NSTableViewDelegate
     
     func tableView(tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
         return 75.0
@@ -76,7 +79,7 @@ class BlogSelectorViewContorller: NSViewController, NSTableViewDataSource, NSTab
         NSNotificationCenter.defaultCenter().postNotificationName(BlogSelectionDidChangeNotification, object: self.blogs[self.selectedRow])
     }
     
-    // Actions
+    // MARK: Actions
     
     internal func didAddBlog(notification: NSNotification) {
         self.fetchBlogs()
@@ -92,13 +95,13 @@ class BlogSelectorViewContorller: NSViewController, NSTableViewDataSource, NSTab
         Utils.appDelegate().addBlogWindowController.showWindow(nil)
     }
     
-    // Public
+    // MARK: Public
     
     func selectedBlog() -> BlogViewModel {
         return BlogViewModel(blogInfo: self.blogs[0] as! Dictionary)
     }
     
-    // Getters
+    // MARK: Getters
     
     internal lazy var tableScrollView: NSScrollView = {
         let scrollView: NSScrollView = NSScrollView()

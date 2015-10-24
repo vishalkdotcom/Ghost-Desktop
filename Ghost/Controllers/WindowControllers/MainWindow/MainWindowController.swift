@@ -10,7 +10,7 @@ import Cocoa
 
 class MainWindowController: NSWindowController {
     
-    // Override
+    // MARK: Override
     
     override func windowDidLoad() {
         super.windowDidLoad()
