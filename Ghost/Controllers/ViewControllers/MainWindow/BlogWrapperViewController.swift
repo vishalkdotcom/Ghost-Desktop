@@ -34,10 +34,9 @@ class BlogWrapperViewController: NSViewController {
         
         // UI
         self.view.addSubview(self.blogSelectorViewController.view)
-        self.view.addSubview(self.separator)
         self.view.addSubview(self.webViewsContainer)
         
-        let views: Dictionary = ["blogSelectorView": self.blogSelectorViewController.view, "separator": self.separator, "webViewsContainer": self.webViewsContainer]
+        let views: Dictionary = ["blogSelectorView": self.blogSelectorViewController.view, "webViewsContainer": self.webViewsContainer]
         
         self.setUpConstraints(views)
     }
@@ -80,14 +79,6 @@ class BlogWrapperViewController: NSViewController {
 
     // Getters
     
-    lazy var separator: NSView = {
-        let view: NSView = NSView()
-        view.wantsLayer = true
-        view.layer?.backgroundColor = NSColor.lightGrayColor().CGColor
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    } ()
-    
     lazy var webViewsContainer: NSView = {
         let view: NSView = NSView()
         view.wantsLayer = true
@@ -104,9 +95,8 @@ class BlogWrapperViewController: NSViewController {
     // Constraints
     
     internal func setUpConstraints(views: Dictionary<String, AnyObject>) {
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[blogSelectorView(75)][separator(0.5)][webViewsContainer]|", options: NSLayoutFormatOptions.DirectionMask, metrics: nil, views: views))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[blogSelectorView(75)][webViewsContainer]|", options: NSLayoutFormatOptions.DirectionMask, metrics: nil, views: views))
         self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[blogSelectorView]|", options: NSLayoutFormatOptions.DirectionMask, metrics: nil, views: views))
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[separator]|", options: NSLayoutFormatOptions.DirectionMask, metrics: nil, views: views))
         self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[webViewsContainer]|", options: NSLayoutFormatOptions.DirectionMask, metrics: nil, views: views))
     }
     

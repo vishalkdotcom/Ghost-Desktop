@@ -43,18 +43,28 @@ class BlogWebViewController: NSViewController, WebUIDelegate {
     
     // MARK: WebUIDelegate
     func webView(sender: WebView!, runOpenPanelForFileButtonWithResultListener resultListener: WebOpenPanelResultListener!) {
-        let openDlg: NSOpenPanel = NSOpenPanel()
-        openDlg.canChooseFiles = true
-        openDlg.canChooseDirectories = false
+        let openPanel: NSOpenPanel = NSOpenPanel()
+        openPanel.canChooseFiles = true
+        openPanel.canChooseDirectories = false
+        openPanel.allowsMultipleSelection = false
         
-        if (openDlg.runModal() == NSModalResponseOK) {
-            let files: Array = openDlg.URLs
-            resultListener.chooseFilenames(files)
+        if (openPanel.runModal() == NSModalResponseOK) {
+            let urls: Array = openPanel.URLs
+            var files: Array<String> = []
+            
+            for url: NSURL in urls {
+                files.append(url.relativePath!)
+            }
+            
+            for var i = 0; i < files.count; i++ {
+                let fileName: String = files[i]
+                resultListener.chooseFilename(fileName)
+            }
         }
     }
-    
+
     // MARK: Getters
-    
+
     lazy var webView: WebView = {
         let webView: WebView = WebView()
         webView.UIDelegate = self
