@@ -17,7 +17,11 @@ class BlogSelectorViewContorller: NSViewController, NSTableViewDataSource, NSTab
     // MARK: Override
     
     override func loadView() {
-        self.view = NSView()
+        let visualEffectView: NSVisualEffectView = NSVisualEffectView()
+        visualEffectView.blendingMode = NSVisualEffectBlendingMode.BehindWindow
+        visualEffectView.appearance = NSAppearance(named: NSAppearanceNameVibrantDark)
+        
+        self.view = visualEffectView
         self.view.translatesAutoresizingMaskIntoConstraints = false
     }
     

@@ -38,11 +38,13 @@ class BlogSelectorCellView: NSView {
     func selectCell() {
         self.textField.font = NSFont.boldSystemFontOfSize(12)
         self.selectView.layer?.backgroundColor = NSColor.grayColor().CGColor
+        self.imageView.layer?.borderWidth = 1.5
     }
     
     func unselectCell() {
         self.textField.font = NSFont.systemFontOfSize(12)
         self.selectView.layer?.backgroundColor = NSColor.clearColor().CGColor
+        self.imageView.layer?.borderWidth = 0.0
     }
 
     // MARK: Getters
@@ -52,6 +54,7 @@ class BlogSelectorCellView: NSView {
         imageView.imageAlignment = NSImageAlignment.AlignCenter
         imageView.wantsLayer = true
         imageView.layer?.borderWidth = 0.0
+        imageView.layer?.borderColor = NSColor.whiteColor().CGColor
         imageView.layer?.cornerRadius = 40 / 2
         imageView.layer?.masksToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -89,6 +92,8 @@ class BlogSelectorCellView: NSView {
         self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-2-[selectView(3)]", options: NSLayoutFormatOptions.DirectionMask, metrics: nil, views: views))
         self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-5-[imageView(40)]-5-[textField]-5-|", options: NSLayoutFormatOptions.DirectionMask, metrics: nil, views: views))
         self.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-5-[selectView(40)]", options: NSLayoutFormatOptions.DirectionMask, metrics: nil, views: views))
+        
+        self.addConstraint(NSLayoutConstraint(item: self.imageView, attribute: NSLayoutAttribute.CenterX, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.CenterX, multiplier: 1.0, constant: 0.0))
     }
     
 }

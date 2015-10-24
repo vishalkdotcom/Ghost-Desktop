@@ -14,7 +14,7 @@ class BlogViewModel: NSObject, NSCoding {
     
     let blogInfo: Dictionary<String, AnyObject>
     
-    // Init
+    // MARK: Init
     
     init(blogInfo: Dictionary<String, AnyObject>) {
         self.blogInfo = blogInfo
@@ -28,7 +28,7 @@ class BlogViewModel: NSObject, NSCoding {
         aCoder.encodeObject(self.blogInfo, forKey: BlogViewBlogInfoKey)
     }
     
-    // Public
+    // MARK: Public
     
     func name() -> String {
         return self.blogInfo[UserDefaultsBlogNameKey] as! String
