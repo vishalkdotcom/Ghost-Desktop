@@ -15,6 +15,8 @@ export default Component.extend({
     isMinimized: Ember.computed.alias('preferences.isQuickSwitcherMinimized'),
     isMac: !!(process.platform === 'darwin'),
     isVibrant: getIsYosemiteOrHigher(),
+    sortedBlogs: Ember.computed.sort('blogs', 'sortDefinition'),
+    sortDefinition: ['index'],
 
     didRender() {
         this._super(...arguments);
@@ -32,7 +34,7 @@ export default Component.extend({
         let blogMenuItems = [{type: 'separator'}];
 
         // The first 9 blogs are added to the 'View' menu.
-        this.get('blogs')
+        this.get('sortedBlogs')
             .slice(0, 8)
             .map((blog, i) => {
                 blogMenuItems.push({
@@ -53,12 +55,12 @@ export default Component.extend({
      * interaction with the blog below is setup.
      */
     _setupContextMenu() {
-        let {remote} = requireNode('electron');
-        let {Menu} = remote;
-        let self = this;
+        const {remote} = requireNode('electron');
+        const {Menu} = remote;
+        const self = this;
         let selectedBlog = null;
 
-        let editMenu = Menu.buildFromTemplate([
+        const editMenu = Menu.buildFromTemplate([
             {
                 label: 'Edit Blog',
                 click() {
@@ -203,6 +205,21 @@ export default Component.extend({
          */
         toggle() {
             this.toggleProperty('isMinimized');
+        },
+
+        /**
+         * Called by ember-sortable when the order of elements
+         * changes
+         */
+        reorderItems(reorderedBogs) {
+            reorderedBogs.forEach((blog, i) => {
+                blog.set('index', i);
+                console.log(blog, i);
+            });
+
+            this._setupContextMenu();
+            this._setupQuickSwitch();
+            this._setupMenuItem();
         }
     }
 });
