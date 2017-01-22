@@ -8,6 +8,9 @@ const {Model, attr, hasMany} = DS;
 /*eslint-enable no-unused-vars*/
 
 export default DS.Model.extend({
+    index: attr('number', {
+        defaultValue: 0
+    }),
     name: attr('string'),
     url: attr('string'),
     identification: attr('string'),

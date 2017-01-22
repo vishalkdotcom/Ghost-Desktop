@@ -91,3 +91,16 @@
     opacity: 0.7;
     box-shadow: none;
 }
+
+.sortable-item {
+  transition: all .125s;
+}
+
+.sortable-item.is-dragging {
+  transition-duration: 0s;
+  z-index: 10;
+}
+
+.sortable-item.is-dropping {
+  z-index: 10;
+}
