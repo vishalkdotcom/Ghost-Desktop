@@ -96,13 +96,12 @@ export default Component.extend({
      * On all: Window Menu
      */
     createMenus() {
-        const he = requireNode('he');
         const blogs = this.get('blogs');
         let menu = [];
 
         blogs.forEach((blog) => {
             menu.push({
-                name: he.decode(blog.get('name')),
+                name: blog.get('name'),
                 callback: () => this.send('switchToBlog', blog)
             });
         });
