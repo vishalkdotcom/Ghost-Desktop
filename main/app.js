@@ -23,9 +23,8 @@ function setupListeners(window) {
     // app impossible to use without restarting. These events should be prevented.
     window.webContents.on('will-navigate', (event) => event.preventDefault());
 
-    if (process.platform === 'darwin') {
-        app.on('window-all-closed', () => app.quit())
-    }
+    // Once the last window is closed, we'll exit
+    app.on('window-all-closed', () => app.quit());
 
     // Close stuff a bit harder than usual
     app.on('before-quit', () => {
