@@ -1,5 +1,6 @@
 const {ipcMain, BrowserWindow} = require('electron');
 const {state} = require('./state-manager');
+const {reloadMainWindow} = require('./app');
 const debug = require('debug-electron')('ghost-desktop:main:ipc');
 
 ipcMain.on('blog-data', (event, data) => {
@@ -34,4 +35,10 @@ ipcMain.on('shutdown-requested', (event) => {
             if (win && !win.isDestroyed()) win.destroy();
         }, 300);
     }
+});
+
+ipcMain.on('soft-restart-requested', () => {
+    debug(`Soft restart requested, closing main window and creating a new one`)
+
+    reloadMainWindow();
 });

@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import ENV from 'ghost-desktop/config/environment';
 
 /**
  * Functions
@@ -12,8 +13,11 @@ import Ember from 'ember';
  * @param {Electron.BrowserWindow} focusedWindow - The currently focussed window
  */
 export function reload(item, focusedWindow) {
-    if (focusedWindow) {
+    if (focusedWindow && (process.platform !== 'darwin' || ENV.environment === 'test')) {
         focusedWindow.reload();
+    } else {
+        const {ipcRenderer} = require('electron');
+        ipcRenderer.send('soft-restart-requested', true)
     }
 };
 
@@ -147,9 +151,7 @@ export function setup() {
                      * @param focusedWindow (description)
                      */
                     click(item, focusedWindow) {
-                        if (focusedWindow) {
-                            focusedWindow.reload();
-                        }
+                        reload(item, focusedWindow);
                     }
                 },
                 {
