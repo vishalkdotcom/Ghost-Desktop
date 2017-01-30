@@ -11,4 +11,6 @@
         "**/vendor": true,
         "**/dist": true
     }
+,
+"vsicons.presets.angular": true
 }
