@@ -23,6 +23,7 @@
     "test": "npm run test:lint && npm run test:unit",
     "test:unit": "ember electron:test",
     "test:lint": "grunt trimtrailingspaces && eslint './main/**/*.js' './app/**/*.js'",
+    "install": "npm run rebuild",
     "rebuild": "electron-rebuild",
     "rebuild:32": "electron-rebuild -a ia32",
     "rebuild:64": "electron-rebuild -a x64",
