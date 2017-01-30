@@ -28,7 +28,7 @@ function setupListeners(window) {
 
     // Close stuff a bit harder than usual
     app.on('before-quit', () => {
-        if (window && !window.isDestroyed()) {
+        if (window && !window.isDestroyed() && window.isVisible()) {
             window.removeAllListeners();
             window.close();
 
