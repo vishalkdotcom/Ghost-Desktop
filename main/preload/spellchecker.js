@@ -36,7 +36,7 @@ let selection;
  * @returns {Menu} - The built menu
  */
 function buildMenu() {
-    let buildTemplate = template.slice();
+    const buildTemplate = template.slice();
     buildTemplate.unshift({type: 'separator'});
 
     if (selection && selection.spellingSuggestions && selection.spellingSuggestions.length > 0) {
@@ -76,7 +76,7 @@ function handleContextMenu(e) {
 
     while (node) {
         if (node.nodeName.match(/^(input|textarea)$/i) || node.isContentEditable) {
-            let editorMenu = buildMenu();
+            const editorMenu = buildMenu();
             editorMenu.popup(remote.getCurrentWindow());
             break;
         }
@@ -100,14 +100,14 @@ function resetSelection() {
  */
 function setupSpellChecker(data) {
     // We expect the language in data
-    let language = data || remote.require('app').getLocale() || 'en-US';
+    const language = data || remote.require('app').getLocale() || 'en-US';
 
     spellchecker.setDictionary(data);
     console.log(`Spellchecking setup with locale ${language}`);
 
     webFrame.setSpellCheckProvider(language, false, {
         spellCheck(text) {
-            let textIsMisspelled = spellchecker.isMisspelled(text);
+            const textIsMisspelled = spellchecker.isMisspelled(text);
 
             if (textIsMisspelled && window.getSelection().toString()) {
                 // Prime the context menu with spelling suggestions _if_ the user has selected text. Electron

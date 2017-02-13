@@ -7,10 +7,10 @@ const he = require('he');
  * @param {string} [title='Ghost'] - New title
  */
 export default function setWindowTitle(title = 'Ghost') {
-    let {remote} = requireNode('electron');
-    let {BrowserWindow} = remote;
-    let currentWindow = BrowserWindow.getFocusedWindow() || BrowserWindow.getAllWindows()[0];
-    let decodedTitle = he.decode(title);
+    const {remote} = requireNode('electron');
+    const {BrowserWindow} = remote;
+    const currentWindow = BrowserWindow.getFocusedWindow() || BrowserWindow.getAllWindows()[0];
+    const decodedTitle = he.decode(title);
 
     // We should always have only one Window
     if (currentWindow) {

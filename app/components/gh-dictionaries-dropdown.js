@@ -6,7 +6,7 @@ export default Ember.Component.extend({
 
     availableDictionaries: Ember.computed({
         get() {
-            let checker = requireNode('spellchecker');
+            const checker = requireNode('spellchecker');
             let dicts = [];
 
             if (checker) {
@@ -24,9 +24,9 @@ export default Ember.Component.extend({
 
     selectedDictionary: Ember.computed({
         get() {
-            let key = this.get('preferences.spellcheckLanguage');
-            let available = this.get('availableDictionaries');
-            let language = available.findBy('key', key);
+            const key = this.get('preferences.spellcheckLanguage');
+            const available = this.get('availableDictionaries');
+            const language = available.findBy('key', key);
 
             return language;
         },

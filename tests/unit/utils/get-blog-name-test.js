@@ -4,7 +4,7 @@ import { module, test } from 'qunit';
 module('Unit | Utility | get blog name');
 
 test('it get\'s the name of a blog', function(assert) {
-    let path = requireNode('path');
+    const path = requireNode('path');
 
     return getBlogName(path.join('..', '..', 'tests', 'fixtures', 'static-signin', 'signin.html'))
         .then((title) => {

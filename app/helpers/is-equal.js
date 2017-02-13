@@ -3,7 +3,7 @@ import Ember from 'ember';
 const {Helper} = Ember;
 
 export function isEqual(params) {
-    let [lhs, rhs] = params;
+    const [lhs, rhs] = params;
 
     return lhs === rhs;
 }

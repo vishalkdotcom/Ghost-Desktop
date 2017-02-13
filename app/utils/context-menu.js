@@ -6,9 +6,9 @@
  * @param e - MouseEvent
  */
 function handleContextMenu(e) {
-    let {remote} = requireNode('electron');
-    let {BrowserWindow, Menu} = remote;
-    let template = [{
+    const {remote} = requireNode('electron');
+    const {BrowserWindow, Menu} = remote;
+    const template = [{
             label: 'Undo',
             role: 'undo'
         }, {
@@ -37,7 +37,7 @@ function handleContextMenu(e) {
     e.stopPropagation();
 
     let node = e.target;
-    let editorMenu = Menu.buildFromTemplate(template);
+    const editorMenu = Menu.buildFromTemplate(template);
 
     while (node) {
         if (node.nodeName.match(/^(input|textarea)$/i) || node.isContentEditable) {

@@ -39,8 +39,8 @@ export default Ember.Service.extend(Ember.Evented, {
      */
     appVersion: Ember.computed({
         get() {
-            let {remote} = requireNode('electron');
-            let appVersion = remote.app.getVersion();
+            const {remote} = requireNode('electron');
+            const appVersion = remote.app.getVersion();
 
             return appVersion;
         }
@@ -51,7 +51,7 @@ export default Ember.Service.extend(Ember.Evented, {
      */
     updateFeedUrl: Ember.computed({
         get() {
-            let os = requireNode('os').platform();
+            const os = requireNode('os').platform();
             let updateFeed = (os === 'darwin') ?
                 `http://desktop-updates.ghost.org/update/osx/${this.get('appVersion')}` :
                 `http://desktop-updates.ghost.org/update/win32/${this.get('appVersion')}`;
@@ -100,7 +100,7 @@ export default Ember.Service.extend(Ember.Evented, {
      */
     isOnline() {
         return new Promise((resolve) => {
-            let isReachable = requireNode('is-reachable');
+            const isReachable = requireNode('is-reachable');
 
             isReachable(this.get('updateFeedUrl'), (err, reachable) => {
                 resolve(reachable);
@@ -112,7 +112,7 @@ export default Ember.Service.extend(Ember.Evented, {
      * Updates the app, if an update is available
      */
     update() {
-        let autoUpdater = this.get('autoUpdater');
+        const autoUpdater = this.get('autoUpdater');
 
         if (autoUpdater && this.get('isUpdateDownloaded')) {
             autoUpdater.quitAndInstall();
@@ -123,8 +123,8 @@ export default Ember.Service.extend(Ember.Evented, {
      * Creates the autoUpdater, using Electorn's built-in auto-update module.
      */
     _setup() {
-        let {remote} = requireNode('electron');
-        let {autoUpdater} = remote;
+        const {remote} = requireNode('electron');
+        const {autoUpdater} = remote;
 
         // If we're not running signed code, requiring auto updater will fail
         if (this.get('environment') !== 'production') {

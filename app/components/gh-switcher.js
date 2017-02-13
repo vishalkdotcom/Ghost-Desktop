@@ -31,7 +31,7 @@ export default Component.extend({
      * the preferences pane.
      */
     _setupQuickSwitch() {
-        let blogMenuItems = [{type: 'separator'}];
+        const blogMenuItems = [{type: 'separator'}];
 
         // The first 9 blogs are added to the 'View' menu.
         this.get('sortedBlogs')

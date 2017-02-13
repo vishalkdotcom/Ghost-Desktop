@@ -18,9 +18,9 @@ export default Component.extend({
      */
     hasError: Ember.computed('isIdentificationInvalid', 'isUrlInvalid', 'isPasswordInvalid', {
         get() {
-            let identification = this.get('isIdentificationInvalid');
-            let url = this.get('isUrlInvalid');
-            let password = this.get('isPasswordInvalid');
+            const identification = this.get('isIdentificationInvalid');
+            const url = this.get('isUrlInvalid');
+            const password = this.get('isPasswordInvalid');
             return (identification || url || password);
         }
     }),
@@ -157,14 +157,14 @@ export default Component.extend({
             Ember.run.begin();
             this.set('isSubmitting', true);
 
-            let url = sanitizeUrl(this.get('url'));
-            let identification = this.get('identification');
-            let basicUsername = this.get('basicUsername');
-            let basicPassword = this.get('basicPassword');
-            let isUrlGhost = await this._validateUrlIsGhost(url, {basicUsername, basicPassword});
+            const url = sanitizeUrl(this.get('url'));
+            const identification = this.get('identification');
+            const basicUsername = this.get('basicUsername');
+            const basicPassword = this.get('basicPassword');
+            const isUrlGhost = await this._validateUrlIsGhost(url, {basicUsername, basicPassword});
 
             if (isUrlGhost) {
-                let name = await getBlogName(url);
+                const name = await getBlogName(url);
 
                 this._createBlogIfNotExists(url, name, identification, basicUsername, basicPassword)
                     .then((record) => this.sendAction('blogAdded', record));
@@ -178,8 +178,8 @@ export default Component.extend({
          * Validates the identification entered by the user. It should be an email.
          */
         validateIdentification(input) {
-            let identificationPattern = /[^@]+@[^@]+\.[^@]+/gi;
-            let invalid = !identificationPattern.test(input);
+            const identificationPattern = /[^@]+@[^@]+\.[^@]+/gi;
+            const invalid = !identificationPattern.test(input);
 
             this.set('identificationError', invalid ? Phrases.identificationInvalid : null);
             this.set('isIdentificationInvalid', invalid);
@@ -189,7 +189,7 @@ export default Component.extend({
          * Validates the url given by the user. It should be a properly formatted url.
          */
         validateUrl(input) {
-            let invalid = !isValidUrl(sanitizeUrl(input));
+            const invalid = !isValidUrl(sanitizeUrl(input));
 
             this.set('isUrlInvalid', invalid);
             this.set('urlError', invalid ? Phrases.urlInvalid : undefined);

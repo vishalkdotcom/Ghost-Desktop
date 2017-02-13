@@ -6,17 +6,17 @@ moduleFor('service:auto-update', 'Unit | Service | auto update', {
 });
 
 test('it exists', function(assert) {
-    let service = this.subject();
+    const service = this.subject();
     assert.ok(service);
 });
 
 test('reports the correct environment', function(assert) {
-    let service = this.subject();
+    const service = this.subject();
     assert.ok(service.get('environment'));
 });
 
 test('reports the correct application version', function(assert) {
-    let oldRequire = window.requireNode;
+    const oldRequire = window.requireNode;
 
     window.requireNode = function(target) {
         if (target === 'electron') {
@@ -34,15 +34,15 @@ test('reports the correct application version', function(assert) {
         }
     }
 
-    let service = this.subject();
+    const service = this.subject();
     assert.equal(service.get('appVersion'), '1.0.0-beta');
 
     window.requireNode = oldRequire;
 });
 
 test('calls setup during online checkForUpdates', function(assert) {
-    let oldRequire = window.requireNode;
-    let service = this.subject();
+    const oldRequire = window.requireNode;
+    const service = this.subject();
 
     service.isOnline = function () {
         return Promise.resolve(true);
@@ -59,20 +59,20 @@ test('calls setup during online checkForUpdates', function(assert) {
 test('can call checkForUpdates from the wrong environment', function(assert) {
     assert.expect(0);
 
-    let service = this.subject();
+    const service = this.subject();
     service.checkForUpdates();
 });
 
 test('can call setup from the wrong environment', function(assert) {
     assert.expect(0);
 
-    let service = this.subject();
+    const service = this.subject();
     service._setup();
 });
 
 test('calls Electron\'s autoUpdater for update checking', function(assert) {
-    let oldRequire = window.requireNode;
-    let service = this.subject();
+    const oldRequire = window.requireNode;
+    const service = this.subject();
 
     service.isOnline = function () {
         return new Promise((resolve) => {
@@ -94,7 +94,7 @@ test('calls Electron\'s autoUpdater for update checking', function(assert) {
 });
 
 test('update does attempt to update if one is downloaded', function(assert) {
-    let service = this.subject();
+    const service = this.subject();
     service.set('isUpdateDownloaded', true);
     service.set('autoUpdater', {
         quitAndInstall() {
@@ -108,7 +108,7 @@ test('update does attempt to update if one is downloaded', function(assert) {
 test('update does not attempt to update if none is downloaded', function(assert) {
     assert.expect(0);
 
-    let service = this.subject();
+    const service = this.subject();
     service.set('isUpdateDownloaded', false);
     service.set('autoUpdater', {
         quitAndInstall() {
@@ -120,7 +120,7 @@ test('update does not attempt to update if none is downloaded', function(assert)
 });
 
 test('_setup sets the feed url', function(assert) {
-    let oldRequire = window.requireNode;
+    const oldRequire = window.requireNode;
 
     window.requireNode = function(target) {
         if (target === 'electron') {
@@ -140,7 +140,7 @@ test('_setup sets the feed url', function(assert) {
         }
     }
 
-    let service = this.subject();
+    const service = this.subject();
     service.set('appVersion', '1.0.0-beta');
     service.set('environment', 'production');
     service._setup();
@@ -150,7 +150,7 @@ test('_setup sets the feed url', function(assert) {
 
 test('_setup handles autoUpdater events', function(assert) {
     assert.expect(4);
-    let oldRequire = window.requireNode;
+    const oldRequire = window.requireNode;
 
     window.requireNode = function(target) {
         if (target === 'electron') {
@@ -184,7 +184,7 @@ test('_setup handles autoUpdater events', function(assert) {
         }
     }
 
-    let service = this.subject();
+    const service = this.subject();
     service.set('appVersion', '1.0.0-beta');
     service.set('environment', 'production');
     service._setup();
@@ -193,7 +193,7 @@ test('_setup handles autoUpdater events', function(assert) {
 });
 
 test('autoUpdater\'s update checks is reflected in isCheckingForUpdate', function(assert) {
-    let oldRequire = window.requireNode;
+    const oldRequire = window.requireNode;
 
     window.requireNode = function(target) {
         if (target === 'electron') {
@@ -215,7 +215,7 @@ test('autoUpdater\'s update checks is reflected in isCheckingForUpdate', functio
         }
     }
 
-    let service = this.subject();
+    const service = this.subject();
     service.set('appVersion', '1.0.0-beta');
     service.set('environment', 'production');
     service._setup();
@@ -226,7 +226,7 @@ test('autoUpdater\'s update checks is reflected in isCheckingForUpdate', functio
 });
 
 test('autoUpdater\'s update-available is reflected in isUpdateAvailable', function(assert) {
-    let oldRequire = window.requireNode;
+    const oldRequire = window.requireNode;
 
     window.requireNode = function(target) {
         if (target === 'electron') {
@@ -248,7 +248,7 @@ test('autoUpdater\'s update-available is reflected in isUpdateAvailable', functi
         }
     }
 
-    let service = this.subject();
+    const service = this.subject();
     service.set('appVersion', '1.0.0-beta');
     service.set('environment', 'production');
     service._setup();
@@ -259,7 +259,7 @@ test('autoUpdater\'s update-available is reflected in isUpdateAvailable', functi
 });
 
 test('autoUpdater\'s update-downloaded is reflected in isUpdateDownloaded', function(assert) {
-    let oldRequire = window.requireNode;
+    const oldRequire = window.requireNode;
 
     window.requireNode = function(target) {
         if (target === 'electron') {
@@ -281,7 +281,7 @@ test('autoUpdater\'s update-downloaded is reflected in isUpdateDownloaded', func
         }
     }
 
-    let service = this.subject();
+    const service = this.subject();
     service.set('appVersion', '1.0.0-beta');
     service.set('environment', 'production');
     service._setup();
@@ -292,7 +292,7 @@ test('autoUpdater\'s update-downloaded is reflected in isUpdateDownloaded', func
 });
 
 test('autoUpdater\'s update-not-available is reflected in isUpdateAvailable', function(assert) {
-    let oldRequire = window.requireNode;
+    const oldRequire = window.requireNode;
 
     window.requireNode = function(target) {
         if (target === 'electron') {
@@ -314,7 +314,7 @@ test('autoUpdater\'s update-not-available is reflected in isUpdateAvailable', fu
         }
     }
 
-    let service = this.subject();
+    const service = this.subject();
     service.set('appVersion', '1.0.0-beta');
     service.set('environment', 'production');
     service._setup();

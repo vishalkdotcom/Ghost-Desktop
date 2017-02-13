@@ -11,7 +11,7 @@ export default function getIsGhost(url, auth) {
             return reject('Tried to getIsGhost without providing url');
         }
 
-        let options = {url};
+        const options = {url};
 
         if (auth && (auth.basicUsername || auth.basicPassword)) {
             options.username = auth.basicUsername;

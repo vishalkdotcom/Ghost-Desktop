@@ -24,14 +24,14 @@ let encodingIsUtf   = false;
 let hasCallback     = false;
 let hasFilename     = false;
 
-let webviewShim = {
+const webviewShim = {
     insertCSS(css) {
         if (css && css === 'body { background-color: red;}') {
             insertCSScalled = true;
         }
     }
 }
-let fsShim = {
+const fsShim = {
     readFile(file, encoding, callback) {
         fsCalled = true;
 
@@ -50,7 +50,7 @@ let fsShim = {
         callback(null, 'body { background-color: red;}')
     }
 }
-let requireNodeShim = function (target) {
+const requireNodeShim = function (target) {
     if (target === 'fs') {
         return fsShim;
     } else {

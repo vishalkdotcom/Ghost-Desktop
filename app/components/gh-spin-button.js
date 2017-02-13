@@ -26,8 +26,8 @@ export default Component.extend({
     },
 
     toggleSpinner: observer('submitting', function () {
-        let submitting = this.get('submitting');
-        let timeout = this.get('showSpinnerTimeout');
+        const submitting = this.get('submitting');
+        const timeout = this.get('showSpinnerTimeout');
 
         if (submitting) {
             this.set('showSpinner', true);

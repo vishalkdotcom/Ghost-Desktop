@@ -6,7 +6,7 @@ module('Unit | Utility | context menu');
 test('binds to the "contextmenu" event', function(assert) {
     // Monkeypatch
     let addEventListenerCalled = false;
-    let oldAddEvent = window.addEventListener;
+    const oldAddEvent = window.addEventListener;
     window.addEventListener = function (e, cb) {
         if (e === 'contextmenu' && cb) {
             addEventListenerCalled = true;
@@ -22,13 +22,13 @@ test('binds to the "contextmenu" event', function(assert) {
 test('right click opens context menu', function(assert) {
     assert.expect(2);
 
-    let element = document.querySelector('input#qunit-filter-input');
-    let event = document.createEvent('MouseEvents');
-    let x = 10, y = 10;
+    const element = document.querySelector('input#qunit-filter-input');
+    const event = document.createEvent('MouseEvents');
+    const x = 10, y = 10;
 
-    let oldRequire = window.requireNode;
-    let mockRemote = { BrowserWindow: {}, Menu: {}, getCurrentWindow() { return true; } };
-    let menuSetup = false;
+    const oldRequire = window.requireNode;
+    const mockRemote = { BrowserWindow: {}, Menu: {}, getCurrentWindow() { return true; } };
+    const menuSetup = false;
 
     mockRemote.BrowserWindow = window.requireNode('electron').remote.BrowserWindow;
     mockRemote.Menu.buildFromTemplate = function (menu) {

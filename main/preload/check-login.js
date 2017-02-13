@@ -6,8 +6,8 @@
  * b) successful loaded
  */
 function checkStatus() {
-    let err    = document.querySelector('p.main-error');
-    let loaded = document.querySelector('a[title="New Post"]');
+    const err    = document.querySelector('p.main-error');
+    const loaded = document.querySelector('a[title="New Post"]');
 
     if (err && ((err.childElementCount && err.childElementCount > 0) || (err.textContent && err.textContent.length > 0))) {
         // Noooo, login errors!

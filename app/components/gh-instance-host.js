@@ -97,8 +97,8 @@ export default Component.extend({
      * Programmatically attempt to login
      */
     signin($webview = this._getWebView()) {
-        let username = this.get('blog.identification');
-        let password = this.get('blog').getPassword();
+        const username = this.get('blog.identification');
+        const password = this.get('blog').getPassword();
 
         // If we can't find username or password, bail out and let the
         // user deal with whatever happened
@@ -109,7 +109,7 @@ export default Component.extend({
             return this.show();
         }
 
-        let commands = [
+        const commands = [
             `$('input[name="identification"]').val('${escapeString(username)}');`,
             `$('input[name="identification"]').change();`,
             `$('input[name="password"]').val('${escapeString(password)}');`,
@@ -142,7 +142,7 @@ export default Component.extend({
      * HTMLElement to bloom into a beautiful webview (with all the methods we need)
      */
     _handleStartLoading() {
-        let $webview = this._getWebView();
+        const $webview = this._getWebView();
 
         this._insertCss();
         this._updateName();
@@ -154,7 +154,7 @@ export default Component.extend({
      * Handle's the 'did-finish-load' event on the webview hosting the Ghost blog
      */
     _handleLoaded() {
-        let $webview = this._getWebView();
+        const $webview = this._getWebView();
         let title = '';
 
         try {
@@ -194,10 +194,10 @@ export default Component.extend({
      * @param errorDescription {string}
      */
     _handleLoadFailure(e, errorCode, errorDescription = '') {
-        let $webview = this._getWebView();
-        let path = requireNode('path');
+        const $webview = this._getWebView();
+        const path = requireNode('path');
         let errorPage = path.join(__dirname, '..', 'main', 'load-error', 'error.html');
-        let validatedURL = e.originalEvent.validatedURL || '';
+        const validatedURL = e.originalEvent.validatedURL || '';
 
         // Don't try this at home
         if (validatedURL.includes('file://')) {
@@ -217,7 +217,7 @@ export default Component.extend({
         // TODO: Handle notification click
         /*eslint-disable no-unused-vars*/
         if (this.get('preferences.isNotificationsEnabled')) {
-            let errorNotify = new Notification('Ghost Desktop', {
+            const errorNotify = new Notification('Ghost Desktop', {
                 body: Phrases.noInternet
             });
         }
@@ -232,7 +232,7 @@ export default Component.extend({
         if (e && e.originalEvent && e.originalEvent.message.includes('login-error')) {
             /*eslint-disable no-unused-vars*/
             if (this.get('preferences.isNotificationsEnabled')) {
-                let errorNotify = new Notification(Phrases.loginFailed);
+                const errorNotify = new Notification(Phrases.loginFailed);
             }
             /*eslint-enable no-unused-vars*/
 
@@ -274,8 +274,8 @@ export default Component.extend({
      * @returns
      */
     _getWebView() {
-        let $webviews = this.$('webview');
-        let $webview = ($webviews && $webviews[0]) ? $webviews[0] : undefined;
+        const $webviews = this.$('webview');
+        const $webview = ($webviews && $webviews[0]) ? $webviews[0] : undefined;
 
         if (!$webview) {
             console.log(new Error('Could not find webview containing Ghost blog.'));

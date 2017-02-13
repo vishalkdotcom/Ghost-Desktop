@@ -97,7 +97,7 @@ export default Component.extend({
      */
     createMenus() {
         const blogs = this.get('blogs');
-        let menu = [];
+        const menu = [];
 
         blogs.forEach((blog) => {
             menu.push({

@@ -8,7 +8,7 @@ test('finds a webview if one is visible', function (assert) {
     $('<webview src="https://ghost.org/ width="300" height="300" id="gh-test-webview"></webview>')
         .appendTo('body');
 
-    let result = findVisibleWebview();
+    const result = findVisibleWebview();
     assert.ok(result);
 
     $('#gh-test-webview').remove();
@@ -20,7 +20,7 @@ test('returns undefined if none is visible', function (assert) {
         .appendTo('body')
         .hide();
 
-    let result = findVisibleWebview();
+    const result = findVisibleWebview();
     assert.notOk(result);
 
     $('#gh-test-webview').remove();
@@ -36,7 +36,7 @@ test('returns the visibile one if multiples exist', function (assert) {
         .appendTo('body');
     $('#gh-test-webview-1').hide();
 
-    let result = findVisibleWebview();
+    const result = findVisibleWebview();
     assert.ok(result);
     assert.equal(result.id, 'gh-test-webview-2');
 
@@ -45,7 +45,6 @@ test('returns the visibile one if multiples exist', function (assert) {
 });
 
 test('returns undefined if there is none', function (assert) {
-    let result = findVisibleWebview();
+    const result = findVisibleWebview();
     assert.notOk(result);
 });
-

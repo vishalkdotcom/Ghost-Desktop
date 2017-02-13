@@ -5,6 +5,6 @@ module('Unit | Helper | first letter');
 
 // Replace this with your real tests.
 test('it works', function(assert) {
-    let result = firstLetter('Testblog');
+    const result = firstLetter('Testblog');
     assert.equal(result, 'T');
 });

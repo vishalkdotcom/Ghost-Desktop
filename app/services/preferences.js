@@ -14,8 +14,8 @@ export default Ember.Service.extend(Ember.Evented, {
             return this.get('preferences.zoomFactor');
         },
         set(k, v) {
-            let frame = require('electron').webFrame;
-            let setting = (v >= 50 && v <= 300) ? v : 100;
+            const frame = require('electron').webFrame;
+            const setting = (v >= 50 && v <= 300) ? v : 100;
 
             frame.setZoomFactor(setting / 100);
             this.set('preferences.zoomFactor', setting);

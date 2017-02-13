@@ -240,7 +240,7 @@ export default Ember.Service.extend({
      * @returns template - Electron menu template.
      */
     _injectPreferencesCallback(template) {
-        let preferencesCallback = this.get('preferencesCallback');
+        const preferencesCallback = this.get('preferencesCallback');
 
         if (template && template.forEach && preferencesCallback) {
             template.forEach((menuItem) => {
