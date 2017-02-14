@@ -24,7 +24,7 @@ const store = Ember.Service.extend({
 
     findAll() {
         return new Promise((resolve, reject) => {
-            let blogContent = blogs;
+            const blogContent = blogs;
             blogContent.content = blogs;
             blogContent.find = blogs.find;
 
@@ -92,7 +92,7 @@ test('marks an incorrect url as invalid', function(assert) {
     this.$('input[name="url"]').change();
     this.$('input[name="identification"]').focus();
 
-    let errorDivs = this.$('div.error');
+    const errorDivs = this.$('div.error');
     assert.equal(errorDivs.length, 1);
 });
 
@@ -104,7 +104,7 @@ test('does not mark a correct url as invalid', function(assert) {
     this.$('input[name="url"]').change();
     this.$('input[name="identification"]').focus();
 
-    let errorDivs = this.$('div.error');
+    const errorDivs = this.$('div.error');
     assert.equal(errorDivs.length, 0);
 });
 
@@ -116,7 +116,7 @@ test('marks an incorrect identification as invalid', function(assert) {
     this.$('input[name="identification"]').change();
     this.$('input[name="url"]').focus();
 
-    let errorDivs = this.$('div.error');
+    const errorDivs = this.$('div.error');
     assert.equal(errorDivs.length, 1);
 });
 
@@ -128,7 +128,7 @@ test('does not mark a correct identification as invalid', function(assert) {
     this.$('input[name="identification"]').change();
     this.$('input[name="url"]').focus();
 
-    let errorDivs = this.$('div.error');
+    const errorDivs = this.$('div.error');
     assert.equal(errorDivs.length, 0);
 });
 
@@ -139,7 +139,7 @@ test('marks an incorrect password as invalid', function(assert) {
     this.$('input[name="password"]').change();
     this.$('input[name="url"]').focus();
 
-    let errorDivs = this.$('div.error');
+    const errorDivs = this.$('div.error');
     assert.equal(errorDivs.length, 1);
 });
 
@@ -151,7 +151,7 @@ test('does not mark a correct password as invalid', function(assert) {
     this.$('input[name="password"]').change();
     this.$('input[name="url"]').focus();
 
-    let errorDivs = this.$('div.error');
+    const errorDivs = this.$('div.error');
     assert.equal(errorDivs.length, 0);
 });
 
@@ -168,7 +168,7 @@ test('does not create a record for an unreachable url', function(assert) {
 
     Ember.run(() => this.$('button:submit').click());
     setTimeout(() => {
-        let errorDivs = this.$('div.error');
+        const errorDivs = this.$('div.error');
         assert.equal(errorDivs.length, 1);
         qAsync();
     }, 500);
@@ -189,7 +189,7 @@ test('does not create a record for a non-ghost url', function(assert) {
     Ember.run(() => this.$('button:submit').click());
 
     function checkForError() {
-        let errorDivs = this.$('div.error');
+        const errorDivs = this.$('div.error');
 
         if (timesCheckedForError > 80) {
             // 20 seconds passed, let's stop here
@@ -256,7 +256,7 @@ test('passed a blog, the url is set to the blog\'s url', function(assert) {
     this.set('_blog', blogs[0]);
     this.render(hbs`{{gh-edit-blog blog=_blog}}`);
 
-    let urlContent = this.$('input[name="url"]').val();
+    const urlContent = this.$('input[name="url"]').val();
     assert.notEqual(urlContent, '');
 });
 
@@ -264,7 +264,7 @@ test('passed a blog, the identification is set to the blog\'s identification', f
     this.set('_blog', blogs[0]);
     this.render(hbs`{{gh-edit-blog blog=_blog}}`);
 
-    let identificationContent = this.$('input[name="identification"]').val();
+    const identificationContent = this.$('input[name="identification"]').val();
     assert.notEqual(identificationContent, '');
 });
 
@@ -272,7 +272,7 @@ test('passed a blog, the password is set to the blog\'s password', function(asse
     this.set('_blog', blogs[0]);
     this.render(hbs`{{gh-edit-blog blog=_blog}}`);
 
-    let passwordContent = this.$('input[name="password"]').val();
+    const passwordContent = this.$('input[name="password"]').val();
     assert.notEqual(passwordContent, '');
 });
 
@@ -280,14 +280,14 @@ test('passed a blog, it checks values again', function(assert) {
     this.set('_blog', blogs[0]);
     this.render(hbs`{{gh-edit-blog blog=_blog}}`);
 
-    let errorDivs = this.$('div.error');
+    const errorDivs = this.$('div.error');
     assert.equal(errorDivs.length, 0);
 });
 
 test('passed a blog, it does not create a new record - even if everything changed', function(assert) {
     const qAsync = assert.async();
 
-    let blogProps = {
+    const blogProps = {
         name: blogs[0].get('name'),
         identification: blogs[0].get('identification')
     }

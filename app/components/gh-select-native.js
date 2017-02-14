@@ -22,15 +22,15 @@ export default Component.extend({
     actions: {
         change() {
             // jscs:disable requireArrayDestructuring
-            let selectEl = this.$('select')[0];
+            const selectEl = this.$('select')[0];
             // jscs:enable requireArrayDestructuring
-            let {selectedIndex} = selectEl;
+            const {selectedIndex} = selectEl;
 
             // decrement index by 1 if we have a prompt
-            let hasPrompt = !!this.get('prompt');
-            let contentIndex = hasPrompt ? selectedIndex - 1 : selectedIndex;
+            const hasPrompt = !!this.get('prompt');
+            const contentIndex = hasPrompt ? selectedIndex - 1 : selectedIndex;
 
-            let selection = this.get('content').objectAt(contentIndex);
+            const selection = this.get('content').objectAt(contentIndex);
 
             // set the local, shadowed selection to avoid leaking
             // changes to `selection` out via 2-way binding

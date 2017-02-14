@@ -5,6 +5,6 @@ module('Unit | Helper | is equal');
 
 // Replace this with your real tests.
 test('it works', function(assert) {
-    let result = isEqual([42, 42]);
+    const result = isEqual([42, 42]);
     assert.equal(result, true);
 });

@@ -12,7 +12,7 @@
 function setupLinkExternalizer() {
     function externalize(event) {
         if (event.animationName === 'linkInserted') {
-            let t = event.target;
+            const t = event.target;
 
             if (t.href && t.href.indexOf(location.hostname) === -1) {
                 t.setAttribute('target', '_blank');

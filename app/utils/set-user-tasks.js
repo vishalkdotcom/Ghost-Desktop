@@ -11,9 +11,9 @@
  * @param items - Items to add
  */
 export default function setUserTasks(items) {
-    let {remote} = requireNode('electron');
-    let {app} = remote;
-    let tasks = [];
+    const {remote} = requireNode('electron');
+    const {app} = remote;
+    const tasks = [];
 
     if (!items || !items.length) {
         return;

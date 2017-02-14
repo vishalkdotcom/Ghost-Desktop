@@ -50,7 +50,7 @@ export default DS.Model.extend({
      * Convenience method, generates a nice icon color for this blog.
      */
     randomIconColor(excluding = null) {
-        let newColor = getIconColor(excluding);
+        const newColor = getIconColor(excluding);
 
         if (newColor === this.get('iconColor')) {
             return this.randomIconColor(excluding);
@@ -65,7 +65,7 @@ export default DS.Model.extend({
      * @param {string} value - Password to set
      */
     setPassword(value) {
-        let keytar = requireKeytar();
+        const keytar = requireKeytar();
         return (keytar ? keytar.replacePassword(this.get('url'), this.get('identification'), value) : false);
     },
 
@@ -79,7 +79,7 @@ export default DS.Model.extend({
             return null;
         }
 
-        let keytar = requireKeytar();
+        const keytar = requireKeytar();
         return (keytar ? keytar.getPassword(this.get('url'), this.get('identification')) : null);
     },
 
@@ -88,7 +88,7 @@ export default DS.Model.extend({
      * and extracting the name
      */
     updateName() {
-        let url = this.get('url');
+        const url = this.get('url');
 
         if (url) {
             return getBlogName(url)
@@ -106,7 +106,7 @@ export default DS.Model.extend({
     deleteRecord() {
         this._super();
 
-        let keytar = requireKeytar();
+        const keytar = requireKeytar();
         return (keytar ? keytar.deletePassword(this.get('url'), this.get('identification')) : null);
     },
 

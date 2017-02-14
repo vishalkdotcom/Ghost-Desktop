@@ -9,7 +9,7 @@ moduleForComponent('gh-select-native', 'Unit | Component | gh select native', {
 
 test('it renders', function(assert) {
     // creates the component instance
-    let component = this.subject();
+    const component = this.subject();
 
     assert.equal(component._state, 'preRender');
 

@@ -1,7 +1,7 @@
 'use strict';
 
 function getBetterUpgradeMessage(foundVersion) {
-    let version = (foundVersion && foundVersion[1]) ? `(${foundVersion[1]}) ` : '';
+    const version = (foundVersion && foundVersion[1]) ? `(${foundVersion[1]}) ` : '';
     return `A new version of Ghost Core ${version}is available! Hot Damn. \
 <a href="http://support.ghost.org/how-to-upgrade/" target="_blank">Click here</a> \
 to learn more on upgrading Ghost Core.`;
@@ -15,7 +15,7 @@ function upgradeNotification(attempts = 100) {
     const elements = document.querySelectorAll('aside.gh-alerts .gh-alert-content');
 
     elements.forEach((element) => {
-        let foundVersion = /Ghost (\d\.\d\.\d) is available/g.exec(element.innerText);
+        const foundVersion = /Ghost (\d\.\d\.\d) is available/g.exec(element.innerText);
         element.innerHTML = getBetterUpgradeMessage(foundVersion);
     });
 

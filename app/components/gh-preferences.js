@@ -26,8 +26,8 @@ export default Ember.Component.extend({
          * Delete all settings and restart the app
          */
         deleteData() {
-            let {remote} = requireNode('electron');
-            let {dialog} = remote;
+            const {remote} = requireNode('electron');
+            const {dialog} = remote;
 
             dialog.showMessageBox({
                 type: 'warning',

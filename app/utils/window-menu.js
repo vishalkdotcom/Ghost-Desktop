@@ -56,8 +56,8 @@ export function toggleDevTools(item, focusedWindow) {
  */
 export function toggleGhostDevTools(item, focusedWindow) {
     if (focusedWindow) {
-        let host = Ember.$('div.instance-host.selected');
-        let webviews = host ? Ember.$(host).find('webview') : null;
+        const host = Ember.$('div.instance-host.selected');
+        const webviews = host ? Ember.$(host).find('webview') : null;
 
         if (!webviews || !webviews[0]) {
             return;
@@ -96,10 +96,10 @@ export function openRepository() {
  * @returns {Electron.Menu} - Built Menu
  */
 export function setup() {
-    let {remote, ipcRenderer} = requireNode('electron');
-    let browserWindow = remote.getCurrentWindow();
+    const {remote, ipcRenderer} = requireNode('electron');
+    const browserWindow = remote.getCurrentWindow();
 
-    let template = [
+    const template = [
         {
             label: 'Edit',
             submenu: [

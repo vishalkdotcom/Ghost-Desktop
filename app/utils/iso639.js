@@ -7,7 +7,7 @@
  * @returns - Language object
  */
 export default function getLanguageNames(key) {
-    let languages = {
+    const languages = {
         'ab': {
             'name': 'Abkhaz',
             'nativeName': 'Аҧсуа'
@@ -739,7 +739,7 @@ export default function getLanguageNames(key) {
     };
 
     let language = {};
-    let slicedKey = key.slice(0, 2);
+    const slicedKey = key.slice(0, 2);
 
     function label(lang, sub) {
         if (lang.name === lang.nativeName) {
@@ -763,7 +763,7 @@ export default function getLanguageNames(key) {
         language.label = label(language);
     } else if (languages[slicedKey]) {
         // Fallback: Maybe this is a sublocale (like en_GB)
-        let sublocale = key.slice(key.length - 2);
+        const sublocale = key.slice(key.length - 2);
         language = languages[slicedKey];
         language.key = key;
         language.label = label(language, sublocale);

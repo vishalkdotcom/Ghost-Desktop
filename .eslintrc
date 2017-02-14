@@ -23,7 +23,8 @@
         "no-new": 1,
         "no-plusplus": 2,
         "no-undef": 2,
-        "no-unused-vars": [2, { "vars": "all", "args": "after-used" }]
+        "no-unused-vars": [2, { "vars": "all", "args": "after-used" }],
+        "prefer-const": "error"
     },
     "globals": {
         "requireNode": false
