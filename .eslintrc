@@ -28,7 +28,18 @@
         "no-plusplus": 2,
         "no-undef": 2,
         "no-unused-vars": [2, { "vars": "all", "args": "after-used" }],
-        "prefer-const": "error"
+        "prefer-const": "error",
+        "indent": ["error", 4],
+        "space-before-function-paren": ["error", {"anonymous": "ignore", "named": "never"}],
+        "object-curly-spacing": ["error", "never"],
+        "array-bracket-spacing": ["error", "never"],
+        "key-spacing": ["error", {"mode": "minimum"}],
+        "keyword-spacing": ["error", {"overrides": {
+            "catch": {"after": true}
+        }}],
+        "no-console": "off",
+        "ember-suave/require-access-in-comments": "off",
+        "ember-suave/no-const-outside-module-scope": "off"
     },
     "globals": {
         "requireNode": false
