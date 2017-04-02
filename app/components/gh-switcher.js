@@ -214,7 +214,6 @@ export default Component.extend({
         reorderItems(reorderedBogs) {
             reorderedBogs.forEach((blog, i) => {
                 blog.set('index', i);
-                console.log(blog, i);
             });
 
             this._setupContextMenu();

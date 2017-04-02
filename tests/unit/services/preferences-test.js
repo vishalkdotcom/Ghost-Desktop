@@ -1,4 +1,4 @@
-import { moduleFor, test } from 'ember-qunit';
+import {moduleFor, test} from 'ember-qunit';
 
 moduleFor('service:preferences', 'Unit | Service | preferences', {
   // Specify the other units that are required for this test.
@@ -7,6 +7,6 @@ moduleFor('service:preferences', 'Unit | Service | preferences', {
 
 // Replace this with your real tests.
 test('it exists', function(assert) {
-  const service = this.subject();
-  assert.ok(service);
+    const service = this.subject();
+    assert.ok(service);
 });

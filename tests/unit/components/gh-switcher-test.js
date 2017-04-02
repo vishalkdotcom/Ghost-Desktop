@@ -1,5 +1,5 @@
-import Ember from "ember";
-import { test, moduleForComponent } from 'ember-qunit';
+import Ember from 'ember';
+import {test, moduleForComponent} from 'ember-qunit';
 
 /**
  * Test Preparation
@@ -38,7 +38,7 @@ test('removeBlog removes a blog', function(assert) {
     assert.expect(3);
 
     const targetObject = {
-        blogRemoved: function() {
+        blogRemoved() {
             // This assertion will be called when the action is triggered
             assert.ok(recordsSearched);
             assert.ok(recordDeleted);
@@ -56,7 +56,7 @@ test('removeBlog removes a blog', function(assert) {
 
 test('editBlog edits a blog', function(assert) {
     const targetObject = {
-        showEditBlog: function() {
+        showEditBlog() {
             // This assertion will be called when the action is triggered
             assert.ok(recordsSearched);
         }

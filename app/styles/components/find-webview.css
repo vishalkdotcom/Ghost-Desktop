@@ -7,6 +7,7 @@
     padding-right: 20px;
     align-items: center;
     transition: height .25s linear;
+    background-color: #fff;
 }
 
 .find-webview.active {

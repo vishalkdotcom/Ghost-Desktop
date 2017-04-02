@@ -21,12 +21,15 @@ export default Component.extend({
         this.toggleProperty('isActive');
 
         if (!this.get('isActive')) {
-            const $webview = findVisibleWebview();
-            console.log('heeeeeeelo');
-            console.log($webview);
-            if ($webview && $webview.stopFindInPage) {
-                $webview.stopFindInPage('clearSelection');
-            }
+            const webviews = document.querySelectorAll('webview') || [];
+
+            webviews.forEach((webview) => {
+                if (webview && webview.stopFindInPage) {
+                    webview.stopFindInPage('clearSelection');
+                } else {
+                    console.warn('Tried to clear selection due to stop search, but failed');
+                }
+            });
         } else {
             this.set('searchterm', '');
             run.later(() => this.$('input').focus());

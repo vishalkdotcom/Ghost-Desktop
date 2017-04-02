@@ -1,15 +1,18 @@
-import { test, moduleForComponent } from 'ember-qunit';
+import Ember from 'ember';
+import {test, moduleForComponent} from 'ember-qunit';
+
+const {run} = Ember;
 
 moduleForComponent('gh-find-in-webview', 'Unit | Component | gh find in webview', {
-        unit: true,
+    unit: true,
         // specify the other units that are required for this test
-        needs: ['service:window-menu', 'util:find-visible-webview']
-    }
+    needs: ['service:window-menu', 'util:find-visible-webview']
+}
 );
 
 test('it renders', function(assert) {
     // creates the component instance
-    let component = this.subject();
+    const component = this.subject();
 
     assert.equal(component._state, 'preRender');
 
@@ -21,7 +24,7 @@ test('it renders', function(assert) {
 test('handleFind() toggles the find ui', function(assert) {
     const component = this.subject({isActive: false});
 
-    Ember.run(() => {
+    run(() => {
         this.render();
         component.handleFind();
 
@@ -30,25 +33,23 @@ test('handleFind() toggles the find ui', function(assert) {
 });
 
 test('handleFind() stops an active search if a webview is found', function(assert) {
-    const component = this.subject({ isActive: true });
-    const oldjQuery = Ember.$;
+    const component = this.subject({isActive: true});
+    const docQuerySelector = document.querySelectorAll;
 
-    Ember.$ = function(selector) {
-        if (selector === 'webview:visible') {
+    document.querySelectorAll = function(selector) {
+        if (selector === 'webview') {
             return [{
                 stopFindInPage: (action) => assert.equal(action, 'clearSelection')
-            }]
+            }];
         } else {
-            return {
-                height: () => 20
-            }
+            return docQuerySelector(selector);
         }
-    }
+    };
 
-    Ember.run(() => {
+    run(() => {
         this.render();
         component.handleFind();
-        Ember.$ = oldjQuery;
+        document.querySelectorAll = docQuerySelector;
     });
 });
 
@@ -56,7 +57,7 @@ test('_insertMenuItem() injects an item', function(assert) {
     assert.expect(6);
 
     const component = this.subject({
-        windowMenu: new Ember.Object({
+        windowMenu: new Object({
             injectMenuItem(params) {
                 assert.equal(params.menuName, 'Edit');
                 assert.equal(params.name, 'find-in-webview');
@@ -68,7 +69,7 @@ test('_insertMenuItem() injects an item', function(assert) {
         })
     });
 
-    Ember.run(() => {
+    run(() => {
         this.render();
     });
 });
