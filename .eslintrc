@@ -7,6 +7,10 @@
     "parserOptions": {
       "sourceType": "module"
     },
+    "extends": [
+        "eslint:recommended",
+        "plugin:ember-suave/recommended"
+    ],
     "parser": "babel-eslint",
     "rules": {
         "strict": [0, "never"],
