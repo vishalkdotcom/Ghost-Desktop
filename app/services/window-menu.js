@@ -2,7 +2,9 @@ import Ember from 'ember';
 import {setup as getMenuTemplate} from '../utils/window-menu';
 import _ from 'lodash/lodash';
 
-export default Ember.Service.extend({
+const {Service, run} = Ember;
+
+export default Service.extend({
     preferencesCallback: undefined,
     blogs: [],
 
@@ -21,7 +23,7 @@ export default Ember.Service.extend({
      * Schedules (debounced) the setup of the application menu
      */
     setup() {
-        Ember.run.debounce(this, this._prepareMenu, 150);
+        run.debounce(this, this._prepareMenu, 150);
     },
 
     popup() {
@@ -97,7 +99,7 @@ export default Ember.Service.extend({
         if (blogs && preferencesCallback) {
             this.set('preferencesCallback', preferencesCallback);
             this.set('blogs', blogs);
-            Ember.run.later(this, 'setup');
+            run.later(this, 'setup');
         }
     },
 
@@ -245,17 +247,17 @@ export default Ember.Service.extend({
         if (template && template.forEach && preferencesCallback) {
             template.forEach((menuItem) => {
                 if (
-                    menuItem &&
-                    menuItem.label &&
-                    menuItem.label === 'Ghost' ||
-                    menuItem.label === 'Electron' ||
-                    menuItem.label === 'File'
+                    menuItem
+                    && menuItem.label
+                    && menuItem.label === 'Ghost'
+                    || menuItem.label === 'Electron'
+                    || menuItem.label === 'File'
                 ) {
                     menuItem.submenu.forEach((subMenuItem) => {
                         if (
-                            subMenuItem &&
-                            subMenuItem.label &&
-                            subMenuItem.label === 'Preferences'
+                            subMenuItem
+                            && subMenuItem.label
+                            && subMenuItem.label === 'Preferences'
                         ) {
                             subMenuItem.click = preferencesCallback;
                         }

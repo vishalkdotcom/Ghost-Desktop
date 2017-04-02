@@ -1,21 +1,21 @@
 import Ember from 'ember';
 import {getIsYosemiteOrHigher} from '../utils/versions';
 
-const {Component} = Ember;
+const {Component, inject, computed} = Ember;
 
 /**
  * The switcher component is a Slack-like quick switcher on the left side of
  * the app, allowing users to quickly switch between blogs.
  */
 export default Component.extend({
-    store: Ember.inject.service(),
-    preferences: Ember.inject.service(),
-    windowMenu: Ember.inject.service(),
+    store: inject.service(),
+    preferences: inject.service(),
+    windowMenu: inject.service(),
     classNameBindings: ['isMinimized', 'isMac:mac', 'isVibrant', ':switcher', ':win-height-adjusted'],
-    isMinimized: Ember.computed.alias('preferences.isQuickSwitcherMinimized'),
+    isMinimized: computed.alias('preferences.isQuickSwitcherMinimized'),
     isMac: !!(process.platform === 'darwin'),
     isVibrant: getIsYosemiteOrHigher(),
-    sortedBlogs: Ember.computed.sort('blogs', 'sortDefinition'),
+    sortedBlogs: computed.sort('blogs', 'sortDefinition'),
     sortDefinition: ['index'],
 
     didRender() {

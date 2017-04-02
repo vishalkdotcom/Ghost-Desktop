@@ -11,7 +11,7 @@ export default Component.extend({
     autoUpdate: inject.service(),
     ipc: inject.service(),
     webviewShortcuts: inject.service(),
-    classNameBindings: ['isMac:mac', 'isWindows:win',':gh-app'],
+    classNameBindings: ['isMac:mac', 'isWindows:win', ':gh-app'],
     isFindInViewActive: false,
     isMac: !!(process.platform === 'darwin'),
     isWindows: !!(process.platform === 'win32'),
@@ -53,7 +53,7 @@ export default Component.extend({
         if (matchedBlog) {
             this.send('switchToBlog', matchedBlog);
         } else {
-            this.send('showAddBlog', { url: sanitizedUrl, user });
+            this.send('showAddBlog', {url: sanitizedUrl, user});
         }
     },
 

@@ -22,7 +22,7 @@ export default Component.extend({
     actions: {
         change() {
             // jscs:disable requireArrayDestructuring
-            const selectEl = this.$('select')[0];
+            const [selectEl] = this.$('select');
             // jscs:enable requireArrayDestructuring
             const {selectedIndex} = selectEl;
 

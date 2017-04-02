@@ -1,10 +1,12 @@
 import Ember from 'ember';
 import findVisibleWebview from '../utils/find-visible-webview';
 
-export default Ember.Component.extend({
+const {Component, inject, run} = Ember;
+
+export default Component.extend({
     classNames: ['find-webview'],
     classNameBindings: ['isActive:active'],
-    windowMenu: Ember.inject.service(),
+    windowMenu: inject.service(),
 
     didInsertElement() {
         this._super(...arguments);
@@ -27,7 +29,7 @@ export default Ember.Component.extend({
             }
         } else {
             this.set('searchterm', '');
-            Ember.run.later(() => this.$('input').focus());
+            run.later(() => this.$('input').focus());
         }
     },
 

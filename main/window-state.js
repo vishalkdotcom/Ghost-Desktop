@@ -16,10 +16,7 @@ function fetchWindowState() {
     const defaultHeight = 800;
 
     // Instantiate the state keeper with a default state.
-    const stateKeeper = winStateKeeper({
-        defaultWidth: defaultWidth,
-        defaultHeight: defaultHeight
-    });
+    const stateKeeper = winStateKeeper({defaultWidth, defaultHeight});
 
     // Get the display nearest to the window's saved position, if it exists.
     const nearestDisplay = screen.getDisplayNearestPoint({
@@ -44,10 +41,7 @@ function fetchWindowState() {
         minHeight: displaySize.height < defaultHeight ? displaySize.height : defaultHeight
     };
 
-    return {
-        usableState: usableState,
-        stateKeeper: stateKeeper
-    };
-};
+    return {usableState, stateKeeper};
+}
 
 module.exports = {fetchWindowState};

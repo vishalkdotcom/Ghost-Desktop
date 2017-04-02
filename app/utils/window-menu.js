@@ -1,6 +1,8 @@
 import Ember from 'ember';
 import ENV from 'ghost-desktop/config/environment';
 
+const {$} = Ember;
+
 /**
  * Functions
  */
@@ -17,9 +19,9 @@ export function reload(item, focusedWindow) {
         focusedWindow.reload();
     } else {
         const {ipcRenderer} = require('electron');
-        ipcRenderer.send('soft-restart-requested', true)
+        ipcRenderer.send('soft-restart-requested', true);
     }
-};
+}
 
 /**
  * Toggles fullscreen on the currently focused window
@@ -32,7 +34,7 @@ export function toggleFullscreen(item, focusedWindow) {
     if (focusedWindow) {
         focusedWindow.setFullScreen(!focusedWindow.isFullScreen());
     }
-};
+}
 
 /**
  * Toggles the developer tools on the currently focused window
@@ -45,7 +47,7 @@ export function toggleDevTools(item, focusedWindow) {
     if (focusedWindow) {
         focusedWindow.toggleDevTools();
     }
-};
+}
 
 /**
  * Attempts to toggle developer tools for the currently visible Ghost instance
@@ -56,8 +58,8 @@ export function toggleDevTools(item, focusedWindow) {
  */
 export function toggleGhostDevTools(item, focusedWindow) {
     if (focusedWindow) {
-        const host = Ember.$('div.instance-host.selected');
-        const webviews = host ? Ember.$(host).find('webview') : null;
+        const host = $('div.instance-host.selected');
+        const webviews = host ? $(host).find('webview') : null;
 
         if (!webviews || !webviews[0]) {
             return;

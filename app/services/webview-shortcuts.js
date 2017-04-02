@@ -1,7 +1,9 @@
 import Ember from 'ember';
 import findVisibleWebview from '../utils/find-visible-webview';
 
-export default Ember.Service.extend({
+const {Service} = Ember;
+
+export default Service.extend({
     /**
      * Returns a JavaScript command (as string) that selects
      * all elements from a given query selector - and clicks
@@ -16,7 +18,7 @@ export default Ember.Service.extend({
     queryAndClick(selector = '', innerText = '', waitForWebview = false, $webview = findVisibleWebview()) {
         const cmd = [];
 
-        if (!$webview) return Promise.reject();;
+        if (!$webview) return Promise.reject();
 
         cmd.push(`[].slice.call(document.querySelectorAll("${selector}"))`);
         cmd.push(innerText ? `.filter(el => el.innerText === "${innerText}")` : '');
@@ -75,7 +77,7 @@ export default Ember.Service.extend({
                         $wv.executeJavaScript(`GhostDesktop.addToEditor('${escape(title)}', '${escape(content)}')`);
                     }
                 }
-            })
+            });
     },
 
     /**

@@ -9,29 +9,29 @@ function handleContextMenu(e) {
     const {remote} = requireNode('electron');
     const {BrowserWindow, Menu} = remote;
     const template = [{
-            label: 'Undo',
-            role: 'undo'
-        }, {
-            label: 'Redo',
-            role: 'redo'
-        }, {
-            type: 'separator'
-        }, {
-            label: 'Cut',
-            role: 'cut'
-        }, {
-            label: 'Copy',
-            role: 'copy'
-        }, {
-            label: 'Paste',
-            role: 'paste'
-        }, {
-            label: 'Paste and Match Style',
-            click: () => BrowserWindow.getFocusedWindow().webContents.pasteAndMatchStyle()
-        }, {
-            label: 'Select All',
-            role: 'selectall'
-        }];
+        label: 'Undo',
+        role: 'undo'
+    }, {
+        label: 'Redo',
+        role: 'redo'
+    }, {
+        type: 'separator'
+    }, {
+        label: 'Cut',
+        role: 'cut'
+    }, {
+        label: 'Copy',
+        role: 'copy'
+    }, {
+        label: 'Paste',
+        role: 'paste'
+    }, {
+        label: 'Paste and Match Style',
+        click: () => BrowserWindow.getFocusedWindow().webContents.pasteAndMatchStyle()
+    }, {
+        label: 'Select All',
+        role: 'selectall'
+    }];
 
     e.preventDefault();
     e.stopPropagation();
@@ -64,4 +64,4 @@ function handleContextMenu(e) {
  */
 export function setup() {
     window.addEventListener('contextmenu', handleContextMenu);
-};
+}

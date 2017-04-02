@@ -1,10 +1,12 @@
 import Ember from 'ember';
 import getLanguageName from '../utils/iso639';
 
-export default Ember.Component.extend({
-    preferences: Ember.inject.service(),
+const {Component, computed, inject} = Ember;
 
-    availableDictionaries: Ember.computed({
+export default Component.extend({
+    preferences: inject.service(),
+
+    availableDictionaries: computed({
         get() {
             const checker = requireNode('spellchecker');
             let dicts = [];
@@ -22,7 +24,7 @@ export default Ember.Component.extend({
         }
     }),
 
-    selectedDictionary: Ember.computed({
+    selectedDictionary: computed({
         get() {
             const key = this.get('preferences.spellcheckLanguage');
             const available = this.get('availableDictionaries');

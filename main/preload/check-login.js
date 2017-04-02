@@ -11,7 +11,7 @@ function checkStatus() {
 
     if (err && ((err.childElementCount && err.childElementCount > 0) || (err.textContent && err.textContent.length > 0))) {
         // Noooo, login errors!
-        console.log(`login-error`);
+        console.log('login-error');
     } else if (loaded) {
         // Yay, successfully loaded - let's give the renderer 200 more ms
         // for rendering
@@ -33,7 +33,6 @@ function init() {
         console.log('login-check-again');
         setTimeout(checkStatus, 100);
     };
-
 
     if ($element) {
         $element.off('click');

@@ -1,10 +1,12 @@
 import Ember from 'ember';
 
-export default Ember.Component.extend({
+const {Component, computed, String} = Ember;
+
+export default Component.extend({
     classNameBindings: ['isDraggable:is-draggable:is-not-draggable', ':drag-region'],
     attributeBindings: ['style'],
-    style: Ember.computed('isDraggable', function() {
-        return Ember.String.htmlSafe(`width: ${this.get('width')}; height: ${this.get('height')};`);
+    style: computed('isDraggable', function() {
+        return String.htmlSafe(`width: ${this.get('width')}; height: ${this.get('height')};`);
     }),
     isDraggable: true
 });

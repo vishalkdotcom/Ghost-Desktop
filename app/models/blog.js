@@ -3,11 +3,9 @@ import getIconColor from '../utils/color-picker';
 import requireKeytar from '../utils/require-keytar';
 import getBlogName from '../utils/get-blog-name';
 
-/*eslint-disable no-unused-vars*/
-const {Model, attr, hasMany} = DS;
-/*eslint-enable no-unused-vars*/
+const {Model, attr} = DS;
 
-export default DS.Model.extend({
+export default Model.extend({
     index: attr('number', {
         defaultValue: 0
     }),

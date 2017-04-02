@@ -775,4 +775,4 @@ export default function getLanguageNames(key) {
     }
 
     return language;
-};
+}

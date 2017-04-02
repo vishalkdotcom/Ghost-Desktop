@@ -1,10 +1,12 @@
 import Ember from 'ember';
 
-export default Ember.Component.extend({
+const {Component, inject, computed} = Ember;
+
+export default Component.extend({
     classNames: ['gh-preferences'],
-    preferences: Ember.inject.service(),
-    autoUpdate: Ember.inject.service(),
-    zoomFactor: Ember.computed.oneWay('preferences.preferences.zoomFactor'),
+    preferences: inject.service(),
+    autoUpdate: inject.service(),
+    zoomFactor: computed.oneWay('preferences.preferences.zoomFactor'),
 
     didReceiveAttrs() {
         this._super(...arguments);

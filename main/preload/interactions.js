@@ -12,4 +12,4 @@ window.GhostDesktop = {
             $contentElement.val(`${$contentElement.val()}\n${content}`).change();
         }
     }
-}
+};
