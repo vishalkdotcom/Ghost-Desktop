@@ -46,7 +46,7 @@
     "broccoli-asset-rev": "^2.2.0",
     "cross-env": "^3.1.3",
     "devtron": "^1.4.0",
-    "electron": "1.4.15",
+    "electron": "1.6.4",
     "electron-osx-sign": "^0.3.2",
     "electron-packager": "^8.3.0",
     "electron-rebuild": "^1.5.7",
@@ -61,7 +61,6 @@
     "ember-cli-htmlbars-inline-precompile": "^0.3.3",
     "ember-cli-inject-live-reload": "^1.4.1",
     "ember-cli-qunit": "^3.1.2",
-    "ember-cli-release": "^0.2.9",
     "ember-cli-sri": "^2.1.0",
     "ember-cli-uglify": "^1.2.0",
     "ember-data": "^2.12.1",
@@ -69,7 +68,7 @@
     "ember-electron": "^1.12.1",
     "ember-export-application-global": "^1.0.5",
     "ember-inspector": "^2.0.1",
-    "ember-load-initializers": "^0.5.0",
+    "ember-load-initializers": "^0.6.0",
     "ember-local-storage": "1.3.1",
     "ember-lodash": "0.0.10",
     "ember-myth": "^0.1.1",
@@ -129,7 +128,7 @@
       "ProductName": "Ghost",
       "InternalName": "Ghost"
     },
-    "version": "1.4.15"
+    "version": "1.6.4"
   },
   "dependencies": {
     "debug-electron": "0.0.4",
