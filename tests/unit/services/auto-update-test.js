@@ -1,4 +1,4 @@
-import { moduleFor, test } from 'ember-qunit';
+import {moduleFor, test} from 'ember-qunit';
 
 moduleFor('service:auto-update', 'Unit | Service | auto update', {
   // Specify the other units that are required for this test.
@@ -28,11 +28,11 @@ test('reports the correct application version', function(assert) {
                         }
                     }
                 }
-            }
+            };
         } else {
             return oldRequire(...arguments);
         }
-    }
+    };
 
     const service = this.subject();
     assert.equal(service.get('appVersion'), '1.0.0-beta');
@@ -46,7 +46,7 @@ test('calls setup during online checkForUpdates', function(assert) {
 
     service.isOnline = function () {
         return Promise.resolve(true);
-    }
+    };
 
     service.set('isLinux', false);
     service.set('environment', 'production');
@@ -78,7 +78,7 @@ test('calls Electron\'s autoUpdater for update checking', function(assert) {
         return new Promise((resolve) => {
             resolve(true);
         });
-    }
+    };
 
     service.set('environment', 'production');
     service.set('isLinux', false);
@@ -134,11 +134,11 @@ test('_setup sets the feed url', function(assert) {
                         removeAllListeners() {}
                     }
                 }
-            }
+            };
         } else {
             return oldRequire(...arguments);
         }
-    }
+    };
 
     const service = this.subject();
     service.set('appVersion', '1.0.0-beta');
@@ -158,7 +158,7 @@ test('_setup handles autoUpdater events', function(assert) {
                 remote: {
                     autoUpdater: {
                         setFeedURL() {},
-                        on(e, handler) {
+                        on(e/* , handler */) {
                             if (e === 'checking-for-update') {
                                 assert.ok(true, 'handles checking-for-update');
                             }
@@ -178,11 +178,11 @@ test('_setup handles autoUpdater events', function(assert) {
                         removeAllListeners() {}
                     }
                 }
-            }
+            };
         } else {
             return oldRequire(...arguments);
         }
-    }
+    };
 
     const service = this.subject();
     service.set('appVersion', '1.0.0-beta');
@@ -209,11 +209,11 @@ test('autoUpdater\'s update checks is reflected in isCheckingForUpdate', functio
                         removeAllListeners() {}
                     }
                 }
-            }
+            };
         } else {
             return oldRequire(...arguments);
         }
-    }
+    };
 
     const service = this.subject();
     service.set('appVersion', '1.0.0-beta');
@@ -242,11 +242,11 @@ test('autoUpdater\'s update-available is reflected in isUpdateAvailable', functi
                         removeAllListeners() {}
                     }
                 }
-            }
+            };
         } else {
             return oldRequire(...arguments);
         }
-    }
+    };
 
     const service = this.subject();
     service.set('appVersion', '1.0.0-beta');
@@ -275,11 +275,11 @@ test('autoUpdater\'s update-downloaded is reflected in isUpdateDownloaded', func
                         removeAllListeners() {}
                     }
                 }
-            }
+            };
         } else {
             return oldRequire(...arguments);
         }
-    }
+    };
 
     const service = this.subject();
     service.set('appVersion', '1.0.0-beta');
@@ -308,11 +308,11 @@ test('autoUpdater\'s update-not-available is reflected in isUpdateAvailable', fu
                         removeAllListeners() {}
                     }
                 }
-            }
+            };
         } else {
             return oldRequire(...arguments);
         }
-    }
+    };
 
     const service = this.subject();
     service.set('appVersion', '1.0.0-beta');

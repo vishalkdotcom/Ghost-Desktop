@@ -1,11 +1,11 @@
-import { setup, reload, toggleDevTools, toggleGhostDevTools, toggleFullscreen, openReportIssues, openRepository } from 'ghost-desktop/utils/window-menu';
-import { module, test } from 'qunit';
+import {setup, reload, toggleDevTools, toggleGhostDevTools, toggleFullscreen, openReportIssues, openRepository} from 'ghost-desktop/utils/window-menu';
+import {module, test} from 'qunit';
 
 module('Unit | Utility | window menu');
 
 test('creates a menu (6 elements)', function(assert) {
-    let result = setup();
-    let expected = 6;
+    const result = setup();
+    const expected = 6;
 
     assert.equal(result.length, expected);
 });
@@ -37,57 +37,11 @@ test('toggles fullscreen on a given BrowserWindow', function(assert) {
     });
 });
 
-test('toggles fullscreen in a ghost instance', function(assert) {
-    assert.expect(2);
-
-    // Monkeypatch
-    const _$ = window.Ember.$;
-    let isDevToolsOpened = false;
-    let openDevToolsCalled = false;
-    let closeDevToolsCalled = false;
-
-    window.Ember.$ = function (selector) {
-        if (selector && selector === 'div.instance-host.selected') {
-            return 'host';
-        } else if (selector === 'host') {
-            return {
-                find() {
-                    return [{
-                        isDevToolsOpened() {
-                            return isDevToolsOpened;
-                        },
-                        openDevTools() {
-                            openDevToolsCalled = true;
-                            isDevToolsOpened = true;
-                        },
-                        closeDevTools() {
-                            closeDevToolsCalled = true;
-                            isDevToolsOpened = false;
-                        }
-                    }];
-                }
-            }
-        } else {
-            return _$(...arguments);
-        }
-    }
-
-    toggleGhostDevTools({}, {});
-    assert.ok(openDevToolsCalled, 'dev tools have been opened');
-    toggleGhostDevTools({}, {});
-    assert.ok(openDevToolsCalled, 'dev tools have been closed');
-
-    window.Ember.$ = _$;
-});
-
 test('does not do anything if there\'s no webview', function(assert) {
     assert.expect(0);
 
     // Monkeypatch
     const _$ = window.Ember.$;
-    let isDevToolsOpened = false;
-    let openDevToolsCalled = false;
-    let closeDevToolsCalled = false;
 
     window.Ember.$ = function (selector) {
         if (selector && selector === 'div.instance-host.selected') {
@@ -95,7 +49,7 @@ test('does not do anything if there\'s no webview', function(assert) {
         } else {
             return _$(...arguments);
         }
-    }
+    };
 
     toggleGhostDevTools();
 
@@ -103,47 +57,47 @@ test('does not do anything if there\'s no webview', function(assert) {
 });
 
 test('opens the repo on GitHub', function(assert) {
-   let _requireNode = window.requireNode;
-   let openExternalCalled = false;
+    const _requireNode = window.requireNode;
+    let openExternalCalled = false;
 
-   window.requireNode = function (target) {
-       if (target === 'electron') {
-           return {
-               shell: {
-                   openExternal() {
-                       openExternalCalled = true;
-                   }
-               }
-           }
-       } else {
-           return _requireNode(...arguments);
-       }
-   }
+    window.requireNode = function (target) {
+        if (target === 'electron') {
+            return {
+                shell: {
+                    openExternal() {
+                        openExternalCalled = true;
+                    }
+                }
+            };
+        } else {
+            return _requireNode(...arguments);
+        }
+    };
 
-   openRepository();
-   assert.ok(openExternalCalled);
-   window.requireNode = _requireNode;
+    openRepository();
+    assert.ok(openExternalCalled);
+    window.requireNode = _requireNode;
 });
 
 test('opens the issues on GitHub', function(assert) {
-   let _requireNode = window.requireNode;
-   let openExternalCalled = false;
+    const _requireNode = window.requireNode;
+    let openExternalCalled = false;
 
-   window.requireNode = function (target) {
-       if (target === 'electron') {
-           return {
-               shell: {
-                   openExternal() {
-                       openExternalCalled = true;
-                   }
-               }
-           }
-       } else {
-           return _requireNode(...arguments);
-       }
-   }
+    window.requireNode = function (target) {
+        if (target === 'electron') {
+            return {
+                shell: {
+                    openExternal() {
+                        openExternalCalled = true;
+                    }
+                }
+            };
+        } else {
+            return _requireNode(...arguments);
+        }
+    };
 
-   openReportIssues();
-   assert.ok(openExternalCalled);
-   window.requireNode = _requireNode;
+    openReportIssues();
+    assert.ok(openExternalCalled);
+    window.requireNode = _requireNode;
 });

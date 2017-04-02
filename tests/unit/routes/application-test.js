@@ -1,12 +1,15 @@
+import Ember from 'ember';
 import {moduleFor, test} from 'ember-qunit';
 import {autoUpdateMock} from '../../fixtures/auto-update';
+
+const {run} = Ember;
 
 moduleFor('route:application', 'Unit | Route | application', {
     // Specify the other units that are required for this test.
     needs: ['model:blog', 'service:window-menu', 'service:preferences'],
-    beforeEach: function () {
+    beforeEach() {
         this.register('service:auto-update', autoUpdateMock);
-        this.inject.service('auto-update', { as: 'autoUpdate' });
+        this.inject.service('auto-update', {as: 'autoUpdate'});
     }
 });
 
@@ -20,9 +23,9 @@ test('it returns blogs as a model', function(assert) {
 
     // stub store on the route
     route.store = {
-        findAll: function(args) {
+        findAll(args) {
             assert.equal(args, 'blog');
-            return new Promise((resolve) => resolve([{ name: 'hi'}, {name: 'ho'}]));
+            return new Promise((resolve) => resolve([{name: 'hi'}, {name: 'ho'}]));
         }
     };
 
@@ -34,9 +37,9 @@ test('before the model loads, we setup window and context menu', function(assert
 
     const oldAddEventListener = window.addEventListener;
     const oldRequire = window.requireNode;
-    const oldDebounce = Ember.run.debounce;
+    const oldDebounce = run.debounce;
 
-    Ember.run.debounce = (target, func) => func.call(target);
+    run.debounce = (target, func) => func.call(target);
     window.addEventListener = () => assert.ok(true);
     window.requireNode = function(target) {
         if (target === 'electron') {
@@ -44,28 +47,28 @@ test('before the model loads, we setup window and context menu', function(assert
                 remote: {
                     Menu: {
                         setApplicationMenu() {
-                                assert.ok(true);
-                            },
-                            buildFromTemplate() {
-                                assert.ok(true);
-                            }
+                            assert.ok(true);
+                        },
+                        buildFromTemplate() {
+                            assert.ok(true);
+                        }
                     },
                     getCurrentWindow() {
-                        return {}
+                        return {};
                     }
                 }
-            }
+            };
         } else {
             return oldRequire(...arguments);
         }
-    }
+    };
 
     const route = this.subject();
     route.beforeModel();
 
     window.addEventListener = oldAddEventListener;
     window.requireNode = oldRequire;
-    Ember.run.debounce = oldDebounce;
+    run.debounce = oldDebounce;
 });
 
 test('after the model loads, we tell the main thread about the blogs', function(assert) {
@@ -81,15 +84,18 @@ test('after the model loads, we tell the main thread about the blogs', function(
                         assert.equal(channel, 'blog-data');
                     }
                 }
-            }
+            };
         } else {
             return oldRequire(...arguments);
         }
-    }
+    };
 
     const route = this.subject();
     route.afterModel([{
-        toJSON() { return {isTest: true}}
+        toJSON() {
+            return {isTest: true}
+;
+}
     }]);
 
     window.require = oldRequire;

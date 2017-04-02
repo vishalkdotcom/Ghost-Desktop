@@ -1,28 +1,11 @@
 import {injectCss} from 'ghost-desktop/utils/inject-css';
 import {module, test} from 'qunit';
 
-module('Unit | Utility | inject css', {
-    beforeEach() {
-        window.originalRequireNode = window.requireNode;
-        window.requireNode = requireNodeShim;
-
-        insertCSScalled = false;
-        fsCalled        = false;
-        encodingIsUtf   = false;
-        hasCallback     = false;
-        hasFilename     = false;
-    },
-
-    afterEach() {
-        window.requireNode = window.originalRequireNode;
-    }
-});
-
 let insertCSScalled = false;
-let fsCalled        = false;
-let encodingIsUtf   = false;
-let hasCallback     = false;
-let hasFilename     = false;
+let fsCalled = false;
+let encodingIsUtf = false;
+let hasCallback = false;
+let hasFilename = false;
 
 const webviewShim = {
     insertCSS(css) {
@@ -30,7 +13,7 @@ const webviewShim = {
             insertCSScalled = true;
         }
     }
-}
+};
 const fsShim = {
     readFile(file, encoding, callback) {
         fsCalled = true;
@@ -47,19 +30,36 @@ const fsShim = {
             hasCallback = true;
         }
 
-        callback(null, 'body { background-color: red;}')
+        callback(null, 'body { background-color: red;}');
     }
-}
+};
 const requireNodeShim = function (target) {
     if (target === 'fs') {
         return fsShim;
     } else {
         return window.originalRequireNode(target);
     }
-}
+};
+
+module('Unit | Utility | inject css', {
+    beforeEach() {
+        window.originalRequireNode = window.requireNode;
+        window.requireNode = requireNodeShim;
+
+        insertCSScalled = false;
+        fsCalled = false;
+        encodingIsUtf = false;
+        hasCallback = false;
+        hasFilename = false;
+    },
+
+    afterEach() {
+        window.requireNode = window.originalRequireNode;
+    }
+});
 
 test('properly uses fs to read css file', function(assert) {
-    assert.expect(4)
+    assert.expect(4);
     injectCss(webviewShim, 'testfile');
 
     assert.ok(encodingIsUtf);
@@ -79,7 +79,7 @@ test('does not attempt injection if the source is not found', function(assert) {
 
     fsShim.readFile = function (file, encoding, callback) {
         callback({error: 'oh noes'});
-    }
+    };
 
     injectCss(webviewShim, 'testfile');
 

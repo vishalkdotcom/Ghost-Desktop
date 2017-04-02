@@ -1,7 +1,7 @@
 import getIconColor from 'ghost-desktop/utils/color-picker';
-import { module, test } from 'qunit';
+import {module, test} from 'qunit';
 
-module ('Unit | Utility | get icon color');
+module('Unit | Utility | get icon color');
 
 test('it generates a color for the icon', function (assert) {
     const color = getIconColor(null);

@@ -1,6 +1,8 @@
 import Ember from 'ember';
 import {test, moduleForComponent} from 'ember-qunit';
 
+const {run} = Ember;
+
 /**
  * Test Preparation
  */
@@ -9,7 +11,7 @@ let recordSaved = false;
 let recordDeleted = false;
 
 const store = {
-    findRecord(type, id) {
+    findRecord(/* type, id */) {
         recordsSearched = true;
         return new Promise((resolve) => {
             resolve({
@@ -27,6 +29,7 @@ const store = {
 
 moduleForComponent('gh-switcher', 'Unit | Component | gh switcher', {
     unit: true,
+    needs: ['service:preferences', 'service:windowMenu'],
     beforeEach() {
         recordsSearched = false;
         recordSaved = false;
@@ -51,7 +54,7 @@ test('removeBlog removes a blog', function(assert) {
         store
     });
 
-    Ember.run(() => component.removeBlog('testid'));
+    run(() => component.removeBlog('testid'));
 });
 
 test('editBlog edits a blog', function(assert) {
@@ -67,5 +70,5 @@ test('editBlog edits a blog', function(assert) {
         store
     });
 
-    Ember.run(() => component.editBlog('testid'));
+    run(() => component.editBlog('testid'));
 });

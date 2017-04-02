@@ -1,6 +1,7 @@
-import { moduleForComponent, test } from 'ember-qunit';
-import hbs from 'htmlbars-inline-precompile';
-import { blogs } from '../../fixtures/blogs';
+import Ember from 'ember';
+import {moduleForComponent, test} from 'ember-qunit';
+
+const {run} = Ember;
 
 /**
  * Test Preparation
@@ -77,7 +78,7 @@ test('signing aborts attempts to signin when username or password are missing', 
     const component = this.subject(blog501);
 
     this.render();
-    Ember.run(() => component.signin());
+    run(() => component.signin());
 
     assert.ok(component.get('isInstanceLoaded'));
 });
@@ -96,8 +97,8 @@ test('handleLoaded eventually shows the webview', function(assert) {
     const component = this.subject();
 
     this.render();
-    Ember.run.later(() => component._handleLoaded(), 1000);
-    Ember.run.later(() => {
+    run.later(() => component._handleLoaded(), 1000);
+    run.later(() => {
         assert.ok(component.get('isInstanceLoaded'));
         done();
     }, 1500);
@@ -105,9 +106,9 @@ test('handleLoaded eventually shows the webview', function(assert) {
 
 test('console message "loaded" eventually shows the webview', function(assert) {
     const component = this.subject();
-    const e = { originalEvent: {}};
+    const e = {originalEvent: {}};
 
-    e.originalEvent.message = 'loaded'
+    e.originalEvent.message = 'loaded';
     component._handleConsole(e);
     assert.ok(component.get('isInstanceLoaded'));
 });
@@ -128,8 +129,8 @@ test('handleLoadFailure redirects the webview to the error page', function(asser
     };
 
     this.render();
-    Ember.run.later(() => component._handleLoadFailure(e), 1000);
-    Ember.run.later(() => {
+    run.later(() => component._handleLoadFailure(e), 1000);
+    run.later(() => {
         const isErrorPage = this.$('webview').attr('src').includes('load-error');
         assert.ok(isErrorPage);
         done();
@@ -142,7 +143,7 @@ test('handleLoadFailure does not redirect for failed file:// loads', function(as
     const component = this.subject(blogFile404);
 
     this.render();
-    Ember.run.later(() => {
+    run.later(() => {
         assert.equal(this.$('webview').attr('src'), 'file://hi.com');
         done();
     }, 750);

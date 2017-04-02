@@ -1,7 +1,7 @@
 import escapeString from 'ghost-desktop/utils/escape-string';
-import { module, test } from 'qunit';
+import {module, test} from 'qunit';
 
-module ('Unit | Utility | escape string');
+module('Unit | Utility | escape string');
 
 test('escapes a string with single quotes', function (assert) {
     const password = 'hi\'';

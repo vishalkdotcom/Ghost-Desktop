@@ -1,4 +1,7 @@
-import { moduleFor, test } from 'ember-qunit';
+import Ember from 'ember';
+import {moduleFor, test} from 'ember-qunit';
+
+const {run} = Ember;
 
 moduleFor('service:window-menu', 'Unit | Service | window menu', {
   // Specify the other units that are required for this test.
@@ -37,17 +40,17 @@ test('injectMenuItem() eventually calls setApplicationMenu', function(assert) {
                         }
                     },
                     getCurrentWindow() {
-                        return { close() {}}
+                        return {close() {}};
                     }
                 }
-            }
+            };
         } else {
             return oldRequire(...arguments);
         }
-    }
+    };
 
     const service = this.subject();
-    Ember.run(() => service.injectMenuItem());
+    run(() => service.injectMenuItem());
 });
 
 test('injectMenuItem() adds the correct properties', function(assert) {
@@ -75,17 +78,17 @@ test('injectMenuItem() adds the correct properties', function(assert) {
                         }
                     },
                     getCurrentWindow() {
-                        return { close() {}}
+                        return {close() {}};
                     }
                 }
-            }
+            };
         } else {
             return oldRequire(...arguments);
         }
-    }
+    };
 
     const service = this.subject();
-    Ember.run(() => service.injectMenuItem({
+    run(() => service.injectMenuItem({
         menuName: 'View',
         click: () => 'test',
         name: 'test-item',
@@ -97,11 +100,10 @@ test('injectMenuItem() adds the correct properties', function(assert) {
 });
 
 test('injectMenuItem() does not inject if injection already exists', function(assert) {
-    const oldRequire = window.requireNode;
     const service = this.subject();
 
-    service.set('injections', [{ name: 'test-item' }]);
-    service.injectMenuItem({ name: 'test-item'});
+    service.set('injections', [{name: 'test-item'}]);
+    service.injectMenuItem({name: 'test-item'});
 
     assert.equal(service.get('injections').length, 1);
 });

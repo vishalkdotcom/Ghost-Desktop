@@ -1,5 +1,4 @@
-/* jshint undef: false */
-"use strict";
+'use strict';
 
 const electron = require('electron');
 const {BrowserWindow, app} = electron;
@@ -19,14 +18,12 @@ app.on('ready', function onReady() {
     delete mainWindow.module;
 
     if (process.env.EMBER_ENV === 'test') {
-        mainWindow.loadURL('file://' + __dirname + '/index.html?coverage');
+        mainWindow.loadURL(`file://${__dirname}/index.html?coverage`);
     } else {
-        mainWindow.loadURL('file://' + __dirname + '/dist/index.html');
+        mainWindow.loadURL(`file://${__dirname}/dist/index.html`);
     }
 
     mainWindow.on('closed', function onClosed() {
         mainWindow = null;
     });
 });
-
-/* jshint undef: true */

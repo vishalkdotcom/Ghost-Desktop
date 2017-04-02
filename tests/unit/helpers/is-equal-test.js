@@ -1,5 +1,5 @@
-import { isEqual } from 'ghost-desktop/helpers/is-equal';
-import { module, test } from 'qunit';
+import {isEqual} from 'ghost-desktop/helpers/is-equal';
+import {module, test} from 'qunit';
 
 module('Unit | Helper | is equal');
 

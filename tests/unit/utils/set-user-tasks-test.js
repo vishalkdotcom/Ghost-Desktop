@@ -4,11 +4,11 @@ import {module, test} from 'qunit';
 module('Unit | Utility | set user tasks');
 
 test('it attempts to set the user tasks, given a list of blogs', function(assert) {
-    let oldRequire = window.requireNode;
-    let mockRemote = {
+    const oldRequire = window.requireNode;
+    const mockRemote = {
         app: {
             setUserTasks(tasks) {
-                let expected = [{
+                const expected = [{
                     program: process.execPath,
                     arguments: 'http://hello.hi/i-like-you/',
                     title: 'Test'
@@ -23,7 +23,7 @@ test('it attempts to set the user tasks, given a list of blogs', function(assert
         }
     };
 
-    let mockBlogs = [{
+    const mockBlogs = [{
         name: 'Test',
         url: 'http://hello.hi/i-like-you/'
     }, {
@@ -39,7 +39,7 @@ test('it attempts to set the user tasks, given a list of blogs', function(assert
         } else {
             oldRequire(...arguments);
         }
-    }
+    };
 
     setUserTasks(mockBlogs);
 
@@ -47,11 +47,11 @@ test('it attempts to set the user tasks, given a list of blogs', function(assert
 });
 
 test('still works with one borked blog', function(assert) {
-    let oldRequire = window.requireNode;
-    let mockRemote = {
+    const oldRequire = window.requireNode;
+    const mockRemote = {
         app: {
             setUserTasks(tasks) {
-                let expected = [{
+                const expected = [{
                     program: process.execPath,
                     arguments: 'http://hello.hi/i-like-you/',
                     title: 'Test'
@@ -62,7 +62,7 @@ test('still works with one borked blog', function(assert) {
         }
     };
 
-    let mockBlogs = [{
+    const mockBlogs = [{
         name: 'Test',
         url: 'http://hello.hi/i-like-you/'
     }, {
@@ -78,7 +78,7 @@ test('still works with one borked blog', function(assert) {
         } else {
             oldRequire(...arguments);
         }
-    }
+    };
 
     setUserTasks(mockBlogs);
 
@@ -88,10 +88,10 @@ test('still works with one borked blog', function(assert) {
 test('does not attempt to set anything if passed no blogs', function(assert) {
     assert.expect(0);
 
-    let oldRequire = window.requireNode;
-    let mockRemote = {
+    const oldRequire = window.requireNode;
+    const mockRemote = {
         app: {
-            setUserTasks(tasks) {
+            setUserTasks() {
                 assert.ok(false);
             }
         }
@@ -105,7 +105,7 @@ test('does not attempt to set anything if passed no blogs', function(assert) {
         } else {
             oldRequire(...arguments);
         }
-    }
+    };
 
     setUserTasks();
 

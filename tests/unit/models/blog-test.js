@@ -1,4 +1,7 @@
-import { moduleForModel, test } from 'ember-qunit';
+import Ember from 'ember';
+import {moduleForModel, test} from 'ember-qunit';
+
+const {run} = Ember;
 
 /**
  * Test Preparation
@@ -24,11 +27,11 @@ test('it can be selected', function(assert) {
     // mock the save
     blog.save =  function () {
         assert.ok(true);
-    }
+    };
 
     blog.isDeleted = false;
 
-    Ember.run(() => blog.select());
+    run(() => blog.select());
     assert.ok(blog.get('isSelected'));
 });
 
@@ -39,11 +42,11 @@ test('it can be deselected', function(assert) {
     // mock the save
     blog.save =  function () {
         assert.ok(true);
-    }
+    };
 
     blog.isDeleted = false;
 
-    Ember.run(() => blog.unselect());
+    run(() => blog.unselect());
     assert.ok(!blog.get('isSelected'));
 });
 
@@ -53,13 +56,13 @@ test('it can store a password', function(assert) {
 
     const blog = this.subject({identification: 'test', url: 'testblog'});
 
-    Ember.run(() => blog.setPassword('test'));
+    run(() => blog.setPassword('test'));
 });
 
 test('it can retrieve a password', function(assert) {
     const blog = this.subject({identification: 'test', url: 'testblog'});
 
-    Ember.run(() => {
+    run(() => {
         const password = blog.getPassword();
 
         // On Travis, this test might fail - so we accept it right away.
@@ -78,7 +81,7 @@ test('it can generate a new random icon color', function (assert) {
     const blog = this.subject();
     const oldColor = blog.get('iconColor');
 
-    Ember.run(() => blog.randomIconColor(oldColor));
+    run(() => blog.randomIconColor(oldColor));
     assert.notEqual(oldColor, blog.get('iconColor'));
 });
 
@@ -88,6 +91,6 @@ test('it updates the blog title', function (assert) {
 
     return blog.updateName()
         .then(() => {
-           assert.equal(blog.get('name'), 'Sign In - Felix Rieseberg');
+            assert.equal(blog.get('name'), 'Sign In - Felix Rieseberg');
         });
 });
