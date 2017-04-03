@@ -1,15 +1,17 @@
 import Ember from 'ember';
-import { storageFor } from 'ember-local-storage';
+import {storageFor} from 'ember-local-storage';
 
-export default Ember.Service.extend(Ember.Evented, {
+const {Service, Evented, computed, $} = Ember;
+
+export default Service.extend(Evented, {
     preferences: storageFor('preferences'),
 
-    isQuickSwitcherMinimized: Ember.computed.alias('preferences.isQuickSwitcherMinimized'),
-    isNotificationsEnabled: Ember.computed.alias('preferences.isNotificationsEnabled'),
-    contributors: Ember.computed.alias('preferences.contributors'),
-    spellcheckLanguage: Ember.computed.alias('preferences.spellcheckLanguage'),
+    isQuickSwitcherMinimized: computed.alias('preferences.isQuickSwitcherMinimized'),
+    isNotificationsEnabled: computed.alias('preferences.isNotificationsEnabled'),
+    contributors: computed.alias('preferences.contributors'),
+    spellcheckLanguage: computed.alias('preferences.spellcheckLanguage'),
 
-    zoomFactor: Ember.computed({
+    zoomFactor: computed({
         get() {
             return this.get('preferences.zoomFactor');
         },
@@ -27,7 +29,7 @@ export default Ember.Service.extend(Ember.Evented, {
     },
 
     setupContributors() {
-        Ember.$.getJSON('contributors.json').then(
+        $.getJSON('contributors.json').then(
             (data) => this.set('preferences.contributors', data)
         );
     },

@@ -1,5 +1,5 @@
-import { switchShortcut } from 'ghost-desktop/helpers/switch-shortcut';
-import { module, test } from 'qunit';
+import {switchShortcut} from 'ghost-desktop/helpers/switch-shortcut';
+import {module, test} from 'qunit';
 
 module('Unit | Helper | switch shortcut');
 

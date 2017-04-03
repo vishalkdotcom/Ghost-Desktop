@@ -1,33 +1,31 @@
 'use strict';
 
-const ipc = require('electron').ipcRenderer;
-const remote = require('electron').remote;
-const webFrame = require('electron').webFrame;
+const {ipcRenderer, remote, webFrame} = require('electron');
 const spellchecker = require('spellchecker');
 
 const webContents = remote.getCurrentWebContents();
-const Menu = remote.Menu;
+const {Menu} = remote;
 const template = [{
-        label: 'Undo',
-        role: 'undo'
-    }, {
-        label: 'Redo',
-        role: 'redo'
-    }, {
-        type: 'separator'
-    }, {
-        label: 'Cut',
-        role: 'cut'
-    }, {
-        label: 'Copy',
-        role: 'copy'
-    }, {
-        label: 'Paste',
-        role: 'paste'
-    }, {
-        label: 'Select All',
-        role: 'selectall'
-    }];
+    label: 'Undo',
+    role: 'undo'
+}, {
+    label: 'Redo',
+    role: 'redo'
+}, {
+    type: 'separator'
+}, {
+    label: 'Cut',
+    role: 'cut'
+}, {
+    label: 'Copy',
+    role: 'copy'
+}, {
+    label: 'Paste',
+    role: 'paste'
+}, {
+    label: 'Select All',
+    role: 'selectall'
+}];
 let selection;
 
 /**
@@ -67,7 +65,7 @@ function handleContextMenu(e) {
     // Do nothing when there's no input nearby
     if (!e.target.closest('textarea, input, [contenteditable="true"]')) {
         return;
-    };
+    }
 
     e.preventDefault();
     e.stopPropagation();
@@ -135,16 +133,16 @@ function handlePaste(e) {
 
         window.requestIdleCallback(function () {
             elem.setAttribute('spellcheck', true);
-        })
+        });
     }
 }
 
 function setup() {
     window.addEventListener('mousedown', resetSelection);
     window.addEventListener('contextmenu', handleContextMenu);
-	window.addEventListener('paste', handlePaste);
+    window.addEventListener('paste', handlePaste);
 
-    ipc.on('spellchecker', (sender, data) => setupSpellChecker(data));
+    ipcRenderer.on('spellchecker', (sender, data) => setupSpellChecker(data));
 }
 
 setup();

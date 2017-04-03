@@ -4,7 +4,7 @@ import {injectCss} from '../utils/inject-css';
 import Phrases from '../utils/phrases';
 import escapeString from '../utils/escape-string';
 
-const {Component} = Ember;
+const {Component, inject, observer, run} = Ember;
 
 /**
  * The instance host component contains a webview, displaying a Ghost blog
@@ -13,7 +13,7 @@ const {Component} = Ember;
 export default Component.extend({
     classNames: ['instance-host'],
     classNameBindings: ['blog.isSelected:selected'],
-    preferences: Ember.inject.service(),
+    preferences: inject.service(),
 
     /**
      * Observes the 'isResetRequested' property, resetting the instance if
@@ -21,7 +21,7 @@ export default Component.extend({
      * if properties changed that are not part of the cleartext model (like
      * the password, for instance)
      */
-    blogObserver: Ember.observer('blog.isResetRequested', function() {
+    blogObserver: observer('blog.isResetRequested', function() {
         const blog = this.get('blog');
 
         if (blog && blog.get('isResetRequested')) {
@@ -75,10 +75,10 @@ export default Component.extend({
         // To make things "feel" more snappy, we're hiding the loading from the
         // user.
         if (window.QUnit) {
-            return Ember.run(() => this.set('isInstanceLoaded', true));
+            return run(() => this.set('isInstanceLoaded', true));
         }
 
-        Ember.run.later(() => this.set('isInstanceLoaded', true), 1500);
+        run.later(() => this.set('isInstanceLoaded', true), 1500);
 
     },
 
@@ -90,7 +90,7 @@ export default Component.extend({
         this.set('isAttemptedSignin', false);
         this.didRender();
 
-        Ember.run.later(() => this.signin());
+        run.later(() => this.signin());
     },
 
     /**
@@ -215,13 +215,13 @@ export default Component.extend({
 
         console.log(`Ghost Instance failed to load. Error Code: ${errorCode}`, errorDescription);
         // TODO: Handle notification click
-        /*eslint-disable no-unused-vars*/
+        /* eslint-disable no-unused-vars */
         if (this.get('preferences.isNotificationsEnabled')) {
             const errorNotify = new Notification('Ghost Desktop', {
                 body: Phrases.noInternet
             });
         }
-        /*eslint-enable no-unused-vars*/
+        /* eslint-enable no-unused-vars */
     },
 
     /**
@@ -230,11 +230,11 @@ export default Component.extend({
      */
     _handleConsole(e) {
         if (e && e.originalEvent && e.originalEvent.message.includes('login-error')) {
-            /*eslint-disable no-unused-vars*/
+            /* eslint-disable no-unused-vars */
             if (this.get('preferences.isNotificationsEnabled')) {
                 const errorNotify = new Notification(Phrases.loginFailed);
             }
-            /*eslint-enable no-unused-vars*/
+            /* eslint-enable no-unused-vars */
 
             return this.sendAction('showEditBlog', this.get('blog'), Phrases.loginFailed);
         }

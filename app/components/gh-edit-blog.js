@@ -1,22 +1,22 @@
-import Ember                       from 'ember';
-import getIsGhost                  from '../utils/get-is-ghost';
-import getBlogName                 from '../utils/get-blog-name';
-import {sanitizeUrl, isValidUrl}   from '../utils/sanitize-url';
-import Phrases                     from '../utils/phrases';
+import Ember from 'ember';
+import getIsGhost from '../utils/get-is-ghost';
+import getBlogName from '../utils/get-blog-name';
+import {sanitizeUrl, isValidUrl} from '../utils/sanitize-url';
+import Phrases from '../utils/phrases';
 
-const {Component} = Ember;
+const {Component, inject, computed, run} = Ember;
 
 export default Component.extend({
-    store: Ember.inject.service(),
+    store: inject.service(),
     classNames: ['gh-edit-blog'],
     classNameBindings: ['isBasicAuth:basic-auth', 'hasWarning'],
     isBasicAuth: false,
-    hasWarning: Ember.computed.bool('editWarning'),
+    hasWarning: computed.bool('editWarning'),
 
     /**
      * A boolean value that is true if any errors are present
      */
-    hasError: Ember.computed('isIdentificationInvalid', 'isUrlInvalid', 'isPasswordInvalid', {
+    hasError: computed('isIdentificationInvalid', 'isUrlInvalid', 'isPasswordInvalid', {
         get() {
             const identification = this.get('isIdentificationInvalid');
             const url = this.get('isUrlInvalid');
@@ -154,7 +154,7 @@ export default Component.extend({
         async addOrEditBlog() {
             // Manually begin a run loop, since async/await is still
             // black magic as far as Ember is concerned
-            Ember.run.begin();
+            run.begin();
             this.set('isSubmitting', true);
 
             const url = sanitizeUrl(this.get('url'));
@@ -171,7 +171,7 @@ export default Component.extend({
             }
 
             this.set('isSubmitting', false);
-            Ember.run.end();
+            run.end();
         },
 
         /**

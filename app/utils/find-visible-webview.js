@@ -1,7 +1,9 @@
 import Ember from 'ember';
 
+const {$} = Ember;
+
 export default function findVisibleWebview() {
-    const $visibleWebviews = [...Ember.$('webview:visible')].filter((i) => Ember.$(i).height() > 0);
+    const $visibleWebviews = [...$('webview:visible')].filter((i) => $(i).height() > 0);
     const $webview = ($visibleWebviews.length > 0) ? $visibleWebviews[0] : undefined;
 
     return $webview;

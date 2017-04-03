@@ -7,6 +7,10 @@
     "parserOptions": {
       "sourceType": "module"
     },
+    "extends": [
+        "eslint:recommended",
+        "plugin:ember-suave/recommended"
+    ],
     "parser": "babel-eslint",
     "rules": {
         "strict": [0, "never"],
@@ -14,6 +18,10 @@
         "eqeqeq": 2,
         "no-bitwise": 2,
         "curly": [2, "multi-line"],
+        "quotes": ["error", "single", {
+            "avoidEscape": true,
+            "allowTemplateLiterals": true
+        }],
         "guard-for-in": 2,
         "wrap-iife": [2, "outside"],
         "no-use-before-define": [2, { "functions": true, "classes": true }],
@@ -24,7 +32,18 @@
         "no-plusplus": 2,
         "no-undef": 2,
         "no-unused-vars": [2, { "vars": "all", "args": "after-used" }],
-        "prefer-const": "error"
+        "prefer-const": "error",
+        "indent": ["error", 4],
+        "space-before-function-paren": ["error", {"anonymous": "ignore", "named": "never"}],
+        "object-curly-spacing": ["error", "never"],
+        "array-bracket-spacing": ["error", "never"],
+        "key-spacing": ["error", {"mode": "minimum"}],
+        "keyword-spacing": ["error", {"overrides": {
+            "catch": {"after": true}
+        }}],
+        "no-console": "off",
+        "ember-suave/require-access-in-comments": "off",
+        "ember-suave/no-const-outside-module-scope": "off"
     },
     "globals": {
         "requireNode": false

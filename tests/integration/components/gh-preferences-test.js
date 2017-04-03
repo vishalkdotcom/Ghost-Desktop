@@ -1,8 +1,10 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import {moduleForComponent, test} from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
+const {run} = window.Ember;
+
 moduleForComponent('gh-preferences', 'Integration | Component | gh preferences', {
-  integration: true
+    integration: true
 });
 
 test('it renders', function(assert) {
@@ -22,13 +24,13 @@ test('sets zoom factor', function(assert) {
     this.$('input#zoomFactor').val(120);
     this.$('input#zoomFactor').change();
 
-    Ember.run(() => {
-      this.$('button:contains("Set Zoom")').click();
+    run(() => {
+        this.$('button:contains("Set Zoom")').click();
 
-      const frame = require('electron').webFrame;
-      const zf = frame.getZoomFactor();
+        const frame = require('electron').webFrame;
+        const zf = frame.getZoomFactor();
 
-      assert.equal(zf, 1.2);
+        assert.equal(zf, 1.2);
     });
 });
 
@@ -38,12 +40,12 @@ test('resets zoom factor', function(assert) {
     this.$('input#zoomFactor').val(120);
     this.$('input#zoomFactor').change();
 
-    Ember.run(() => {
-      this.$('button:contains("Reset")').click();
+    run(() => {
+        this.$('button:contains("Reset")').click();
 
-      const frame = require('electron').webFrame;
-      const zf = frame.getZoomFactor();
+        const frame = require('electron').webFrame;
+        const zf = frame.getZoomFactor();
 
-      assert.equal(zf, 1);
+        assert.equal(zf, 1);
     });
 });

@@ -1,9 +1,0 @@
-{
-  "name": "ghost-desktop",
-  "dependencies": {
-    "ember": "~2.9.0",
-    "ember-cli-shims": "0.1.3",
-    "normalize-css": "normalize.css#^3.0.3",
-    "blob-polyfill": "^1.0.20150320"
-  }
-}

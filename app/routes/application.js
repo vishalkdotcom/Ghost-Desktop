@@ -1,11 +1,11 @@
 import Ember from 'ember';
-import { setup as setupContextMenu } from '../utils/context-menu';
+import {setup as setupContextMenu} from '../utils/context-menu';
 
-const {Route} = Ember;
+const {Route, inject} = Ember;
 
 export default Route.extend({
-    windowMenu: Ember.inject.service(),
-    preferences: Ember.inject.service(),
+    windowMenu: inject.service(),
+    preferences: inject.service(),
 
     beforeModel() {
         this.get('preferences').setupZoom();
@@ -19,7 +19,7 @@ export default Route.extend({
 
         window.onbeforeunload = function () {
             browserWindow.removeAllListeners();
-        }
+        };
     },
 
     model() {

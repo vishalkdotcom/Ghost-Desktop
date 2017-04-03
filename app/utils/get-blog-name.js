@@ -1,5 +1,7 @@
 import Ember from 'ember';
 
+const {$} = Ember;
+
 /**
  * Get's the blog name for a given blog url
  * @param  {string} url - Url for the blog
@@ -17,7 +19,7 @@ export default function getBlogName(url) {
             url = `${url.slice(0, url.length - 7)}/`;
         }
 
-        Ember.$.get(url)
+        $.get(url)
             .then((response) => {
                 const titleResult = response.match('<title>(.*)</title>');
                 const title = (titleResult && titleResult.length > 1) ? titleResult[1] : url;

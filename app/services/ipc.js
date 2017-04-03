@@ -1,6 +1,8 @@
 import Ember from 'ember';
 
-export default Ember.Service.extend(Ember.Evented, {
+const {Service, Evented} = Ember;
+
+export default Service.extend(Evented, {
     init() {
         this.ipcRenderer = require('electron').ipcRenderer;
 
@@ -11,7 +13,7 @@ export default Ember.Service.extend(Ember.Evented, {
         });
         this.ipcRenderer.on('open-blog', (sender, ...args) => {
             this.restoreWindow();
-            this.trigger('open-blog', ...args)
+            this.trigger('open-blog', ...args);
         });
     },
 

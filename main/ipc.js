@@ -9,7 +9,7 @@ ipcMain.on('blog-data', (event, data) => {
     if (state.blogs.length === 0) {
         state.blogs.push(data);
     } else {
-        const foundBlogIndex = state.blogs.findIndex(item => (item.id === data.id));
+        const foundBlogIndex = state.blogs.findIndex((item) => (item.id === data.id));
 
         if (foundBlogIndex > -1) {
             state.blogs[foundBlogIndex] = data;
@@ -25,7 +25,7 @@ ipcMain.on('main-window-ready', (event, data) => {
     state['main-window-ready'] = true;
 
     debug(`Main window ready: ${data}`);
-})
+});
 
 ipcMain.on('shutdown-requested', (event) => {
     if (event.sender) {
@@ -38,7 +38,7 @@ ipcMain.on('shutdown-requested', (event) => {
 });
 
 ipcMain.on('soft-restart-requested', () => {
-    debug(`Soft restart requested, closing main window and creating a new one`)
+    debug('Soft restart requested, closing main window and creating a new one');
 
     reloadMainWindow();
 });

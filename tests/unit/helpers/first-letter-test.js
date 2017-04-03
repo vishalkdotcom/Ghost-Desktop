@@ -1,5 +1,5 @@
-import { firstLetter } from 'ghost-desktop/helpers/first-letter';
-import { module, test } from 'qunit';
+import {firstLetter} from 'ghost-desktop/helpers/first-letter';
+import {module, test} from 'qunit';
 
 module('Unit | Helper | first letter');
 

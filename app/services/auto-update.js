@@ -1,7 +1,9 @@
 import Ember from 'ember';
 import ENV from 'ghost-desktop/config/environment';
 
-export default Ember.Service.extend(Ember.Evented, {
+const {Service, Evented, computed} = Ember;
+
+export default Service.extend(Evented, {
     autoUpdater: null,
     isCheckingForUpdate: null,
     isUpdateAvailable: null,
@@ -9,7 +11,7 @@ export default Ember.Service.extend(Ember.Evented, {
     isLatestVersion: null,
     isLinux: process.platform === 'linux',
 
-    isSupportedEnvironment: Ember.computed({
+    isSupportedEnvironment: computed({
         get() {
             if (this.get('isLinux') || process.mas) {
                 return false;
@@ -26,7 +28,7 @@ export default Ember.Service.extend(Ember.Evented, {
     /**
      * Returns the current environment (testing, development, production)
      */
-    environment: Ember.computed({
+    environment: computed({
         get() {
             return ENV.environment;
         }
@@ -37,7 +39,7 @@ export default Ember.Service.extend(Ember.Evented, {
      * defined in package.json. If that fails, it'll check the version of
      * the current executable.
      */
-    appVersion: Ember.computed({
+    appVersion: computed({
         get() {
             const {remote} = requireNode('electron');
             const appVersion = remote.app.getVersion();
@@ -49,12 +51,12 @@ export default Ember.Service.extend(Ember.Evented, {
     /**
      * Returns the Update Feed URL for the current platform.
      */
-    updateFeedUrl: Ember.computed({
+    updateFeedUrl: computed({
         get() {
             const os = requireNode('os').platform();
-            let updateFeed = (os === 'darwin') ?
-                `http://desktop-updates.ghost.org/update/osx/${this.get('appVersion')}` :
-                `http://desktop-updates.ghost.org/update/win32/${this.get('appVersion')}`;
+            let updateFeed = (os === 'darwin')
+                ? `http://desktop-updates.ghost.org/update/osx/${this.get('appVersion')}`
+                : `http://desktop-updates.ghost.org/update/win32/${this.get('appVersion')}`;
 
             // Developer ovverride?
             if (process.env.GHOST_UPDATER_URL) {

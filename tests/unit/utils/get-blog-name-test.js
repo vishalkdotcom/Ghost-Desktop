@@ -1,5 +1,5 @@
 import getBlogName from 'ghost-desktop/utils/get-blog-name';
-import { module, test } from 'qunit';
+import {module, test} from 'qunit';
 
 module('Unit | Utility | get blog name');
 

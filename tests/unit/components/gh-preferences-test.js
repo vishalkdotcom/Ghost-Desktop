@@ -1,13 +1,12 @@
 import {moduleForComponent, test} from 'ember-qunit';
-import hbs from 'htmlbars-inline-precompile';
-import {blogs} from '../../fixtures/blogs';
 import {autoUpdateMock} from '../../fixtures/auto-update';
 
 moduleForComponent('gh-preferences', 'Unit | Component | gh preferences', {
     unit: true,
-    beforeEach: function () {
+    needs: ['service:preferences'],
+    beforeEach() {
         this.register('service:auto-update', autoUpdateMock);
-        this.inject.service('auto-update', { as: 'autoUpdate' });
+        this.inject.service('auto-update', {as: 'autoUpdate'});
     }
 });
 
@@ -64,8 +63,6 @@ test('deleteData tries to show a dialog', function(assert) {
 test('deleteData does not attempt to delete if response is 0', function(assert) {
     const component = this.subject();
     const oldRequire = window.requireNode;
-    const oldLocation = window.location;
-    const oldLocalStorage = window.localStorage;
     const mockDialog = {
         showMessageBox: (options, cb) => {
             assert.ok(true);

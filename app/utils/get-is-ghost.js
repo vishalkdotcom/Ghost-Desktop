@@ -1,5 +1,7 @@
 import Ember from 'ember';
 
+const {$} = Ember;
+
 /**
  * Ensures that a given url is actually a Ghost signin page
  * @param  {string} url - Url for the blog
@@ -18,7 +20,7 @@ export default function getIsGhost(url, auth) {
             options.password = auth.basicPassword;
         }
 
-        Ember.$.ajax(options)
+        $.ajax(options)
             .then((response) => {
                 resolve((response.indexOf('name="application-name" content="Ghost"') > -1));
             })

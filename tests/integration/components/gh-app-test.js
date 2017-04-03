@@ -1,6 +1,6 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import {moduleForComponent, test} from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
-import { blogs } from '../../fixtures/blogs';
+import {blogs} from '../../fixtures/blogs';
 
 /**
  * Test Preparation
@@ -31,8 +31,8 @@ test('renders all existing blogs in a webview', function (assert) {
 });
 
 test('displays the first blog if it has blogs (none selected)', function(assert) {
-    let qasync = assert.async();
-    let blogContent = blogs;
+    const qasync = assert.async();
+    const blogContent = blogs;
     blogContent.content = blogs;
     blogContent.firstObject = blogs[0];
     blogContent.find = blogs.find;
@@ -49,7 +49,7 @@ test('displays the first blog if it has blogs (none selected)', function(assert)
 
 test('displays the selected blog if it has blogs (one selected)', function(assert) {
     blogs[1].select();
-    let blogContent = blogs;
+    const blogContent = blogs;
     blogContent.content = blogs;
     blogContent.firstObject = blogs[0];
     blogContent.find = blogs.find;

@@ -1,5 +1,7 @@
 import findVisibleWebview from 'ghost-desktop/utils/find-visible-webview';
-import { module, test } from 'qunit';
+import {module, test} from 'qunit';
+
+const {$} = window.Ember;
 
 module('Unit | Utility | find visible webview');
 

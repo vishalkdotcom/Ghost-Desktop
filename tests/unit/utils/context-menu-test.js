@@ -1,5 +1,5 @@
-import { setup } from 'ghost-desktop/utils/context-menu';
-import { module, test } from 'qunit';
+import {setup} from 'ghost-desktop/utils/context-menu';
+import {module, test} from 'qunit';
 
 module('Unit | Utility | context menu');
 
@@ -13,7 +13,7 @@ test('binds to the "contextmenu" event', function(assert) {
         }
 
         return oldAddEvent(...arguments);
-    }
+    };
 
     setup();
     assert.ok(addEventListenerCalled);
@@ -24,27 +24,29 @@ test('right click opens context menu', function(assert) {
 
     const element = document.querySelector('input#qunit-filter-input');
     const event = document.createEvent('MouseEvents');
-    const x = 10, y = 10;
+    const x = 10;
+    const y = 10;
 
     const oldRequire = window.requireNode;
-    const mockRemote = { BrowserWindow: {}, Menu: {}, getCurrentWindow() { return true; } };
-    const menuSetup = false;
+    const mockRemote = {BrowserWindow: {}, Menu: {}, getCurrentWindow() {
+        return true;
+    }};
 
     mockRemote.BrowserWindow = window.requireNode('electron').remote.BrowserWindow;
-    mockRemote.Menu.buildFromTemplate = function (menu) {
+    mockRemote.Menu.buildFromTemplate = function() {
         return {
             popup() {
                 assert.ok(true);
             }
-        }
-    }
+        };
+    };
     window.requireNode = function (module) {
         if (module === 'electron') {
-            return { remote: mockRemote };
+            return {remote: mockRemote};
         } else {
             oldRequire(...arguments);
         }
-    }
+    };
 
     setup();
 
@@ -58,10 +60,11 @@ test('right click opens context menu', function(assert) {
 test('does not error on non-input', function(assert) {
     setup();
 
-    var element = document.querySelector('div#qunit');
-    var event = document.createEvent('MouseEvents');
+    const element = document.querySelector('div#qunit');
+    const event = document.createEvent('MouseEvents');
 
-    var x = 10, y = 10;
+    const x = 10;
+    const y = 10;
 
     event.initMouseEvent('contextmenu', true, true, element.ownerDocument.defaultView, 1, x, y, x, y, false, false, false, false, 2, null);
     element.dispatchEvent(event);

@@ -43,7 +43,7 @@ class StateManager extends EventEmitter {
 
                 return true;
             }
-        }
+        };
 
         this.state = new Proxy({}, stateHandler);
         this.on('newListener', this.handleNewListener);

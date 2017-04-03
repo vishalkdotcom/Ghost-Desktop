@@ -1,7 +1,7 @@
-import { moduleFor, test } from 'ember-qunit';
+import {moduleFor, test} from 'ember-qunit';
 
 const EventEmitter = require('events');
-class FakeIpcRenderer extends EventEmitter {};
+class FakeIpcRenderer extends EventEmitter {}
 
 moduleFor('service:ipc', 'Unit | Service | ipc', {
     // Specify the other units that are required for this test.
@@ -28,14 +28,14 @@ test('it triggers create-draft on ipc create-draft', function(assert) {
                         return {
                             isVisible: () => true,
                             isMinimized: () => false
-                        }
+                        };
                     }
                 }
-            }
+            };
         } else {
             return oldRequire(...arguments);
         }
-    }
+    };
 
     const service = this.subject();
     service.on('create-draft', (argument) => {
@@ -61,14 +61,14 @@ test('it triggers open-blog on ipc open-blog', function(assert) {
                         return {
                             isVisible: () => true,
                             isMinimized: () => false
-                        }
+                        };
                     }
                 }
-            }
+            };
         } else {
             return oldRequire(...arguments);
         }
-    }
+    };
 
     const service = this.subject();
     service.on('open-blog', (argument) => {
@@ -98,14 +98,14 @@ test('restoreWindow shows window if hidden', function(assert) {
                                 assert.ok(true);
                                 done();
                             }
-                        }
+                        };
                     }
                 }
-            }
+            };
         } else {
             return oldRequire(...arguments);
         }
-    }
+    };
 
     const service = this.subject();
     service.restoreWindow();
@@ -131,14 +131,14 @@ test('restoreWindow restores window if minimized', function(assert) {
                                 assert.ok(true);
                                 done();
                             }
-                        }
+                        };
                     }
                 }
-            }
+            };
         } else {
             return oldRequire(...arguments);
         }
-    }
+    };
 
     const service = this.subject();
     service.restoreWindow();

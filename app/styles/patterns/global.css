@@ -78,6 +78,8 @@ body {
     height: 100%;
     color: color(var(--darkgrey) lightness(+10%));
     font-size: 1.4rem;
+    margin: 0;
+    padding: 0;
 }
 
 ::selection {

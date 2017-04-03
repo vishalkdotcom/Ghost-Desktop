@@ -17,4 +17,4 @@ export default function getIconColor(excludedColor) {
     }
 
     return color;
-};
+}

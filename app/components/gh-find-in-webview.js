@@ -1,10 +1,12 @@
 import Ember from 'ember';
 import findVisibleWebview from '../utils/find-visible-webview';
 
-export default Ember.Component.extend({
+const {Component, inject, run} = Ember;
+
+export default Component.extend({
     classNames: ['find-webview'],
     classNameBindings: ['isActive:active'],
-    windowMenu: Ember.inject.service(),
+    windowMenu: inject.service(),
 
     didInsertElement() {
         this._super(...arguments);
@@ -19,15 +21,18 @@ export default Ember.Component.extend({
         this.toggleProperty('isActive');
 
         if (!this.get('isActive')) {
-            const $webview = findVisibleWebview();
-            console.log('heeeeeeelo');
-            console.log($webview);
-            if ($webview && $webview.stopFindInPage) {
-                $webview.stopFindInPage('clearSelection');
-            }
+            const webviews = document.querySelectorAll('webview') || [];
+
+            webviews.forEach((webview) => {
+                if (webview && webview.stopFindInPage) {
+                    webview.stopFindInPage('clearSelection');
+                } else {
+                    console.warn('Tried to clear selection due to stop search, but failed');
+                }
+            });
         } else {
             this.set('searchterm', '');
-            Ember.run.later(() => this.$('input').focus());
+            run.later(() => this.$('input').focus());
         }
     },
 

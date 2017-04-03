@@ -1,11 +1,8 @@
-import { test, moduleForComponent } from 'ember-qunit';
+import {test, moduleForComponent} from 'ember-qunit';
 
 moduleForComponent('gh-select-native', 'Unit | Component | gh select native', {
-        unit: true
-        // specify the other units that are required for this test
-        // needs: ['component:foo', 'helper:bar']
-    }
-);
+    unit: true
+});
 
 test('it renders', function(assert) {
     // creates the component instance
