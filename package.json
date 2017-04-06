@@ -11,22 +11,15 @@
   "scripts": {
     "build": "ember electron:package --environment production --app-version 1.2.1 --overwrite",
     "build:win": "npm run clean:builds32 && npm run build -- --platform win32 --arch ia32",
-    "build:linux": "npm run build -- --platform linux --arch x64",
     "build:contrib": "node ./scripts/fetch-contributors.js",
     "build:macosicons": "node ./scripts/create-iconset.js",
     "clean:builds": "rimraf ./electron-builds",
-    "clean:builds64": "rimraf ./electron-builds/Ghost*x64*/",
-    "clean:builds32": "rimraf ./electron-builds/Ghost*ia32*/",
     "start": "node ./scripts/fetch-contributors.js && cross-env DEBUG=ghost-desktop:* ember electron",
     "test": "npm run test:lint && npm run test:unit",
     "test:unit": "ember electron:test",
     "test:lint": "grunt trimtrailingspaces && eslint './main/**/*.js' './app/**/*.js'",
-    "install": "npm run rebuild",
-    "rebuild": "electron-rebuild",
-    "rebuild:32": "electron-rebuild -a ia32",
-    "rebuild:64": "electron-rebuild -a x64",
     "installer:win": "node ./scripts/create-windows-build.js && npm run clean:builds32 && npm run build:contrib && npm run build:win && grunt create-windows-installer:ia32",
-    "installer:debian": "npm run clean:builds64 && npm run build:contrib && npm run build:linux && grunt electron-installer-debian",
+    "installer:debian": "npm run clean:builds64 && npm run build:contrib && npm run build:linux && grunt electron-installer-debian"
   },
   "repository": "",
   "engines": {
