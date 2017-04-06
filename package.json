@@ -91,41 +91,6 @@
     "rimraf": "latest",
     "tmp": "0.0.31"
   },
-  "main": "main/app.js",
-  "ember-electron": {
-    "build-version": 1210,
-    "copy-files": [
-      "package.json",
-      "main/*"
-    ],
-    "name": "Ghost",
-    "app-bundle-id": null,
-    "app-category-type": "public.app-category.productivity",
-    "app-copyright": "Copyright (c) 2016 Ghost Foundation",
-    "helper-bundle-id": null,
-    "icon": "assets/icons/ghost",
-    "overwrite": true,
-    "ignore": [
-      "\\*.(cc|h|lib|pdb|obj|map|md|tlog|o)$",
-      "/node_modules/.*/hunspell/src",
-      "/node_modules/.*/(gyp-mac-tool|cibuild)$",
-      "/node_modules/.*/bin/cmd.js$",
-      "/node_modules/.*/tools/1to2.js$"
-    ],
-    "sign": null,
-    "strict-ssl": null,
-    "protocol": [
-      "ghost"
-    ],
-    "protocol-name": "Ghost Desktop",
-    "win32metadata": {
-      "CompanyName": "Ghost Foundation",
-      "FileDescription": "Ghost for Desktops",
-      "ProductName": "Ghost",
-      "InternalName": "Ghost"
-    },
-    "version": "1.6.4"
-  },
   "dependencies": {
     "debug-electron": "0.0.4",
     "electron-compile": "^6.2.0",

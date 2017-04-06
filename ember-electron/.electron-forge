@@ -14,6 +14,8 @@ module.exports = {
       "ProductName": "Ghost",
       "InternalName": "Ghost"
     },
+    "protocol": ["ghost"],
+    "protocol-name": "Ghost Desktop",
     ignore: function ignore(filepath) {
       return false
       const toIgnore = [
