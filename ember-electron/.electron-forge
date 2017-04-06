@@ -1,0 +1,57 @@
+module.exports = {
+  "make_targets": {
+    "win32": ["squirrel"],
+    "darwin": ["zip", "dmg"],
+    "linux": ["deb", "rpm"]
+  },
+  "electronPackagerConfig": {
+    "appCategoryType": "public.app-category.productivity",
+    "appCopyright": "Copyright (c) 2016 Ghost Foundation",
+    "name": "Ghost",
+    "versionString": {
+      "CompanyName": "Ghost Foundation",
+      "FileDescription": "Ghost for Desktops",
+      "ProductName": "Ghost",
+      "InternalName": "Ghost"
+    },
+    ignore: function ignore(filepath) {
+      return false
+      const toIgnore = [
+        /\\*.(cc|h|lib|pdb|obj|map|md|tlog|o)$/,
+        /\/node_modules\/.*\/hunspell\/src/,
+        /\/node_modules\/.*\/(gyp-mac-tool|cibuild)$/,
+        /\/node_modules\/.*\/bin\/cmd.js$/,
+        /\/node_modules\/.*\/tools\/1to2.js$/,
+        /\/node_modules\/.bin\/.*/,
+        /\/node_modules\/electron\/.*/,
+        /\/node_modules\/electron-prebuilt\/.*/,
+        /\/node_modules\/electron-prebuilt-compile\/.*/,
+        /\/node_modules\/electron-packager\/.*/,
+      ];
+
+      if (!filepath) return false;
+      return !!(toIgnore.find((t) => filepath.match(t)));
+    },
+    "overwrite": true,
+    "icon": "assets/icons/ghost"
+  },
+  "electronInstallerDMG": {
+    "title": "Ghost",
+    "background": "assets/dmg/installer_background.png",
+    "icon": "assets/icons/ghost.icns",
+    "icon-size": 100,
+    "window": {
+        "size": {
+            "width": 600,
+            "height": 571
+        }
+    }
+  },
+  "electronWinstallerConfig": {
+    "name": "Ghost",
+    "icon": "assets/icons/ghost",
+    "noMsi": true
+  },
+  "electronInstallerDebian": {},
+  "electronInstallerRedhat": {}
+};

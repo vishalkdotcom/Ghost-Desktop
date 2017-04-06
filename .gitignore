@@ -1,7 +1,7 @@
 # compiled output
 /dist
 /tmp
-/electron-builds
+/electron-out
 
 # dependencies
 /node_modules
