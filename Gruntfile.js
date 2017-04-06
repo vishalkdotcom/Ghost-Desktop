@@ -6,8 +6,6 @@
 //
 // **Debug tip:** If you have any problems with any Grunt tasks, try running them with the `--verbose` command
 
-const winTools = require('./scripts/create-windows-build');
-
 const configureGrunt = function (grunt) {
     // #### Load all grunt tasks
     //
@@ -20,33 +18,6 @@ const configureGrunt = function (grunt) {
     }
 
     const config = {
-        'create-windows-installer': {
-            ia32: {
-                appDirectory: './electron-builds/Ghost-win32-ia32',
-                outputDirectory: './electron-builds/Ghost-win32-ia32-installer',
-                authors: 'Ghost Foundation',
-                exe: 'Ghost.exe',
-                iconUrl: `https://raw.githubusercontent.com/TryGhost/Ghost-Desktop/master/assets/icons/ghost.ico`,
-                setupIcon: `${__dirname}/assets/icons/ghost.ico`,
-                title: 'Ghost',
-                noMsi: true,
-                loadingGif: './assets/win/installer-dev.gif',
-                certificateFile: winTools.getSigningCert(),
-                certificatePassword: winTools.getSigningPassword()
-            },
-            x64: {
-                appDirectory: './electron-builds/Ghost-win32-x64',
-                outputDirectory: './electron-builds/Ghost-win32-x64-installer',
-                authors: 'Ghost Foundation',
-                exe: 'Ghost.exe',
-                iconUrl: `https://raw.githubusercontent.com/TryGhost/Ghost-Desktop/master/assets/icons/ghost.ico`,
-                setupIcon: `${__dirname}/assets/icons/ghost.ico`,
-                title: 'Ghost',
-                noMsi: true,
-                loadingGif: './assets/win/installer-dev.gif'
-            }
-        },
-
         'electron-installer-debian': {
             app: {
                 options: {
