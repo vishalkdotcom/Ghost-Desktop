@@ -3,7 +3,7 @@
 const fetch = require('node-fetch');
 const fs = require('fs');
 const util = require('util');
-const contributorsFilePath = 'public/contributors.json';
+const contributorsFilePath = 'ember-electron/main/contributors.json';
 
 fs.stat(contributorsFilePath, (err, stats) => {
     if (err && err.code === 'ENOENT') {

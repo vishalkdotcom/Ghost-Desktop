@@ -15,7 +15,7 @@
 npm-debug.log
 testem.log
 .DS_Store
-public/contributors.json
+ember-electron/main/contributors.json
 
 # coverage
 coverage.lcov

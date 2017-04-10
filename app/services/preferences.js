@@ -29,7 +29,7 @@ export default Service.extend(Evented, {
     },
 
     setupContributors() {
-        $.getJSON('contributors.json').then(
+        $.getJSON('../../ember-electron/main/contributors.json').then(
             (data) => this.set('preferences.contributors', data)
         );
     },
