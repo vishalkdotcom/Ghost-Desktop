@@ -42,26 +42,14 @@ module.exports = {
             ProductName: 'Ghost',
             InternalName: 'Ghost'
         },
+        protocols: [
+            {
+                name: 'Ghost Desktop',
+                schemes: ['ghost']
+            }
+        ],
         protocol: ['ghost'],
         protocolName: 'Ghost Desktop',
-        ignore: function ignore(filepath) {
-            return false
-            const toIgnore = [
-                /\\*.(cc|h|lib|pdb|obj|map|md|tlog|o)$/,
-                /\/node_modules\/.*\/hunspell\/src/,
-                /\/node_modules\/.*\/(gyp-mac-tool|cibuild)$/,
-                /\/node_modules\/.*\/bin\/cmd.js$/,
-                /\/node_modules\/.*\/tools\/1to2.js$/,
-                /\/node_modules\/.bin\/.*/,
-                /\/node_modules\/electron\/.*/,
-                /\/node_modules\/electron-prebuilt\/.*/,
-                /\/node_modules\/electron-prebuilt-compile\/.*/,
-                /\/node_modules\/electron-packager\/.*/,
-            ];
-
-            if (!filepath) return false;
-            return !!(toIgnore.find((t) => filepath.match(t)));
-        },
         overwrite: true,
         icon: 'assets/icons/ghost'
     },

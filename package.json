@@ -9,9 +9,11 @@
   },
   "homepage": "https://github.com/tryghost/ghost-desktop",
   "scripts": {
-    "build:contrib": "node ./scripts/fetch-contributors.js",
+    "contributors": "node ./scripts/fetch-contributors.js",
     "build:macosicons": "node ./scripts/create-iconset.js",
     "start": "node ./scripts/fetch-contributors.js && cross-env DEBUG=ghost-desktop:* ember electron",
+    "package": "npm run contributors && ember electron:package",
+    "make": "npm run contributors && ember electron:make",
     "test": "npm run test:lint && npm run test:unit",
     "test:unit": "ember electron:test",
     "test:lint": "eslint './main/**/*.js' './app/**/*.js'"
@@ -46,7 +48,7 @@
     "ember-cli-uglify": "^1.2.0",
     "ember-data": "^2.12.1",
     "ember-disable-proxy-controllers": "^1.0.1",
-    "ember-electron": "^2.0.0-beta.5",
+    "ember-electron": "^2.0.0-beta.6",
     "ember-export-application-global": "^1.0.5",
     "ember-inspector": "^2.0.1",
     "ember-load-initializers": "^0.6.0",
