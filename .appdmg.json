@@ -1,7 +1,7 @@
 {
     "title": "Ghost",
     "background": "assets/dmg/installer_background.png",
-    "icon": "assets/icons/ghost.icns",
+    "icon": "assets/icons/dmg-icon.icns",
     "icon-size": 100,
     "window": {
         "size": {
