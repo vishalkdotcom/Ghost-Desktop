@@ -29,9 +29,15 @@ export default Service.extend(Evented, {
     },
 
     setupContributors() {
-        $.getJSON('contributors.json').then(
-            (data) => this.set('preferences.contributors', data)
-        );
+        try {
+            console.log(__dirname)
+            const contributors = require('../ember-electron/main/contributors.json');
+            if (contributors) {
+                this.set('preferences.contributors', contributors);
+            }
+        } catch (error) {
+            console.log('Failed catching contributors');
+        }
     },
 
     setupZoom() {

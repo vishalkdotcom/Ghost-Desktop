@@ -32,9 +32,11 @@ module.exports = function(defaults) {
 
     const app = new EmberApp(defaults, {
         babel: {
-            includePolyfill: true,
             blacklist: blacklist,
-            comments: false,
+            comments: false
+        },
+        'ember-cli-babel': {
+            includePolyfill: true
         },
         fingerprint: {
             enabled: false

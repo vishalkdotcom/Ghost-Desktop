@@ -1,12 +1,13 @@
-const {app, BrowserWindow} = require('electron');
+const {app, BrowserWindow, protocol} = require('electron');
 const debug = require('debug-electron')('ghost-desktop:main:app');
+const {resolve, dirname, join} = require('path');
 
 const {fetchWindowState} = require('./window-state');
 const {state} = require('./state-manager');
 const {ensureSingleInstance} = require('./single-instance');
 const {parseArguments} = require('./parse-arguments');
 
-const emberAppLocation = `file://${__dirname}/../dist/index.html`;
+const emberAppLocation = `file://${__dirname}/../../ember/index.html`;
 
 // Before we do anything else, handle Squirrel Events
 if (require('./squirrel')()) return;
