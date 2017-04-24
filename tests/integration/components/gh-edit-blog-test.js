@@ -213,7 +213,7 @@ test('adding a blog creates a blog record', function(assert) {
 
     this.render(hbs`{{gh-edit-blog}}`);
 
-    this.$('input[name="url"]').val('https://dev.ghost.org/ghost');
+    this.$('input[name="url"]').val('https://dev.ghost.io/ghost');
     this.$('input[name="url"]').change();
     this.$('input[name="identification"]').val('test@user.com');
     this.$('input[name="identification"]').change();

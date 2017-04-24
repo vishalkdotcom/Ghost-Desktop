@@ -16,7 +16,7 @@ export function sanitizeUrl(url = '') {
     }
 
     // If the url does not end with a /ghost/, add it
-    if (sanitizedUrl.slice(-7) !== '/ghost/') {
+    if (!sanitizedUrl.endsWith('/ghost/') && !sanitizedUrl.endsWith('/ghost/signin/')) {
         sanitizedUrl = `${sanitizedUrl}ghost/`;
     }
 

@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import {storageFor} from 'ember-local-storage';
 
-const {Service, Evented, computed, $} = Ember;
+const {Service, Evented, computed} = Ember;
 
 export default Service.extend(Evented, {
     preferences: storageFor('preferences'),
@@ -30,7 +30,6 @@ export default Service.extend(Evented, {
 
     setupContributors() {
         try {
-            console.log(__dirname)
             const contributors = require('../ember-electron/main/contributors.json');
             if (contributors) {
                 this.set('preferences.contributors', contributors);

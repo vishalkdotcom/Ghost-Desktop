@@ -66,7 +66,7 @@ export default Component.extend({
      */
     hasBlogs: computed('blogs', function () {
         const b = this.get('blogs');
-        return (b && b.content && b.content.length && b.content.length > 0);
+        return !!(b && b.content && b.content.length && b.content.length > 0);
     }),
 
     blogsObserver: observer('hasBlogs', function () {
@@ -85,6 +85,7 @@ export default Component.extend({
             this.send('switchToBlog', this.findSelectedBlog() || this.get('blogs.firstObject'));
             this.createMenus();
         } else {
+            this.set('selectedBlog', null);
             this.set('isEditBlogVisible', true);
         }
     },

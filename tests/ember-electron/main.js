@@ -37,6 +37,9 @@ app.on('ready', function onReady() {
     width: 800,
     height: 600,
     backgroundThrottling: false,
+    webPreferences: {
+      webSecurity: false
+    }
   });
 
   delete mainWindow.module;
