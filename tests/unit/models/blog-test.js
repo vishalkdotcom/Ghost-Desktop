@@ -86,10 +86,10 @@ test('it can generate a new random icon color', function (assert) {
 });
 
 test('it updates the blog title', function (assert) {
-    const blog = this.subject({url: 'https://www.google.com'});
+    const blog = this.subject({url: 'http://bing.com'});
 
     return blog.updateName()
         .then(() => {
-            assert.equal(blog.get('name'), 'Google');
+            assert.equal(blog.get('name'), 'Bing');
         });
 });

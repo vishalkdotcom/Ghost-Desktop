@@ -8,7 +8,7 @@ test('correctly marks a Ghost app as Ghost', function (assert) {
 });
 
 test('correctly marks a non-Ghost site as Ghost', function (assert) {
-    return getIsGhost('https://www.google.com').then((result) => assert.ok(!result));
+    return getIsGhost('https//bing.com').then((result) => assert.ok(!result));
 });
 
 test('rejects the promise if called without a parameter', function (assert) {

@@ -4,9 +4,9 @@ import {module, test} from 'qunit';
 module('Unit | Utility | get blog name');
 
 test('it get\'s the name of a blog', function(assert) {
-    return getBlogName('https://www.google.com')
+    return getBlogName('http://bing.com')
         .then((title) => {
-            assert.equal(title, 'Google');
+            assert.equal(title, 'Bing');
         });
 });
 
