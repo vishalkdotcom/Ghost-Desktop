@@ -16,14 +16,20 @@ test('it renders', function(assert) {
 test('it searches', function(assert) {
     const done = assert.async();
     const path = require('path');
+    let doneCalled = false;
+
     this.set('url', `file://${path.join(__dirname, 'tests', 'fixtures', 'static-content', 'content.html')}`);
     this.render(hbs`{{gh-find-in-webview searchterm="running"}} <webview id="theView" src={{url}} />`);
 
     const webview = document.getElementById('theView');
     webview.addEventListener('found-in-page', (e) => {
+        if (doneCalled) return;
+
         assert.ok(e.result);
         done();
+        doneCalled = true;
     });
+
     webview.addEventListener('dom-ready', () => {
         this.$('button.gh-nav-search-button').click();
     });

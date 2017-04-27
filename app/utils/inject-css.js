@@ -7,8 +7,9 @@
  */
 export function injectCss(webview, name = '') {
     const fs = requireNode('fs');
+    const cssPath = `${__dirname}/${window.QUnit ? '..' : '.'}/assets/inject/css/${name}.css`;
 
-    fs.readFile(`${__dirname}/assets/inject/css/${name}.css`, 'utf8', (err, data) => {
+    fs.readFile(cssPath, 'utf8', (err, data) => {
         if (err) {
             console.log(err);
         }

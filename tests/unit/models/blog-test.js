@@ -86,11 +86,10 @@ test('it can generate a new random icon color', function (assert) {
 });
 
 test('it updates the blog title', function (assert) {
-    const path = requireNode('path');
-    const blog = this.subject({url: path.join('..', '..', 'tests', 'fixtures', 'static-signin', 'signin.html')});
+    const blog = this.subject({url: 'http://bing.com'});
 
     return blog.updateName()
         .then(() => {
-            assert.equal(blog.get('name'), 'Sign In - Felix Rieseberg');
+            assert.equal(blog.get('name'), 'Bing');
         });
 });

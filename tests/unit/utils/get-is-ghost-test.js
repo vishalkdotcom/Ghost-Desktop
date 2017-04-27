@@ -4,26 +4,13 @@ import {module, test} from 'qunit';
 module('Unit | Utility | get is ghost host');
 
 test('correctly marks a Ghost app as Ghost', function (assert) {
-    const path = requireNode('path');
-    const url = path.join(process.cwd(), 'tests', 'fixtures', 'static-signin', 'signin.html');
-
-    return getIsGhost(url)
-        .then((result) => {
-            assert.ok(result);
-        });
+    return getIsGhost('https://dev.ghost.io/ghost/signin/').then((result) => assert.ok(result));
 });
 
 test('correctly marks a non-Ghost site as Ghost', function (assert) {
-    const path = requireNode('path');
-    const url = path.join(process.cwd(), 'tests', 'fixtures', 'not-ghost', 'not-ghost.html');
-
-    return getIsGhost(url)
-        .then((result) => {
-            assert.ok(!result);
-        });
+    return getIsGhost('https//bing.com').then((result) => assert.ok(!result));
 });
 
 test('rejects the promise if called without a parameter', function (assert) {
-    return getIsGhost()
-        .catch((err) => assert.ok(err));
+    return getIsGhost().catch((err) => assert.ok(err));
 });

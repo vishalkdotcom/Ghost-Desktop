@@ -1,6 +1,4 @@
-import Ember from 'ember';
-
-const {$} = Ember;
+const he = requireNode('he');
 
 /**
  * Get's the blog name for a given blog url
@@ -8,24 +6,20 @@ const {$} = Ember;
  * @return {Promise<string>}
  */
 export default function getBlogName(url) {
-    const he = require('he');
+    if (!url) {
+        return Promise.reject('Tried to getBlogName without providing url');
+    }
 
-    return new Promise((resolve, reject) => {
-        if (!url) {
-            return reject('Tried to getBlogName without providing url');
-        }
+    if (url.slice(-7) === '/ghost/') {
+        url = `${url.slice(0, url.length - 7)}/`;
+    }
 
-        if (url.slice(-7) === '/ghost/') {
-            url = `${url.slice(0, url.length - 7)}/`;
-        }
+    return fetch(url)
+        .then((response) => response.text())
+        .then((response) => {
+            const titleResult = response.match('<title>(.*)</title>');
+            const title = (titleResult && titleResult.length > 1) ? titleResult[1] : url;
 
-        $.get(url)
-            .then((response) => {
-                const titleResult = response.match('<title>(.*)</title>');
-                const title = (titleResult && titleResult.length > 1) ? titleResult[1] : url;
-
-                resolve(he.decode(title));
-            })
-            .fail((error) => reject(error));
-    });
+            return he.decode(title);
+        });
 }
