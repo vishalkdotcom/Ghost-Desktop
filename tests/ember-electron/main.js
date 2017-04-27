@@ -1,6 +1,6 @@
 /* jshint node:true */
-const { app, BrowserWindow, protocol } = require('electron');
-const { dirname, resolve } = require('path');
+const {app, BrowserWindow, protocol} = require('electron');
+const {dirname, resolve} = require('path');
 const url = require('url');
 const protocolServe = require('electron-protocol-serve');
 
@@ -10,43 +10,40 @@ let mainWindow = null;
 // params we need to preserve for testem. So we need to register our ember
 // protocol accordingly.
 const [, , indexUrl] = process.argv;
-const {
-  pathname: indexPath,
-  search: indexQuery,
-} = url.parse(indexUrl);
+const {pathname: indexPath, search: indexQuery} = url.parse(indexUrl);
 const emberAppLocation = `serve://dist${indexQuery}`;
 
-protocol.registerStandardSchemes(['serve'], { secure: true });
+protocol.registerStandardSchemes(['serve'], {secure: true});
 // The index.html is in the tests/ directory, so we want all other assets to
 // load from its parent directory
 protocolServe({
-  cwd: resolve(dirname(indexPath), '..'),
-  app,
-  protocol,
-  indexPath,
+    cwd: resolve(dirname(indexPath), '..'),
+    app,
+    protocol,
+    indexPath
 });
 
 app.on('window-all-closed', function onWindowAllClosed() {
-  if (process.platform !== 'darwin') {
-    app.quit();
-  }
+    if (process.platform !== 'darwin') {
+        app.quit();
+    }
 });
 
 app.on('ready', function onReady() {
-  mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
-    backgroundThrottling: false,
-    webPreferences: {
-      webSecurity: false
-    }
-  });
+    mainWindow = new BrowserWindow({
+        width: 800,
+        height: 600,
+        backgroundThrottling: false,
+        webPreferences: {
+            webSecurity: false
+        }
+    });
 
-  delete mainWindow.module;
+    delete mainWindow.module;
 
-  mainWindow.loadURL(emberAppLocation);
+    mainWindow.loadURL(emberAppLocation);
 
-  mainWindow.on('closed', function onClosed() {
-    mainWindow = null;
-  });
+    mainWindow.on('closed', () => {
+        mainWindow = null;
+    });
 });

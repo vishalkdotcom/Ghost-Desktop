@@ -22,7 +22,7 @@ export default function getIsGhost(url, auth) {
 
         $.ajax(options)
             .then((response) => {
-                resolve((response.indexOf('name="application-name" content="Ghost"') > -1));
+                resolve((response.includes('name="application-name" content="Ghost"')));
             })
             .fail((error) => reject(error));
     });

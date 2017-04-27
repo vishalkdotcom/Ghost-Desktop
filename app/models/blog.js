@@ -90,7 +90,10 @@ export default Model.extend({
 
         if (url) {
             return getBlogName(url)
-                .then((name) => this.set('name', name))
+                .then((name) => {
+                    console.log(name);
+                    this.set('name', name);
+                })
                 .catch((e) => console.log(e));
         }
     },

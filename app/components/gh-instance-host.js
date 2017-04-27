@@ -6,6 +6,8 @@ import escapeString from '../utils/escape-string';
 
 const {Component, inject, observer, run} = Ember;
 
+const path = requireNode('path');
+
 /**
  * The instance host component contains a webview, displaying a Ghost blog
  * inside an isolated container without Node integration.
@@ -14,6 +16,7 @@ export default Component.extend({
     classNames: ['instance-host'],
     classNameBindings: ['blog.isSelected:selected'],
     preferences: inject.service(),
+    preload: `file://${path.join(__dirname, '../ember-electron/main/preload.js')}`,
 
     /**
      * Observes the 'isResetRequested' property, resetting the instance if

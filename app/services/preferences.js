@@ -35,7 +35,7 @@ export default Service.extend(Evented, {
                 this.set('preferences.contributors', contributors);
             }
         } catch (error) {
-            console.log('Failed catching contributors');
+            if (!window.QUnit) console.log('Failed catching contributors');
         }
     },
 

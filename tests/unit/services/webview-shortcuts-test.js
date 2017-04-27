@@ -1,18 +1,18 @@
-import { moduleFor, test } from 'ember-qunit';
+import {moduleFor, test} from 'ember-qunit';
 
 moduleFor('service:webview-shortcuts', 'Unit | Service | webview shortcuts', {
-    setup: function (assert) {
+    setup: (assert) => {
         const done = assert.async();
         const path = require('path');
         const findParentDir = require('find-parent-dir');
         const dirname = findParentDir.sync(__dirname, '.git');
         const src = path.join(dirname, 'tests', 'fixtures', 'static-shortcuts', 'shortcuts.html');
 
-        $(`<webview src="${src}" width="300" height="300" id="gh-test-webview" nodeintegration></webview>`).appendTo('body');
+        $(`<webview src="file://${src}" width="300" height="300" id="gh-test-webview" nodeintegration></webview>`).appendTo('body');
         setTimeout(done, 1000);
     },
 
-    teardown: function () {
+    teardown: () => {
         $('#gh-test-webview').remove();
     }
 });

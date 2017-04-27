@@ -4,11 +4,9 @@ import {module, test} from 'qunit';
 module('Unit | Utility | get blog name');
 
 test('it get\'s the name of a blog', function(assert) {
-    const path = requireNode('path');
-
-    return getBlogName(path.join('..', '..', 'tests', 'fixtures', 'static-signin', 'signin.html'))
+    return getBlogName('https://www.google.com')
         .then((title) => {
-            assert.equal(title, 'Sign In - Felix Rieseberg');
+            assert.equal(title, 'Google');
         });
 });
 
