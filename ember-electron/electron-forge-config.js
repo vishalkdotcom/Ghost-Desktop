@@ -72,10 +72,10 @@ module.exports = {
         authors: 'Ghost Foundation',
         exe: 'Ghost.exe',
         iconUrl: `https://raw.githubusercontent.com/TryGhost/Ghost-Desktop/master/assets/icons/ghost.ico`,
-        setupIcon: path.join(__dirname, '../../../assets/icons/ghost.ico'),
+        setupIcon: path.join(__dirname, '../assets/icons/ghost.ico'),
         title: 'Ghost',
         noMsi: true,
-        loadingGif: path.join(__dirname, '../../../assets/win/installer-dev.gif'),
+        loadingGif: path.join(__dirname, '../assets/win/installer-dev.gif'),
         certificateFile: getSigningCert(),
         certificatePassword: getSigningPassword()
     },
@@ -85,7 +85,7 @@ module.exports = {
         homepage: 'https://tryghost.com',
         genericName: 'Blogging Software',
         arch: 'amd64',
-        icon:  path.join(__dirname, '../../../assets/icons/ghost-macos.png'),
+        icon:  path.join(__dirname, '../assets/icons/ghost-macos.png'),
         bin: 'Ghost',
         productDescription: 'A beautiful desktop application enabling you to easily manage multiple Ghost blogs and work without distractions.'
     },
